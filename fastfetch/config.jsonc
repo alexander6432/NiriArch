@@ -1,0 +1,78 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "display": {
+    "separator": "  ",
+    "constants": [
+      "─────" // {$1}, used in Custom module
+    ],
+    "key": {
+      "type": "icon",
+      "paddingLeft": 2
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "┌─{$1} \u001b[30m󰮯 \u001b[31m \u001b[32m \u001b[33m \u001b[34m \u001b[35m \u001b[36m \u001b[37m {$1}─┐"
+    },
+    "host",
+    "bios",
+    {
+      "type": "cpu",
+      "keyIcon": "",
+      "format": "{name}"
+    },
+    // {
+    //   "type": "gpu",
+    //   "keyIcon": "󰾲",
+    //   "format": "{name}"
+    // },
+    {
+      "type": "disk",
+      "keyIcon": "",
+      "format": "{size-used}/{size-total}({size-percentage})"
+    },
+    {
+      "type": "memory",
+      "keyIcon": "",
+      "format": "{used}/{total}({percentage})"
+    },
+    {
+      "type": "swap",
+      "keyIcon": "󰓡",
+      "format": "{used}/{total}({percentage})"
+    },
+    {
+      "type": "display",
+      "keyIcon": "󰍹",
+      "format": "{height} x {width} in {inch}, {refresh-rate} Hz"
+    },
+    "break",
+    {
+      "type": "title",
+      "keyIcon": "",
+      "key": "Title", // Title module has no key by default, so that icon is not displayed
+      "format": "{user-name}@{host-name}"
+    },
+    "os",
+    "kernel",
+    // "lm",
+    "wm",
+    "shell",
+    "terminal",
+    {
+      "type": "terminalfont",
+      "keyIcon": "",
+      "format": "{name}"
+    },
+    // "theme",
+    // "icons",
+    "wallpaper",
+    "packages",
+    // "uptime",
+    {
+      "type": "custom",
+      "format": "└─{$1} \u001b[90m󰮯 \u001b[91m \u001b[92m \u001b[93m \u001b[94m \u001b[95m \u001b[96m \u001b[97m {$1}─┘"
+    }
+  ]
+}
