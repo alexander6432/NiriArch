@@ -112,6 +112,12 @@ binds {
     Mod+Ctrl+Escape hotkey-overlay-title="Forzar Salida de Niri" repeat=false { quit; }
     Mod+F1          hotkey-overlay-title="Buscar atajos"         repeat=false { spawn-sh "kitty --class niri-keys-search ~/.config/scripts/atajos_niri.sh"; }
 
+// ============
+// applications
+// ============
+    Mod+Return  hotkey-overlay-title="Abrir: Terminal Kitty"    repeat=false { spawn-sh "kitty fish"; }
+    Mod+Z       hotkey-overlay-title="Abrir: Google Chrome"     repeat=false { spawn "google-chrome-stable"; }
+    Mod+Shift+Z hotkey-overlay-title="Abrir: Firefox"           repeat=false { spawn "firefox"; }
 
 // =============
 // noctalia
@@ -126,13 +132,6 @@ binds {
     Mod+N       hotkey-overlay-title="Abrir: Centro de Notificaciones"     repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
     Mod+Shift+N hotkey-overlay-title="Limpiar Historial de Notificaciones" repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications clear"; }
     Mod+Space   hotkey-overlay-title="Lanzador de Aplicaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
-
-// ============
-// applications
-// ============
-    Mod+Return  hotkey-overlay-title="Abrir: Terminal Kitty"    repeat=false { spawn-sh "kitty fish"; }
-    Mod+Z       hotkey-overlay-title="Abrir: Google Chrome"     repeat=false { spawn "google-chrome-stable"; }
-    Mod+Shift+Z hotkey-overlay-title="Abrir: Firefox"           repeat=false { spawn "firefox"; }
 
 // ==========
 // multimedia
