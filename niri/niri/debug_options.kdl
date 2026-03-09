@@ -1,6 +1,6 @@
-  ////////////////////
- /// DEBUG OPTIONS///
-////////////////////
+  /////////////////////
+ /// DEBUG OPTIONS ///
+/////////////////////
 
 debug {
   // Allows notification actions and window activation from Noctalia.
