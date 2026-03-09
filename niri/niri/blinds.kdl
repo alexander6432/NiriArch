@@ -43,9 +43,6 @@ binds {
     Mod+P hotkey-overlay-title="Enfocar Primera Ventana" { focus-column-first; }
     Mod+U hotkey-overlay-title="Enfocar Ultima Ventana"   { focus-column-last; }
 
-    Mod+C       hotkey-overlay-title="Enfocar Ventana al Centro"           { center-window; }
-    Mod+Shift+C hotkey-overlay-title="Enfocar Ventanas Visibles al Centro" { center-visible-columns; }
-
 // ===========
 // move window
 // ===========
@@ -66,6 +63,9 @@ binds {
 
     Mod+Shift+P hotkey-overlay-title="Mover Ventana al Principio" { move-column-to-first; }
     Mod+Shift+U hotkey-overlay-title="Mover Ventana al Final"     { move-column-to-last; }
+
+    Mod+C       hotkey-overlay-title="Mover Ventana al Centro de la Pantalla"           { center-window; }
+    Mod+Shift+C hotkey-overlay-title="Mover Ventanas Visibles al Centro de la Pantalla" { center-visible-columns; }
 
 // ==============
 // tabbed windows
@@ -108,16 +108,16 @@ binds {
 // miscellaneous
 // =============
     Mod+Q           hotkey-overlay-title="Cerrar Ventana"        repeat=false { close-window; }
-    Mod+Escape      hotkey-overlay-title="Abrir: Vista General"  repeat=false { toggle-overview; }
+    Mod+Escape      hotkey-overlay-title="Vista General"         repeat=false { toggle-overview; }
     Mod+Ctrl+Escape hotkey-overlay-title="Forzar Salida de Niri" repeat=false { quit; }
     Mod+F1          hotkey-overlay-title="Buscar atajos"         repeat=false { spawn-sh "kitty --class niri-keys-search ~/.config/scripts/atajos_niri.sh"; }
 
 // ============
 // applications
 // ============
-    Mod+Return  hotkey-overlay-title="Abrir: Terminal Kitty"    repeat=false { spawn-sh "kitty fish"; }
-    Mod+Z       hotkey-overlay-title="Abrir: Google Chrome"     repeat=false { spawn "google-chrome-stable"; }
-    Mod+Shift+Z hotkey-overlay-title="Abrir: Firefox"           repeat=false { spawn "firefox"; }
+    Mod+Return  hotkey-overlay-title="Terminal Kitty" repeat=false { spawn-sh "kitty fish"; }
+    Mod+Z       hotkey-overlay-title="Google Chrome"  repeat=false { spawn "google-chrome-stable"; }
+    Mod+Shift+Z hotkey-overlay-title="Firefox"        repeat=false { spawn "firefox"; }
 
 // =============
 // noctalia
@@ -129,7 +129,7 @@ binds {
     Mod+Shift+E     hotkey-overlay-title="Selector de Fondo de Pantalla"   repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
     Mod+X           hotkey-overlay-title="Alternar Barra de Estado"        repeat=false { spawn-sh "qs -c noctalia-shell ipc call bar toggle"; }
     Mod+B       hotkey-overlay-title="Bloquear Pantalla"                   repeat=false { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+N       hotkey-overlay-title="Abrir: Centro de Notificaciones"     repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
+    Mod+N       hotkey-overlay-title="Centro de Notificaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
     Mod+Shift+N hotkey-overlay-title="Limpiar Historial de Notificaciones" repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications clear"; }
     Mod+Space   hotkey-overlay-title="Lanzador de Aplicaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
 
@@ -144,14 +144,14 @@ binds {
     Xf86monbrightnessup   hotkey-overlay-title="Subir Brillo"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
     Xf86monbrightnessdown hotkey-overlay-title="Bajar Brillo"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
 
-    Xf86audioPlay  hotkey-overlay-title="Reproducir Multimedia"     repeat=false           { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
-    Xf86audiostop  hotkey-overlay-title="Detener Multimedia"        repeat=false           { spawn-sh "qs -c noctalia-shell ipc call media stop"; }
-    Xf86audioprev  hotkey-overlay-title="Pista Anterior"            repeat=false           { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
-    Xf86audionext  hotkey-overlay-title="Pista Siguiente"           repeat=false           { spawn-sh "qs -c noctalia-shell ipc call media next"; }
+    Xf86audioplay  hotkey-overlay-title="Reproducir o Pausar Multimedia" repeat=false      { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
+    Xf86audiostop  hotkey-overlay-title="Detener Multimedia"             repeat=false      { spawn-sh "qs -c noctalia-shell ipc call media stop"; }
+    Xf86audioprev  hotkey-overlay-title="Pista Anterior"                 repeat=false      { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
+    Xf86audionext  hotkey-overlay-title="Pista Siguiente"                repeat=false      { spawn-sh "qs -c noctalia-shell ipc call media next"; }
 
     Print       hotkey-overlay-title="Capturar Ventana"       repeat=false { screenshot-window; }
     Shift+Print hotkey-overlay-title="Capturar Pantalla"      repeat=false { screenshot-screen; }
-    Ctrl+Print  hotkey-overlay-title="Capturar por Seleccion" repeat=false { screenshot; }
+    Ctrl+Print  hotkey-overlay-title="Capturar por Selección" repeat=false { screenshot; }
 
 }
 

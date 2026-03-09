@@ -1,6 +1,8 @@
 #!/bin/bash
+# ~/.config/scripts/atajos_hypr.sh
+# Uso: ./atajos_hypr.sh [grupos|ventanas]
 
-modo="$1" # ejemplo: ./atajos.sh grupos o ./atajos.sh ventanas
+modo="$1"
 
 if [[ $modo == "grupos" ]]; then
   filtro="\[Modo Grupos\]"
@@ -9,116 +11,115 @@ elif [[ $modo == "ventanas" ]]; then
 else
   filtro=""
 fi
-# Ejecutar hyprctl y procesar con awk
-salida=$(hyprctl binds | awk '
-function modmask_to_names(mask,   names, i, result) {
-    split("", names)
-    if (and(mask, 128)) names[length(names)+1] = "ALTGR"
-    if (and(mask, 64))  names[length(names)+1] = "SUPER"
-    if (and(mask, 32))  names[length(names)+1] = "SCROLL"
-    if (and(mask, 16))  names[length(names)+1] = "NUM"
-    if (and(mask, 8))   names[length(names)+1] = "ALT"
-    if (and(mask, 4))   names[length(names)+1] = "CTRL"
-    if (and(mask, 2))   names[length(names)+1] = "CAPS"
-    if (and(mask, 1))   names[length(names)+1] = "SHIFT"
+
+hyprctl binds | awk '
+  function modmask_to_icons(mask,    result) {
     result = ""
-    for (i = 1; i <= length(names); i++) {
-        result = result names[i] " + "
-    }
+    if (and(mask, 64))  result = result "󰖳 + "
+    if (and(mask, 8))   result = result "󰌎 + "
+    if (and(mask, 128)) result = result "ALTGR + "
+    if (and(mask, 4))   result = result "󰘴 + "
+    if (and(mask, 1))   result = result "󰘲 + "
+    if (and(mask, 2))   result = result "CAPS + "
+    if (and(mask, 16))  result = result "NUM + "
+    if (and(mask, 32))  result = result "SCROLL + "
     return result
-}
+  }
 
-function format_key(k,   parts) {
-    # Traducir scroll
-    if (k == "F1") return "󱊫"
-    if (k == "F10") return "󱊴"
-    if (k == "F11") return "󱊵"
-    if (k == "F12") return "󱊶"
-    if (k == "F2") return "󱊬"
-    if (k == "F3") return "󱊭"
-    if (k == "F8") return "󱊲"
-    if (k == "F9") return "󱊳"
-    if (k == "PRINT") return "Impr Pant"
-    if (k == "Tab") return ""
-    if (k == "XF86AudioLowerVolume") return ""
-    if (k == "XF86AudioMicMute") return ""
-    if (k == "XF86AudioMute") return ""
-    if (k == "XF86AudioNext") return "󰒭"
-    if (k == "XF86AudioPause") return ""
-    if (k == "XF86AudioPlay") return ""
-    if (k == "XF86AudioPrev") return "󰒮"
-    if (k == "XF86AudioRaiseVolume") return ""
-    if (k == "XF86AudioStop") return ""
-    if (k == "XF86MonBrightnessDown") return "󰃞"
-    if (k == "XF86MonBrightnessUp") return "󰃠"
-    if (k == "apostrophe") return "\x27"
-    if (k == "backspace") return "󰞓"
-    if (k == "comma") return ","
-    if (k == "down") return ""
-    if (k == "end") return "Fin"
-    if (k == "escape") return "󱊷"
-    if (k == "left") return ""
-    if (k == "minus") return "-"
-    if (k == "mouse_down") return "Scroll 󱕐"
-    if (k == "mouse_up")   return "Scroll 󱕑"
-    if (k == "page_down") return "AvPág"
-    if (k == "period") return "."
-    if (k == "plus") return "+"
-    if (k == "return") return "󰌑"
-    if (k == "right") return ""
-    if (k == "space") return "󱁐"
-    if (k == "up") return ""
-
-    # Traducir clicks
+  function format_key(k,    parts) {
+    if (k == "F1")                    return "󱊫"
+    if (k == "F2")                    return "󱊬"
+    if (k == "F3")                    return "󱊭"
+    if (k == "F4")                    return "󱊮"
+    if (k == "F5")                    return "󱊯"
+    if (k == "F6")                    return "󱊰"
+    if (k == "F7")                    return "󱊱"
+    if (k == "F8")                    return "󱊲"
+    if (k == "F9")                    return "󱊳"
+    if (k == "F10")                   return "󱊴"
+    if (k == "F11")                   return "󱊵"
+    if (k == "F12")                   return "󱊶"
+    if (k == "PRINT")                 return "󰹑"
+    if (k == "Tab")                   return "󰌒"
+    if (k == "XF86Audiolowervolume")  return "󰖀"
+    if (k == "XF86Audiomicmute")      return "󰍭"
+    if (k == "XF86Audiomute")         return "󰖁"
+    if (k == "XF86Audionext")         return "󰒬"
+    if (k == "XF86Audiopause")        return "󰐎"
+    if (k == "XF86Audioplay")         return "󰐎"
+    if (k == "XF86Audioprev")         return "󰒫"
+    if (k == "XF86Audioraisevolume")  return "󰕾"
+    if (k == "XF86Audiostop")         return "󰓛"
+    if (k == "XF86Monbrightnessdown") return "󰃠"
+    if (k == "XF86Monbrightnessup")   return "󰃞"
+    if (k == "Apostrophe")            return "\x27"
+    if (k == "Backspace")             return "󰌍"
+    if (k == "Comma")                 return ","
+    if (k == "Down")                  return "󰚶"
+    if (k == "End")                   return "Fin"
+    if (k == "Escape")                return "󱊷"
+    if (k == "Left")                  return "󰨂"
+    if (k == "Minus")                 return "-"
+    if (k == "Mouse_down")            return "󱕐 Scroll"
+    if (k == "Mouse_up")              return "󱕑 Scroll"
+    if (k == "Page_down")             return "AvPág"
+    if (k == "Period")                return "."
+    if (k == "Plus")                  return "+"
+    if (k == "Return")                return "󰌑"
+    if (k == "Right")                 return "󰨃"
+    if (k == "Space")                 return "󱁐"
+    if (k == "Up")                    return "󰚷"
+    if (k == "Home")                  return ""
     if (k ~ /^mouse:[0-9]+$/) {
-        split(k, parts, ":")
-        if (parts[2] == 272) return " Izquie."
-        if (parts[2] == 273) return " Derecho"
-        if (parts[2] == 274) return " Medio"
-        return "Mouse " parts[2]
+      split(k, parts, ":")
+      if (parts[2] == 272) return "󰍽 Izquierdo"
+      if (parts[2] == 273) return "󰍽 Derecho"
+      if (parts[2] == 274) return "󰍽 Medio"
+      return "mouse " parts[2]
     }
-
-    # Limpiar prefijo XF86
     gsub(/^XF86/, "", k)
     return k
-}
+  }
 
-BEGIN {
-    BOLD="\033[1m"
-    RESET="\033[0m"
-    BLUE="\033[34m"
-    GREEN="\033[32m"
-    CYAN="\033[36m"
-    YELLOW="\033[33m"
+  BEGIN {
+    RESET  = "\033[0m"
+    BOLD   = "\033[1m"
+    CYAN   = "\033[36m"
+    YELLOW = "\033[33m"
+    DIM    = "\033[2m"
+  }
 
-    # Encabezado
-    printf BOLD BLUE "%-15s %-9s %-76s\n" RESET, "TECLA LíDER", "TECLA", "DESCRIPCIÓN"
-    printf "%s\n", "󰣇 ===  ===  === 󰣇 ===  ===  === 󰣇 ===  ===  === 󰣇 ===  ===  === 󰣇 ===  ===  === 󰣇 ===  ===  === 󰣇 "
-}
-
-/^bind/ {
-    getline; modmask = $2
-    getline; submap = $2
-    getline; key = $2
-    getline; keycode = $2
+  /^bind/ {
+    getline; modmask  = $2
+    getline; submap   = $2
+    getline; key      = $2
+    getline; keycode  = $2
     getline; catchall = $2
-    getline; desc = substr($0, index($0, $2))
-
-    modnames = modmask_to_names(modmask)
+    getline; desc     = substr($0, index($0, $2))
 
     key_display = (key != "" ? key : (keycode != "" ? "KEYCODE_" keycode : catchall))
     key_display = format_key(key_display)
+    atajo = modmask_to_icons(modmask) key_display
 
-    # Imprimir línea con colores
-    printf GREEN "%-16s" RESET, modnames
-    printf CYAN "%-10s" RESET, key_display
-    printf YELLOW "%-76s\n" RESET, desc
-}
-')
-
-# Aplicar filtro según modo
-if [[ -n $filtro ]]; then
-  echo "$salida" | grep "$filtro"
-else
-  echo "$salida" | grep -v "\[Modo Grupos\]\|\[Modo Ventanas\]"
-fi | fzf --ansi --reverse --prompt="Buscar atajo: " --preview-window=down:3
+    printf CYAN   "%-20s" RESET, atajo
+    printf YELLOW "%-70s\n" RESET, desc
+  }
+' | \
+{
+  if [[ -n $filtro ]]; then
+    grep -E "$filtro"
+  else
+    grep -vE "\[Modo Grupos\]|\[Modo Ventanas\]"
+  fi
+} | \
+grep -Pv "^(\x1b\[[0-9;]*m)*\s*(\x1b\[[0-9;]*m)*$" | \
+fzf \
+  --ansi \
+  --header=" Atajos de Hyprland:  󰖳 = Super | 󰘲 = Shift | 󰘴 = Ctrl | 󰌎 = Alt" \
+  --header-border=top \
+  --footer="Atajo                    Descripción" \
+  --prompt="󰍉 Buscar atajo: " \
+  --height=80% \
+  --border=rounded \
+  --preview-window=hidden \
+  --color='header:italic:yellow,prompt:cyan,pointer:magenta'

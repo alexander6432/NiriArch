@@ -4,12 +4,11 @@
 grep 'hotkey-overlay-title' ~/.config/niri/niri/blinds.kdl | \
 awk '
   BEGIN {
-    # Símbolos especiales
     sym["Xf86audiomicmute"]      = "󰍭"
     sym["Xf86audiomute"]         = "󰖁"
     sym["Xf86audionext"]         = "󰒬"
     sym["Xf86audiopause"]        = "󰐎"
-    sym["Xf86audioPlay"]         = "󰐎"
+    sym["Xf86audioplay"]         = "󰐎"
     sym["Xf86audioprev"]         = "󰒫"
     sym["Xf86audiostop"]         = "󰓛"
     sym["Xf86audiolowervolume"]  = "󰖀"
@@ -46,42 +45,43 @@ awk '
     sym["F10"]                   = "󱊴"
     sym["F11"]                   = "󱊵"
     sym["F12"]                   = "󱊶"
-    sym["Home"]                  = ""
+    sym["Home"]                  = ""
     sym["Touchpadscrollleft"]    = "← Scroll"
     sym["Touchpadscrollright"]   = "→ Scroll"
     sym["Touchpadscrolldown"]    = "↓ Scroll"
     sym["Touchpadscrollup"]      = "↑ Scroll"
   }
   {
-    # Extraer keybind (todo lo que está antes de hotkey-overlay-title)
     if (!match($0, /hotkey-overlay-title="([^"]+)"/, m)) next
 
     line = $0
     gsub(/^[[:space:]]+/, "", line)
 
-    # Keybind es la primera palabra de la línea
     split(line, parts, " ")
     keybind = parts[1]
     desc    = m[1]
 
-    # Aplicar sustituciones de símbolos al keybind
-    for (k in sym) {
-      gsub(k, sym[k], keybind)
+    # Dividir por "+" primero, sustituir cada token individualmente
+    n = split(keybind, tokens, /\+/)
+    result = ""
+    for (i = 1; i <= n; i++) {
+      t = tokens[i]
+      # Capitalizar primera letra para que coincida con sym[]
+      # (niri puede escribir "super" o "Super")
+      t = toupper(substr(t,1,1)) tolower(substr(t,2))
+      tok = (t in sym) ? sym[t] : t
+      result = result (i > 1 ? " + " : "") tok
     }
 
-    # Separar los modificadores con " + "
-    gsub(/\+/, " + ", keybind)
-    gsub(/  +/, " ", keybind)
-
-    printf "%-15s %s\n", keybind, desc
+    printf "%-15s %s\n", result, desc
   }
 ' | \
 fzf \
+  --header=" Atajos de Niri:  󰖳 = Super | 󰘲 = Shift | 󰘴 = Ctrl | 󰌎 = Alt" \
+  --header-border=top \
   --footer="Atajo           Descripción" \
   --prompt="󰍉 Buscar atajo: " \
-  --header-border=top \
   --height=80% \
   --border=rounded \
   --preview-window=hidden \
-  --header="$(printf ' Atajos de Niri:  󰖳 = Super | 󰘲 = Shift | 󰘴 = Ctrl | 󰌎 = Alt\n')" \
   --color='header:italic:yellow,prompt:cyan,pointer:magenta'
