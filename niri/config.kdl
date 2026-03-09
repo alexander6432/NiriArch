@@ -124,7 +124,7 @@ include "./niri/layer_rules.kdl"
 
 include "./niri/debug_options.kdl"
 
-include "./niri/blinds.kdl"
+include "./niri/binds.kdl"
 
   ////////////////
  /// NOCTALIA ///
