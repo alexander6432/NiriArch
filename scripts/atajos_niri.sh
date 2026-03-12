@@ -1,7 +1,7 @@
 #!/bin/bash
 # ~/.config/scripts/atajos_niri.sh
 
-grep 'hotkey-overlay-title' ~/.config/niri/niri/blinds.kdl | \
+grep 'hotkey-overlay-title' ~/.config/niri/niri/binds.kdl | \
 awk '
   BEGIN {
     sym["Xf86audiomicmute"]      = "󰍭"
@@ -28,6 +28,8 @@ awk '
     sym["Shift"]                 = "󰘲"
     sym["Plus"]                  = "+"
     sym["Print"]                 = "󰹑"
+    sym["Period"]                = "."
+    sym["Comma"]                 = ","
     sym["Return"]                = "󰌑"
     sym["Space"]                 = "󱁐"
     sym["Tab"]                   = "󰌒"

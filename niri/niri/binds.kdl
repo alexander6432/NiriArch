@@ -16,8 +16,8 @@ binds {
     Mod+8 hotkey-overlay-title="Ir al Espacio de Trabajo 8" { focus-workspace 8; }
     Mod+9 hotkey-overlay-title="Ir al Espacio de Trabajo 9" { focus-workspace 9; }
 
-    Mod+S hotkey-overlay-title="Ir al Espacio de Trabajo Anterior"  { focus-workspace-down; }
-    Mod+A hotkey-overlay-title="Ir al Espacio de Trabajo Siguiente" { focus-workspace-up; }
+    Mod+Period hotkey-overlay-title="Ir al Espacio de Trabajo Anterior"  { focus-workspace-down; }
+    Mod+Comma  hotkey-overlay-title="Ir al Espacio de Trabajo Siguiente" { focus-workspace-up; }
 
     Mod+Shift+1 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 1" { move-column-to-workspace 1; }
     Mod+Shift+2 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 2" { move-column-to-workspace 2; }
@@ -29,8 +29,8 @@ binds {
     Mod+Shift+8 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 8" { move-column-to-workspace 8; }
     Mod+Shift+9 hotkey-overlay-title="Mover Ventana al Espacio de Trabajo 9" { move-column-to-workspace 9; }
 
-    Mod+Shift+S hotkey-overlay-title="Mover Ventana al Espacio de Trabajo Anterior"  { move-window-to-workspace-down; }
-    Mod+Shift+A hotkey-overlay-title="Mover Ventana al Espacio de Trabajo Siguiente" { move-window-to-workspace-up; }
+    Mod+Shift+Period hotkey-overlay-title="Mover Ventana al Espacio de Trabajo Anterior"  { move-window-to-workspace-down; }
+    Mod+Shift+Comma  hotkey-overlay-title="Mover Ventana al Espacio de Trabajo Siguiente" { move-window-to-workspace-up; }
 
 // ============
 // window focus
@@ -40,8 +40,8 @@ binds {
     Mod+Down  hotkey-overlay-title="Enfocar Ventana hacia Abajo"    { focus-window-down; }
     Mod+Up    hotkey-overlay-title="Enfocar Ventana hacia Arriba"   { focus-window-up; }
 
-    Mod+P hotkey-overlay-title="Enfocar Primera Ventana" { focus-column-first; }
-    Mod+U hotkey-overlay-title="Enfocar Ultima Ventana"   { focus-column-last; }
+    Mod+H hotkey-overlay-title="Enfocar Primera Ventana" { focus-column-first; }
+    Mod+L hotkey-overlay-title="Enfocar Ultima Ventana"   { focus-column-last; }
 
 // ===========
 // move window
@@ -51,30 +51,21 @@ binds {
     Mod+Shift+Down  hotkey-overlay-title="Mover Ventana hacia Abajo"    { move-window-down; }
     Mod+Shift+Up    hotkey-overlay-title="Mover Ventana hacia Arriba"   { move-window-up; }
 
-    Mod+H hotkey-overlay-title="Mover Ventana a la Izquierda" { move-column-left; }
-    Mod+L hotkey-overlay-title="Mover Ventana a la Derecha"   { move-column-right; }
-    Mod+J hotkey-overlay-title="Mover Ventana hacia Abajo"    { move-window-down; }
-    Mod+K hotkey-overlay-title="Mover Ventana hacia Arriba"   { move-window-up; }
-
     Mod+Ctrl+Left  hotkey-overlay-title="Mover Ventana a la Izquierda de la Pantalla" { spawn-sh "~/.config/scripts/niri_move_float.sh left 10 0"; }
     Mod+Ctrl+Right hotkey-overlay-title="Mover Ventana a la Derecha de la Pantalla"   { spawn-sh "~/.config/scripts/niri_move_float.sh right 10 0"; }
     Mod+Ctrl+Down  hotkey-overlay-title="Mover Ventana hacia Abajo de la Pantalla"    { spawn-sh "~/.config/scripts/niri_move_float.sh down 10 30"; }
     Mod+Ctrl+Up    hotkey-overlay-title="Mover Ventana hacia Arriba de la Pantalla"   { spawn-sh "~/.config/scripts/niri_move_float.sh up 10 1"; }
 
-    Mod+Shift+P hotkey-overlay-title="Mover Ventana al Principio" { move-column-to-first; }
-    Mod+Shift+U hotkey-overlay-title="Mover Ventana al Final"     { move-column-to-last; }
+    Mod+Alt+Left  hotkey-overlay-title="Mover Ventana a la Izquierda" { move-column-left; }
+    Mod+Alt+Right hotkey-overlay-title="Mover Ventana a la Derecha"   { move-column-right; }
+    Mod+Alt+Down  hotkey-overlay-title="Mover Ventana hacia Abajo"    { move-window-down; }
+    Mod+Alt+Up    hotkey-overlay-title="Mover Ventana hacia Arriba"   { move-window-up; }
 
-    Mod+C       hotkey-overlay-title="Mover Ventana al Centro de la Pantalla"           { center-window; }
-    Mod+Shift+C hotkey-overlay-title="Mover Ventanas Visibles al Centro de la Pantalla" { center-visible-columns; }
+    Mod+Shift+L hotkey-overlay-title="Mover Ventana al Principio" { move-column-to-first; }
+    Mod+Shift+H hotkey-overlay-title="Mover Ventana al Final"     { move-column-to-last; }
 
-// ==============
-// tabbed windows
-// ==============
-    Mod+T               hotkey-overlay-title="Alternar al modo Pestañas"               { toggle-column-tabbed-display; }
-    Mod+I               hotkey-overlay-title="Añadir/Expulsar Ventana de la Izquierda" { consume-or-expel-window-left; }
-    Mod+D               hotkey-overlay-title="Añadir/Expulsar Ventana de la Derecha"   { consume-or-expel-window-right; }
-    Mod+Backspace       hotkey-overlay-title="Añadir Ventana de la Derecha"            { consume-window-into-column; }
-    Mod+Shift+Backspace hotkey-overlay-title="Expulsar Ventana a la Derecha"           { expel-window-from-column; }
+    Mod+C hotkey-overlay-title="Mover Ventana al Centro de la Pantalla"           { center-window; }
+    Mod+S hotkey-overlay-title="Mover Ventanas Visibles al Centro de la Pantalla" { center-visible-columns; }
 
 // =============
 // resize window
@@ -93,16 +84,25 @@ binds {
     Mod+Shift+R hotkey-overlay-title="Redimensionar Altura Ventana" { switch-preset-window-height; }
     Mod+Ctrl+R  hotkey-overlay-title="Resetear Altura Ventana"      { reset-window-height; }
 
-    Mod+M       hotkey-overlay-title="Maximizar Ventana"            { maximize-column; }
-    Mod+Shift+M hotkey-overlay-title="Maximizar Ventana Totalmente" { maximize-window-to-edges; }
-    Mod+Ctrl+M  hotkey-overlay-title="Pantalla Completa"            { fullscreen-window; }
-    Mod+Alt+M   hotkey-overlay-title="Pantalla Completa(Fake)"      { toggle-windowed-fullscreen; }
+    Mod+F       hotkey-overlay-title="Maximizar Ventana"            { maximize-column; }
+    Mod+Shift+F hotkey-overlay-title="Maximizar Ventana Totalmente" { maximize-window-to-edges; }
+    Mod+Ctrl+F  hotkey-overlay-title="Pantalla Completa"            { fullscreen-window; }
+    Mod+Alt+F   hotkey-overlay-title="Pantalla Completa(Fake)"      { toggle-windowed-fullscreen; }
+
+// ==============
+// tabbed windows
+// ==============
+    Mod+T       hotkey-overlay-title="Alternar al modo Pestañas"               { toggle-column-tabbed-display; }
+    Mod+Shift+T hotkey-overlay-title="Añadir Ventana de la Derecha"            { consume-window-into-column; }
+    Mod+Ctrl+T  hotkey-overlay-title="Expulsar Ventana a la Derecha"           { expel-window-from-column; }
+    Mod+J       hotkey-overlay-title="Añadir/Expulsar Ventana de la Izquierda" { consume-or-expel-window-left; }
+    Mod+K       hotkey-overlay-title="Añadir/Expulsar Ventana de la Derecha"   { consume-or-expel-window-right; }
 
 // ========
 // floating
 // ========
-    Mod+F hotkey-overlay-title="Ventana Flotante"         { toggle-window-floating; }
-    Mod+W hotkey-overlay-title="Ignorar Ventana Flotante" { switch-focus-between-floating-and-tiling; }
+    Mod+V       hotkey-overlay-title="Ventana Flotante"         { toggle-window-floating; }
+    Mod+Shift+V hotkey-overlay-title="Ignorar Ventana Flotante" { switch-focus-between-floating-and-tiling; }
 
 // =============
 // miscellaneous
@@ -116,22 +116,22 @@ binds {
 // applications
 // ============
     Mod+Return  hotkey-overlay-title="Terminal Kitty" repeat=false { spawn-sh "kitty fish"; }
-    Mod+Z       hotkey-overlay-title="Google Chrome"  repeat=false { spawn "google-chrome-stable"; }
-    Mod+Shift+Z hotkey-overlay-title="Firefox"        repeat=false { spawn "firefox"; }
+    Mod+B       hotkey-overlay-title="Google Chrome"  repeat=false { spawn "google-chrome-stable"; }
+    Mod+Shift+B hotkey-overlay-title="Firefox"        repeat=false { spawn "firefox"; }
 
 // =============
 // noctalia
 // =============
     Mod+Shift+Escape hotkey-overlay-title="Salir de Niri"                  repeat=false { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
-    Mod+Home         hotkey-overlay-title="Centro de Control"              repeat=false { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-    Mod+F4           hotkey-overlay-title="Alternar IDLE"                  repeat=false { spawn-sh "qs -c noctalia-shell ipc call idleInhibitor toggle"; }
-    Mod+E           hotkey-overlay-title="Cambiar Fondo de Pantalla"       repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random all"; }
-    Mod+Shift+E     hotkey-overlay-title="Selector de Fondo de Pantalla"   repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
+    Mod+Shift+C      hotkey-overlay-title="Centro de Control"              repeat=false { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Z            hotkey-overlay-title="Alternar IDLE"                  repeat=false { spawn-sh "qs -c noctalia-shell ipc call idleInhibitor toggle"; }
+    Mod+W           hotkey-overlay-title="Cambiar Fondo de Pantalla"       repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random all"; }
+    Mod+Shift+W     hotkey-overlay-title="Selector de Fondo de Pantalla"   repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
     Mod+X           hotkey-overlay-title="Alternar Barra de Estado"        repeat=false { spawn-sh "qs -c noctalia-shell ipc call bar toggle"; }
-    Mod+B       hotkey-overlay-title="Bloquear Pantalla"                   repeat=false { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+N       hotkey-overlay-title="Centro de Notificaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
-    Mod+Shift+N hotkey-overlay-title="Limpiar Historial de Notificaciones" repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications clear"; }
-    Mod+Space   hotkey-overlay-title="Lanzador de Aplicaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Ctrl+L      hotkey-overlay-title="Bloquear Pantalla"                   repeat=false { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+N           hotkey-overlay-title="Centro de Notificaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
+    Mod+Shift+N     hotkey-overlay-title="Limpiar Historial de Notificaciones" repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications clear"; }
+    Mod+D          hotkey-overlay-title="Lanzador de Aplicaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
 
 // ==========
 // multimedia
