@@ -1,0 +1,164 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](red)\
+$os\
+$username\
+$hostname\
+[](bg:yellow fg:red)\
+$directory\
+[](bg:green fg:yellow)\
+$git_branch\
+$git_state\
+$git_status\
+[](fg:green bg:blue)\
+$lua\
+$python\
+[](fg:blue bg:cyan)\
+$container\
+[](fg:cyan bg:purple)\
+$battery\
+[](fg:purple bg:bright-black)\
+$time\
+[ ](fg:bright-black)\
+$cmd_duration\
+$line_break\
+$status\
+$shell\
+$character"""
+
+[os]
+disabled = false
+style = "bg:red fg:black"
+format = '[$symbol]($style)'
+
+[os.symbols]
+Arch = "󰣇"
+Debian = "󰣚"
+Manjaro = ""
+Ubuntu = "󰕈"
+
+[username]
+disabled = false
+show_always = true
+style_user = "bg:red fg:black"
+style_root = "bg:red fg:black"
+format = '[ $user]($style)'
+
+[hostname]
+disabled = false
+ssh_only = false
+style = "bg:red fg:black"
+format = '[ $user]($style)'
+
+[directory]
+disabled = false
+truncation_length = 3
+truncate_to_repo = false
+truncation_symbol = "…/"
+read_only = "󰌾 "
+style = "bg:yellow fg:black"
+read_only_style = "bg:yellow fg:black"
+format = "[ $path ]($style)[$read_only]($read_only_style)"
+
+[directory.substitutions]
+"Documentos" = "󰈙 "
+"Descargas" = " "
+"Música" = "󰝚 "
+"Imágenes" = " "
+"Vídeos" = ""
+"Dev" = "󰲋 "
+
+[git_branch]
+disabled = false
+symbol = ""
+always_show_remote = true
+style = "bg:green fg:black"
+format = '[ $symbol $branch(: $remote_branch) ]($style)'
+
+[git_status]
+disabled = false
+conflicted = "=${count}"
+ahead = "⇡${count}"
+behind = "⇣{count}"
+diverged = "⇕${count}"
+up_to_date = ""
+untracked = "?{count}"
+stashed = "$${count}"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "[✘{count}"
+style = "bg:green fg:black"
+format = '[($all_status$ahead_behin) ]($style)'
+
+[lua]
+disabled = false
+symbol = "󰢱"
+style = "bg:blue fg:black"
+format = '[ $symbol( $version) ]($style)'
+
+[python]
+disabled = false
+symbol = ""
+style = "bg:blue fg:black"
+format = '[ ${symbol} ${pyenv_prefix}( ${version} )(\($virtualenv\) )]($style)'
+
+[container]
+disabled = false
+symbol   = "⬢"
+style  = "bg:cyan fg:black"
+format   = '[ $symbol \[$name\]]($style) '
+
+[battery]
+disabled = false
+format  = "[ $percentage ]($style)"
+
+[[battery.display]]
+threshold = 50
+style   = "bg:purple fg:black"
+
+[[battery.display]]
+threshold = 25
+style   = "bg:purple fg:red"
+
+[time]
+disabled = false
+time_format = "%I:%M %p"
+style = "bg:bright-black fg:bright-white"
+format = '[  $time ]($style)'
+
+[cmd_duration]
+disabled = false
+min_time = 10_000
+show_notifications = true
+min_time_to_notify = 90_000
+style = "bright-white"
+format = "[  $duration]($style)"
+
+[line_break]
+disabled = false
+
+[status]
+disabled = false
+map_symbol = true
+style = "red"
+format  = "[$symbol$status]($style) "
+
+[shell]
+disabled  = false
+bash_indicator = ""
+zsh_indicator = "󱆃"
+fish_indicator = ""
+style  = "bright-white"
+format  = "[$indicator]($style) "
+
+[character]
+disabled = false
+success_symbol = '[❯](green)'
+error_symbol = '[❯](red)'
+vimcmd_symbol = '[❮](green)'
+vimcmd_replace_one_symbol = '[❮](purple)'
+vimcmd_replace_symbol = '[❮](purple)'
+vimcmd_visual_symbol = '[❮](yellow)'
+format  = "$symbol "
