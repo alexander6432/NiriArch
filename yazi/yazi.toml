@@ -6,7 +6,7 @@
 ratio          = [ 1, 4, 3 ]
 sort_by        = "alphabetical"
 sort_sensitive = false
-sort_reverse 	 = false
+sort_reverse   = false
 sort_dir_first = true
 sort_translit  = false
 linemode       = "size_and_mtime"
@@ -22,9 +22,9 @@ tab_size        = 2
 max_width       = 600
 max_height      = 900
 cache_dir       = "~/.cache/yazi/"
-image_delay     = 30
+image_delay     = 50
 image_filter    = "triangle"
-image_quality   = 75
+image_quality   = 60
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
@@ -37,33 +37,34 @@ Descargar = [
 	{ run = "ya emit download %S",        desc = "Descargar" },
 ]
 Editar = [
-	{ run = "helix %s", desc = "Editar (Helix)", for = "linux", block = true },
-	{ run = "nano %s",  desc = "Editar (Nano)",  for = "linux", block = true },
+	{ run = "helix %s", desc = "Editar (Helix)",  for = "linux", block = true },
+	{ run = "nano %s",  desc = "Editar (Nano)",   for = "linux", block = true },
+	{ run = "code %s",  desc = "Editar (VSCode)", for = "linux", orphan = true },
 ]
 Extraer = [
 	{ run = "ya pub extract --list %s", desc = "Extraer aquí" },
 ]
 Explorador = [
-	{ run = 'nautilus %d', desc = "Explorador", orphan = true, for = "linux" },
+	{ run = 'nautilus %d', desc = "Explorador", for = "linux", orphan = true },
 ]
 Imagen = [
-  { run = 'loupe %s',    orphan = true, desc = "Ver imagen",    for = "linux" },
-  { run = 'gimp %s',     orphan = true, desc = "Editar (GIMP)",     for = "linux" },
-  { run = 'inkscape %s', orphan = true, desc = "Editar (Inkscape)", for = "linux" },
+  { run = 'loupe %s',    desc = "Ver imagen",        for = "linux", orphan = true },
+  { run = 'gimp %s',     desc = "Editar (GIMP)",     for = "linux", orphan = true },
+  { run = 'inkscape %s', desc = "Editar (Inkscape)", for = "linux", orphan = true },
 ]
 LibreOffice = [
-	{ run = 'libreoffice %s', orphan = true, desc = "Abrir con LibreOffice", for = "linux" },
+	{ run = 'libreoffice %s', desc = "Abrir con LibreOffice", for = "linux", orphan = true },
 ]
 PDF = [
-	{ run = 'papers %s', orphan = true, desc = "Ver PDF", for = "linux" },
+	{ run = 'papers %s', desc = "Ver PDF", for = "linux", orphan = true },
 ]
 Reproducir = [
-	{ run = "xdg-open %s1", desc = "Reproducir", for = "linux", orphan = true },
-	{ run = "mediainfo %s1; echo 'Presionar Enter para salir'; read _", block = true, desc = "Info Multimedia", for = "linux" },
+	{ run = "xdg-open %s1",                                             desc = "Reproducir",      for = "linux", orphan = true },
+	{ run = "mediainfo %s1; echo 'Presionar Enter para salir'; read _", desc = "Info Multimedia", for = "linux", block = true },
 ]
 Revelar = [
-	{ run = "xdg-open %d1", desc = "Revelar en directorio", for = "linux" },
-	{ run = "clear; exiftool %s1; echo 'Presionar Enter para salir'; read _", desc = "Metadatos (EXIF)", for = "linux", block = true },
+	{ run = "xdg-open %d1",                                                   desc = "Revelar en directorio", for = "linux", block = true },
+	{ run = "clear; exiftool %s1; echo 'Presionar Enter para salir'; read _", desc = "Metadatos (EXIF)",      for = "linux", block = true },
 ]
 
 [open]
@@ -96,11 +97,11 @@ rules = [
 ]
 
 [tasks]
-micro_workers    = 10
-macro_workers    = 10
-bizarre_retry    = 3
-image_alloc      = 134217728  # 128MB
-image_bound      = [ 5000, 5000 ]
+micro_workers    = 8
+macro_workers    = 4
+bizarre_retry    = 4
+image_alloc      = 67108864  # 64MB
+image_bound      = [ 4000, 4000 ]
 suppress_preload = false
 
 [plugin]
