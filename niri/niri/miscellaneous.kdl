@@ -4,6 +4,7 @@
 
 spawn-sh-at-startup "qs -c noctalia-shell"
 spawn-sh-at-startup "~/.config/scripts/alert_battery.sh"
+spawn-sh-at-startup "~/.config/scripts/setup_portals_niri.sh"
 prefer-no-csd
 screenshot-path "~/Imágenes/Capturas de pantalla/Captura_%Y-%m-%d %H-%M-%S.png"
 

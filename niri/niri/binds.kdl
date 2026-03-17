@@ -40,8 +40,8 @@ binds {
     Mod+Down  hotkey-overlay-title="Enfocar Ventana hacia Abajo"    { focus-window-down; }
     Mod+Up    hotkey-overlay-title="Enfocar Ventana hacia Arriba"   { focus-window-up; }
 
-    Mod+H hotkey-overlay-title="Enfocar Primera Ventana" { focus-column-first; }
-    Mod+L hotkey-overlay-title="Enfocar Ultima Ventana"   { focus-column-last; }
+    Mod+A hotkey-overlay-title="Enfocar Primera Ventana" { focus-column-first; }
+    Mod+S hotkey-overlay-title="Enfocar Ultima Ventana"   { focus-column-last; }
 
 // ===========
 // move window
@@ -56,16 +56,11 @@ binds {
     Mod+Ctrl+Down  hotkey-overlay-title="Mover Ventana hacia Abajo de la Pantalla"    { spawn-sh "~/.config/scripts/niri_move_float.sh down 10 30"; }
     Mod+Ctrl+Up    hotkey-overlay-title="Mover Ventana hacia Arriba de la Pantalla"   { spawn-sh "~/.config/scripts/niri_move_float.sh up 10 1"; }
 
-    Mod+Alt+Left  hotkey-overlay-title="Mover Ventana a la Izquierda" { move-column-left; }
-    Mod+Alt+Right hotkey-overlay-title="Mover Ventana a la Derecha"   { move-column-right; }
-    Mod+Alt+Down  hotkey-overlay-title="Mover Ventana hacia Abajo"    { move-window-down; }
-    Mod+Alt+Up    hotkey-overlay-title="Mover Ventana hacia Arriba"   { move-window-up; }
-
-    Mod+Shift+L hotkey-overlay-title="Mover Ventana al Principio" { move-column-to-first; }
-    Mod+Shift+H hotkey-overlay-title="Mover Ventana al Final"     { move-column-to-last; }
+    Mod+Shift+A hotkey-overlay-title="Mover Ventana al Principio" { move-column-to-first; }
+    Mod+Shift+S hotkey-overlay-title="Mover Ventana al Final"     { move-column-to-last; }
 
     Mod+C hotkey-overlay-title="Mover Ventana al Centro de la Pantalla"           { center-window; }
-    Mod+S hotkey-overlay-title="Mover Ventanas Visibles al Centro de la Pantalla" { center-visible-columns; }
+    Mod+V hotkey-overlay-title="Mover Ventanas Visibles al Centro de la Pantalla" { center-visible-columns; }
 
 // =============
 // resize window
@@ -84,10 +79,10 @@ binds {
     Mod+Shift+R hotkey-overlay-title="Redimensionar Altura Ventana" { switch-preset-window-height; }
     Mod+Ctrl+R  hotkey-overlay-title="Resetear Altura Ventana"      { reset-window-height; }
 
-    Mod+F       hotkey-overlay-title="Maximizar Ventana"            { maximize-column; }
-    Mod+Shift+F hotkey-overlay-title="Maximizar Ventana Totalmente" { maximize-window-to-edges; }
-    Mod+Ctrl+F  hotkey-overlay-title="Pantalla Completa"            { fullscreen-window; }
-    Mod+Alt+F   hotkey-overlay-title="Pantalla Completa(Fake)"      { toggle-windowed-fullscreen; }
+    Mod+M       hotkey-overlay-title="Maximizar Ventana"            { maximize-column; }
+    Mod+Shift+M hotkey-overlay-title="Pantalla Completa"            { fullscreen-window; }
+    Mod+Ctrl+M  hotkey-overlay-title="Pantalla Completa(Fake)"      { toggle-windowed-fullscreen; }
+    Mod+Alt+M   hotkey-overlay-title="Maximizar Ventana sin Bordes" { maximize-window-to-edges; }
 
 // ==============
 // tabbed windows
@@ -95,59 +90,61 @@ binds {
     Mod+T       hotkey-overlay-title="Alternar al modo Pestañas"               { toggle-column-tabbed-display; }
     Mod+Shift+T hotkey-overlay-title="Añadir Ventana de la Derecha"            { consume-window-into-column; }
     Mod+Ctrl+T  hotkey-overlay-title="Expulsar Ventana a la Derecha"           { expel-window-from-column; }
-    Mod+J       hotkey-overlay-title="Añadir/Expulsar Ventana de la Izquierda" { consume-or-expel-window-left; }
-    Mod+K       hotkey-overlay-title="Añadir/Expulsar Ventana de la Derecha"   { consume-or-expel-window-right; }
+    Mod+H       hotkey-overlay-title="Añadir/Expulsar Ventana de la Izquierda" { consume-or-expel-window-left; }
+    Mod+L       hotkey-overlay-title="Añadir/Expulsar Ventana de la Derecha"   { consume-or-expel-window-right; }
 
 // ========
 // floating
 // ========
-    Mod+V       hotkey-overlay-title="Ventana Flotante"         { toggle-window-floating; }
-    Mod+Shift+V hotkey-overlay-title="Ignorar Ventana Flotante" { switch-focus-between-floating-and-tiling; }
+    Mod+F       hotkey-overlay-title="Ventana Flotante"         { toggle-window-floating; }
+    Mod+Shift+F hotkey-overlay-title="Enfocar Ventana Flotante" { switch-focus-between-floating-and-tiling; }
 
 // =============
 // miscellaneous
 // =============
-    Mod+Q           hotkey-overlay-title="Cerrar Ventana"        repeat=false { close-window; }
-    Mod+Escape      hotkey-overlay-title="Vista General"         repeat=false { toggle-overview; }
-    Mod+Ctrl+Escape hotkey-overlay-title="Forzar Salida de Niri" repeat=false { quit; }
-    Mod+F1          hotkey-overlay-title="Buscar atajos"         repeat=false { spawn-sh "kitty --class niri-keys-search ~/.config/scripts/atajos_niri.sh"; }
+    Mod+Q           hotkey-overlay-title="Cerrar Ventana" repeat=false { close-window; }
+    Mod+Escape      hotkey-overlay-title="Vista General"  repeat=false { toggle-overview; }
+    Mod+Ctrl+Escape hotkey-overlay-title="Salir Niri"     repeat=false { quit; }
+    Mod+F1          hotkey-overlay-title="Buscar atajos"  repeat=false { spawn-sh "kitty --class niri-keys-search ~/.config/scripts/atajos_niri.sh"; }
 
 // ============
 // applications
 // ============
-    Mod+Return  hotkey-overlay-title="Terminal Kitty" repeat=false { spawn-sh "kitty fish"; }
-    Mod+B       hotkey-overlay-title="Google Chrome"  repeat=false { spawn "google-chrome-stable"; }
-    Mod+Shift+B hotkey-overlay-title="Firefox"        repeat=false { spawn "firefox"; }
+    Mod+Return  hotkey-overlay-title="Terminal"      repeat=false { spawn-sh "kitty fish"; }
+    Mod+B       hotkey-overlay-title="Google Chrome" repeat=false { spawn "google-chrome-stable"; }
+    Mod+Shift+B hotkey-overlay-title="Firefox"       repeat=false { spawn "firefox"; }
 
 // =============
 // noctalia
 // =============
-    Mod+Shift+Escape hotkey-overlay-title="Salir de Niri"                  repeat=false { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
-    Mod+Shift+C      hotkey-overlay-title="Centro de Control"              repeat=false { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
-    Mod+Z            hotkey-overlay-title="Alternar IDLE"                  repeat=false { spawn-sh "qs -c noctalia-shell ipc call idleInhibitor toggle"; }
-    Mod+W           hotkey-overlay-title="Cambiar Fondo de Pantalla"       repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random all"; }
-    Mod+Shift+W     hotkey-overlay-title="Selector de Fondo de Pantalla"   repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
-    Mod+X           hotkey-overlay-title="Alternar Barra de Estado"        repeat=false { spawn-sh "qs -c noctalia-shell ipc call bar toggle"; }
-    Mod+Ctrl+L      hotkey-overlay-title="Bloquear Pantalla"                   repeat=false { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+N           hotkey-overlay-title="Centro de Notificaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
-    Mod+Shift+N     hotkey-overlay-title="Limpiar Historial de Notificaciones" repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications clear"; }
-    Mod+D          hotkey-overlay-title="Lanzador de Aplicaciones"            repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Space        hotkey-overlay-title="Lanzador de Aplicaciones"      repeat=false { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Shift+L      hotkey-overlay-title="Bloquear Pantalla"             repeat=false { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
+    Mod+Shift+Escape hotkey-overlay-title="Menú de Sesión"                repeat=false { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+N            hotkey-overlay-title="Centro de Notificaciones"      repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications toggleHistory"; }
+    Mod+Shift+N      hotkey-overlay-title="Borrar Notificaciones"         repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications clear"; }
+    Mod+Shift+C      hotkey-overlay-title="Centro de Control"             repeat=false { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+Ctrl+C       hotkey-overlay-title="Calendario"                    repeat=false { spawn-sh "qs -c noctalia-shell ipc call calendar toggle"; }
+    Mod+W            hotkey-overlay-title="Cambiar Fondo de Pantalla"     repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random all"; }
+    Mod+Shift+W      hotkey-overlay-title="Selector de Fondo de Pantalla" repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
+    Mod+Z            hotkey-overlay-title="Alternar IDLE"                 repeat=false { spawn-sh "qs -c noctalia-shell ipc call idleInhibitor toggle"; }
+    Mod+X            hotkey-overlay-title="Alternar Barra de Estado"      repeat=false { spawn-sh "qs -c noctalia-shell ipc call bar toggle"; }
 
 // ==========
 // multimedia
 // ==========
-    Xf86audioraisevolume hotkey-overlay-title="Subir Volumen"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase" ; }
-    Xf86audiolowervolume hotkey-overlay-title="Bajar Volumen"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
-    Xf86audiomute        hotkey-overlay-title="Silenciar Volumen"   allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
-    Xf86audiomicmute     hotkey-overlay-title="Silenciar Microfono" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
+    Xf86audioraisevolume hotkey-overlay-title="Subir Volumen" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase" ; }
+    Xf86audiolowervolume hotkey-overlay-title="Bajar Volumen" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume decrease"; }
 
-    Xf86monbrightnessup   hotkey-overlay-title="Subir Brillo"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
-    Xf86monbrightnessdown hotkey-overlay-title="Bajar Brillo"       allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
+    Xf86audiomute        hotkey-overlay-title="Silenciar Volumen"  repeat=false allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteOutput"; }
+    Xf86audiomicmute     hotkey-overlay-title="Silenciar Microfono" repeat=false allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume muteInput"; }
 
-    Xf86audioplay  hotkey-overlay-title="Reproducir o Pausar Multimedia" repeat=false      { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
-    Xf86audiostop  hotkey-overlay-title="Detener Multimedia"             repeat=false      { spawn-sh "qs -c noctalia-shell ipc call media stop"; }
-    Xf86audioprev  hotkey-overlay-title="Pista Anterior"                 repeat=false      { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
-    Xf86audionext  hotkey-overlay-title="Pista Siguiente"                repeat=false      { spawn-sh "qs -c noctalia-shell ipc call media next"; }
+    Xf86monbrightnessup   hotkey-overlay-title="Subir Brillo" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness increase"; }
+    Xf86monbrightnessdown hotkey-overlay-title="Bajar Brillo" allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call brightness decrease"; }
+
+    Xf86audioplay  hotkey-overlay-title="Reproducir o Pausar Multimedia" repeat=false allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media playPause"; }
+    Xf86audiostop  hotkey-overlay-title="Detener Multimedia"             repeat=false allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media stop"; }
+    Xf86audioprev  hotkey-overlay-title="Pista Anterior"                 repeat=false allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media previous"; }
+    Xf86audionext  hotkey-overlay-title="Pista Siguiente"                repeat=false allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call media next"; }
 
     Print       hotkey-overlay-title="Capturar Ventana"       repeat=false { screenshot-window; }
     Shift+Print hotkey-overlay-title="Capturar Pantalla"      repeat=false { screenshot-screen; }
