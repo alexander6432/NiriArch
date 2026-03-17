@@ -1,4 +1,4 @@
-theme = "gruvbox"
+theme = "kanagawa"
 
 [editor]
 scrolloff = 5
@@ -160,10 +160,9 @@ max-wrap = 20
 max-diagnostics = 10
 
 [keys.normal]
-C-x = "extend_line_above"
 C-r = ":config-reload"
 
-[keys.normal.G]
+[keys.normal.V]
 Q = ":buffer-close!"
 q = ":buffer-close"
 O = ":buffer-close-others!"
@@ -171,6 +170,3 @@ o = ":buffer-close-others"
 n = ":buffer-next"
 p = ":buffer-previous"
 w = ":write-all"
-
-[keys.select]
-C-x = "extend_line_above"

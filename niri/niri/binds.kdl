@@ -87,9 +87,9 @@ binds {
 // ==============
 // tabbed windows
 // ==============
-    Mod+T       hotkey-overlay-title="Alternar al modo Pestañas"               { toggle-column-tabbed-display; }
-    Mod+Shift+T hotkey-overlay-title="Añadir Ventana de la Derecha"            { consume-window-into-column; }
-    Mod+Ctrl+T  hotkey-overlay-title="Expulsar Ventana a la Derecha"           { expel-window-from-column; }
+    Mod+P       hotkey-overlay-title="Alternar al modo Pestañas"               { toggle-column-tabbed-display; }
+    Mod+Shift+P hotkey-overlay-title="Añadir Ventana de la Derecha"            { consume-window-into-column; }
+    Mod+Ctrl+P  hotkey-overlay-title="Expulsar Ventana a la Derecha"           { expel-window-from-column; }
     Mod+H       hotkey-overlay-title="Añadir/Expulsar Ventana de la Izquierda" { consume-or-expel-window-left; }
     Mod+L       hotkey-overlay-title="Añadir/Expulsar Ventana de la Derecha"   { consume-or-expel-window-right; }
 
