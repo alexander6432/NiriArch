@@ -117,9 +117,9 @@ format = '[ ${symbol} ${pyenv_prefix}( ${version} )(\($virtualenv\) )]($style)'
 
 [container]
 disabled = false
-symbol = "⬢"
+symbol = ""
 style = "bg:cyan fg:black"
-format = '[ $symbol \[$name\]]($style) '
+format = '[ $symbol $name ]($style)'
 
 [battery]
 disabled = false
