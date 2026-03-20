@@ -52,12 +52,15 @@ keymap = [
 { on = "K", run = "seek -5", desc = "Desplazar 5 Filas hacia Arriba en la Vista Previa" },
 { on = "J", run = "seek 5",  desc = "Desplazar 5 Filas hacia Abajo en la Vista Previa" },
 
+{ on = "<C-up>",   run = "seek -5", desc = "Desplazar 5 Filas hacia Arriba en la Vista Previa" },
+{ on = "<C-down>", run = "seek 5",  desc = "Desplazar 5 Filas hacia Abajo en la Vista Previa" },
+
 	# Spotting
 	{ on = "<Tab>", run = "spot", desc = "Propiedades del Archivo Seleccionado" },
 
 	# Operation
-	{ on = "O",         run = "open",               desc = "Abrir Archivo Seleccionado" },
-	{ on = "o",         run = "open --interactive", desc = "Elegir donde Abrir el Archivo Seleccionado" },
+	{ on = "o",         run = "open",               desc = "Abrir Archivo Seleccionado" },
+	{ on = "O",         run = "open --interactive", desc = "Elegir donde Abrir el Archivo Seleccionado" },
 	{ on = "<Enter>",   run = "open --interactive", desc = "Abrir Archivo Seleccionado" },
 	{ on = "<C-Enter>", run = "open",               desc = "Elegir donde Abrir el Archivo Seleccionado" },
 

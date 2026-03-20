@@ -24,7 +24,7 @@ max_height      = 900
 cache_dir       = "~/.cache/yazi/"
 image_delay     = 50
 image_filter    = "triangle"
-image_quality   = 60
+image_quality   = 75
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
@@ -101,7 +101,7 @@ micro_workers    = 8
 macro_workers    = 4
 bizarre_retry    = 4
 image_alloc      = 67108864  # 64MB
-image_bound      = [ 4000, 4000 ]
+image_bound      = [ 10000, 10000 ]
 suppress_preload = false
 
 [plugin]
