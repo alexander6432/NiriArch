@@ -101,7 +101,7 @@ micro_workers    = 8
 macro_workers    = 4
 bizarre_retry    = 4
 image_alloc      = 67108864  # 64MB
-image_bound      = [ 10000, 10000 ]
+image_bound      = [ 8000, 8000 ]
 suppress_preload = false
 
 [plugin]

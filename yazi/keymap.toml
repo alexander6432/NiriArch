@@ -77,8 +77,8 @@ keymap = [
   { on = "a", run = "create",       desc = "Crear un Archivo (Si Termina en / es para Crear un Directorio)" },
   { on = "A", run = "create --dir", desc = "Crear un Directorio" },
 
-  { on = "r", run = "rename --empty=stem --cursor=start", desc = "Renombrar Archivo(s) Seleccionado(s)" },
-  { on = "R", run = "rename --cursor=before_ext",         desc = "Renombrar Archivo(s) Seleccionado(s)" },
+  { on = "r", run = "rename --cursor=before_ext",         desc = "Renombrar Archivo(s) Seleccionado(s)" },
+  { on = "R", run = "rename --empty=stem --cursor=start", desc = "Renombrar Archivo(s) Seleccionado(s)" },
 
   { on = ";",         run = "shell --interactive",         desc = "Ejecutar un Comando de SHELL" },
   { on = ":",         run = "shell --block --interactive", desc = "Ejecutar un Comando de SHELL (Bloquea hasta que Termine)" },
@@ -122,16 +122,16 @@ keymap = [
 	# Sorting
 	{ on = [ ",", "m" ], run = [ "sort mtime --reverse=no", "linemode mtime" ], desc = "Ordenar por Fecha de Modificación" },
 	{ on = [ ",", "M" ], run = [ "sort mtime --reverse", "linemode mtime" ],    desc = "Ordenar por Fecha de Modificación (Invertido)" },
-	{ on = [ ",", "b" ], run = [ "sort btime --reverse=no", "linemode btime" ], desc = "Ordenar por Fecha de Creación" },
-	{ on = [ ",", "B" ], run = [ "sort btime --reverse", "linemode btime" ],    desc = "Ordenar por Fecha de Creación (Invertido)" },
+	{ on = [ ",", "c" ], run = [ "sort btime --reverse=no", "linemode btime" ], desc = "Ordenar por Fecha de Creación" },
+	{ on = [ ",", "C" ], run = [ "sort btime --reverse", "linemode btime" ],    desc = "Ordenar por Fecha de Creación (Invertido)" },
 	{ on = [ ",", "e" ], run = "sort extension --reverse=no",                   desc = "Ordenar por Extensión" },
 	{ on = [ ",", "E" ], run = "sort extension --reverse",                      desc = "Ordenar por Extensión (Invertido)" },
 	{ on = [ ",", "a" ], run = "sort alphabetical --reverse=no",                desc = "Ordenar Alfabéticamente" },
 	{ on = [ ",", "A" ], run = "sort alphabetical --reverse",                   desc = "Ordenar Alfabéticamente (Invertido)" },
 	{ on = [ ",", "n" ], run = "sort natural --reverse=no",                     desc = "Ordenar Naturalmente" },
 	{ on = [ ",", "N" ], run = "sort natural --reverse",                        desc = "Ordenar Naturalmente (Invertido)" },
-	{ on = [ ",", "s" ], run = [ "sort size --reverse=no", "linemode size" ],   desc = "Ordenar por Tamaño" },
-	{ on = [ ",", "S" ], run = [ "sort size --reverse", "linemode size" ],      desc = "Ordenar por Tamaño (Invertido)" },
+	{ on = [ ",", "t" ], run = [ "sort size --reverse=no", "linemode size" ],   desc = "Ordenar por Tamaño" },
+	{ on = [ ",", "T" ], run = [ "sort size --reverse", "linemode size" ],      desc = "Ordenar por Tamaño (Invertido)" },
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Ordenar Aleatoriamente" },
 
 	# Goto
@@ -170,11 +170,11 @@ keymap = [
 ]
 
 prepend_keymap = [
-{ on = ["T","a"], run = "plugin recycle-bin -- open",                     desc = "Abrir Papelera" },
-{ on = ["T","v"], run = "plugin recyc --cursor=startle-bin -- empty",     desc = "Vaciar Papelera" },
-{ on = ["T","V"], run = "plugin recycle-bin -- --cursor=start emptyDays", desc = "Vaciar Papelera por Días" },
-{ on = ["T","e"], run = "plugin recycle-bin - --cursor=start- delete",    desc = "Eliminar de la Papelera" },
-{ on = ["T","r"], run = "plugin recycle-bin -- re --cursor=startstore",   desc = "Restaurar desde la Papelera" },
+{ on = ["<C-p>","a"], run = "plugin recycle-bin -- open",      desc = "Abrir Papelera" },
+{ on = ["<C-p>","v"], run = "plugin recycle-bin -- empty",     desc = "Vaciar Papelera" },
+{ on = ["<C-p>","d"], run = "plugin recycle-bin -- emptyDays", desc = "Vaciar Papelera por Días" },
+{ on = ["<C-p>","e"], run = "plugin recycle-bin -- delete",    desc = "Eliminar de la Papelera" },
+{ on = ["<C-p>","r"], run = "plugin recycle-bin -- restore",   desc = "Restaurar desde la Papelera" },
 ]
 
 [tasks]

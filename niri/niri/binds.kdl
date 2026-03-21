@@ -124,8 +124,8 @@ binds {
     Mod+Shift+N      hotkey-overlay-title="Borrar Notificaciones"         repeat=false { spawn-sh "qs -c noctalia-shell ipc call notifications clear"; }
     Mod+Shift+C      hotkey-overlay-title="Centro de Control"             repeat=false { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
     Mod+Ctrl+C       hotkey-overlay-title="Calendario"                    repeat=false { spawn-sh "qs -c noctalia-shell ipc call calendar toggle"; }
-    Mod+W            hotkey-overlay-title="Cambiar Fondo de Pantalla"     repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random all"; }
-    Mod+Shift+W      hotkey-overlay-title="Selector de Fondo de Pantalla" repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
+    Mod+W            hotkey-overlay-title="Selector de Fondo de Pantalla" repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper toggle"; }
+    Mod+Shift+W      hotkey-overlay-title="Cambiar Fondo de Pantalla"     repeat=false { spawn-sh "qs -c noctalia-shell ipc call wallpaper random all"; }
     Mod+Z            hotkey-overlay-title="Alternar IDLE"                 repeat=false { spawn-sh "qs -c noctalia-shell ipc call idleInhibitor toggle"; }
     Mod+X            hotkey-overlay-title="Alternar Barra de Estado"      repeat=false { spawn-sh "qs -c noctalia-shell ipc call bar toggle"; }
 
