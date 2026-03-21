@@ -53,6 +53,7 @@ hyprctl binds | awk '
     if (k == "XF86Monbrightnessdown") return "󰃠"
     if (k == "XF86Monbrightnessup")   return "󰃞"
     if (k == "Apostrophe")            return "\x27"
+    if (k == "ALT_L")                 return "󰌎"
     if (k == "Backspace")             return "󰌍"
     if (k == "Comma")                 return ","
     if (k == "Down")                  return "󰚶"
