@@ -25,7 +25,7 @@ layout {
 
     focus-ring {
         off
-        width 2
+        width 3
         active-gradient from="#004687" to="#00ffd2" angle=45
         inactive-gradient from="#888888" to="#444444" angle=45
         urgent-gradient from="#930000" to="#ffb4ab" angle=45
@@ -33,7 +33,7 @@ layout {
 
     border {
         // off
-        width 2
+        width 3
         active-gradient from="#004687" to="#00ffd2" angle=135 in="oklch shorter hue"
         inactive-gradient from="#888888" to="#444444" angle=135 in="oklch shorter hue"
         urgent-gradient from="#930000" to="#ffb4ab" angle=135 in="oklch shorter hue"
