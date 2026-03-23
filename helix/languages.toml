@@ -1,0 +1,11 @@
+[[language]]
+name = "python"
+language-servers = ["basedpyright", "ruff"]
+auto-format = true
+indent = { tab-width = 4, unit = "    " }
+
+[[language]]
+name = "lua"
+language-servers = ["lua-language-server"]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
