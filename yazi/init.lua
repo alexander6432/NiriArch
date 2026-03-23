@@ -15,6 +15,7 @@ function Linemode:size_and_mtime()
 end
 
 require("recycle-bin"):setup()
+require("starship"):setup()
 require("full-border"):setup({ type = ui.Border.ROUNDED })
 th.git = th.git or {}
 th.git.modified_sign = "" -- Archivos modificados
