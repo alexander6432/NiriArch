@@ -31,6 +31,9 @@ environment {
     // LIBVA_DRIVER_NAME "i965"
 
     EDITOR "helix"
+    VISUAL "helix"
+    BROWSER "google-chrome-stable"
+    TERMINAL "kitty"
 
     // Remove a variable by using null as the value:
     // DISPLAY null
