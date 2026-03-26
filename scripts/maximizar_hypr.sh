@@ -3,19 +3,13 @@
 layout=$(hyprctl activeworkspace -j | jq -r '.tiledLayout')
 
 case "$layout" in
-"dwindle")
-  echo "Mosaico"
-  ;;
-"master")
-  echo "Maestro"
-  ;;
 "monocle")
-  echo "Monóculo"
+  hyprctl dispatch togglefloating
   ;;
 "scrolling")
-  echo "Desplazamiento"
+  hyprctl dispatch layoutmsg fit active
   ;;
 *)
-  echo "No Entiendo"
+  hyprctl dispatch fullscreen 1
   ;;
 esac

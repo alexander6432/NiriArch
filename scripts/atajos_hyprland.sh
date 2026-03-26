@@ -1,7 +1,6 @@
 #!/bin/bash
-# ~/.config/scripts/atajos_hypr.sh
-# Uso: ./atajos_hypr.sh [grupos|ventanas]
 
+# Uso: ./atajos_hypr.sh [grupos|ventanas]
 modo="$1"
 
 if [[ $modo == "grupos" ]]; then

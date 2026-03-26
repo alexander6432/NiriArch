@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # cycle-layout.sh [-r] [layout]
 LAYOUTS=(dwindle master monocle scrolling)
 declare -A DISPLAY_NAMES=(

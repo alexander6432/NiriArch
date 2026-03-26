@@ -1,6 +1,6 @@
 #!/bin/bash
-# niri_move_float.sh <left|right|up|down>
 
+# niri_move_float.sh <left|right|up|down>
 DIRECTION=$1
 STEP=${2:-0}
 CORRECTION=${3:-0}

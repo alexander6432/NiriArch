@@ -1,5 +1,4 @@
 #!/bin/bash
-# ~/.config/scripts/atajos_niri.sh
 
 grep 'hotkey-overlay-title' ~/.config/niri/niri/binds.kdl | \
 awk '

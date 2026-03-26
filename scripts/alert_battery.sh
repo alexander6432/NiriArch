@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Matar instancias anteriores del mismo script
 SCRIPT_PATH="$(readlink -f "$0")"
 CURRENT_PID=$$
