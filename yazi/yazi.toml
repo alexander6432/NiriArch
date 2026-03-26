@@ -38,6 +38,7 @@ Descargar = [
 ]
 Editar = [
 	{ run = "helix %s", desc = "Editar (Helix)",  for = "linux", block = true },
+	{ run = "nvim %s",  desc = "Editar (Nvim)",   for = "linux", block = true },
 	{ run = "nano %s",  desc = "Editar (Nano)",   for = "linux", block = true },
 	{ run = "code %s",  desc = "Editar (VSCode)", for = "linux", orphan = true },
 ]
