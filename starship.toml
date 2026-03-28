@@ -142,7 +142,7 @@ format = '[  $time ]($style)'
 [cmd_duration]
 disabled = false
 min_time = 10_000
-show_notifications = true
+show_notifications = false
 min_time_to_notify = 90_000
 style = "bright-white"
 format = "[  $duration]($style)"
