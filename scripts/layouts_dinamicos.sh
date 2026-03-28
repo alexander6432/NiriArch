@@ -10,6 +10,14 @@
 # master -o:          cambia a master y cicla orientación
 # scrolling -o right: cambia a scrolling con dirección right
 
+# ─── Ejemplo de workspace_layouts.conf resultante ─────────────────────────────
+#
+# workspace = 1, layout:dwindle
+# workspace = 2, layout:master
+# workspace = 2, layoutopt:orientation:right
+# workspace = 3, layout:scrolling
+# workspace = 3, layoutopt:direction:top
+
 # ─── Layouts disponibles y sus opciones ───────────────────────────────────────
 
 # Orden de ciclo de layouts
@@ -95,14 +103,13 @@ get_layout_values() {
 }
 
 # Aplica una orientación/dirección al layout activo vía hyprctl
-# master:    usa layoutmsg orientation* (resetea a left primero para forzar el cambio)
+# master:    usa layoutmsg orientation <value>
 # scrolling: usa layoutmsg direction <value>
 apply_orient() {
     local layout="$1" value="$2"
     case "$layout" in
         master)
-            hyprctl dispatch layoutmsg "orientationleft" &>/dev/null
-            hyprctl dispatch layoutmsg "orientation${value}"
+            hyprctl dispatch layoutmsg "orientation ${value}"
             ;;
         scrolling)
             hyprctl dispatch layoutmsg "direction ${value}"
@@ -243,7 +250,7 @@ if [[ $ORIENT_MODE -eq 1 ]]; then
         persist_layout "$WS" "$EFFECTIVE_LAYOUT"
         notify-send "⬡ Cambiando de Layout" \
             "${DISPLAY_NAMES[$CURRENT_LAYOUT]} → ${DISPLAY_NAMES[$EFFECTIVE_LAYOUT]}" \
-            -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 2000
+            -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
     fi
 
     # Leer orientación/dirección actual (desde archivo o desde Hyprland vía getoption)
@@ -276,7 +283,7 @@ if [[ $ORIENT_MODE -eq 1 ]]; then
     if [[ "$CURRENT_ORIENT" == "$NEW_ORIENT" ]]; then
         notify-send "Layout ${DISPLAY_NAMES[$EFFECTIVE_LAYOUT]}" \
             "Ya es ${ORIENT_NAMES[$NEW_ORIENT]}" \
-            -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 2000
+            -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
         exit 0
     fi
 
@@ -289,7 +296,7 @@ if [[ $ORIENT_MODE -eq 1 ]]; then
 
     notify-send "⬡ ${DISPLAY_NAMES[$EFFECTIVE_LAYOUT]}" \
         "${ORIENT_NAMES[$CURRENT_ORIENT]} → ${ORIENT_NAMES[$NEW_ORIENT]}" \
-        -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 2000
+        -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
     exit 0
 fi
 
@@ -316,7 +323,7 @@ fi
 # Si ya estamos en el layout destino, notificar y salir sin hacer nada
 if [[ "$CURRENT_LAYOUT" == "$TARGET" ]]; then
     notify-send "Layout" "Ya estás en ${DISPLAY_NAMES[$CURRENT_LAYOUT]}" \
-        -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 2000
+        -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
     exit 0
 fi
 
@@ -340,12 +347,4 @@ sort -t '=' -k2 -n -o "$OUTPUT" "$OUTPUT"
 
 notify-send "⬡ Cambiando de Layout" \
     "${DISPLAY_NAMES[$CURRENT_LAYOUT]} → ${DISPLAY_NAMES[$TARGET]}${ORIENT_SUFFIX}" \
-    -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 2000
-
-# ─── Ejemplo de workspace_layouts.conf resultante ─────────────────────────────
-#
-# workspace = 1, layout:dwindle
-# workspace = 2, layout:master
-# workspace = 2, layoutopt:orientation:right
-# workspace = 3, layout:scrolling
-# workspace = 3, layoutopt:direction:top
+    -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
