@@ -31,8 +31,8 @@ if [[ $LAYOUT_ICON -eq 1 ]]; then
     case "$LAYOUT" in
         dwindle)  LAYOUT_OUT="" ;;
         master)   LAYOUT_OUT="" ;;
-        monocle)  LAYOUT_OUT="" ;;
-        scrolling) LAYOUT_OUT="" ;;
+        monocle)  LAYOUT_OUT="" ;;
+        scrolling) LAYOUT_OUT="󰏞" ;;
         *)        LAYOUT_OUT="" ;;
     esac
 else
