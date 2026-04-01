@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# cycle-layout.sh [-r] [-o [value]] [layout]
-#
+# layout_dinamicos.sh [-r] [-o [value]] [--notify] [layout]
+
+# --notify:           muestra notificaciones al cambiar layout u orientación
 # Sin args:           cicla al siguiente layout
 # -r:                 cicla en reversa
 # layout:             salta directo a ese layout
@@ -21,14 +22,13 @@
 # ─── Layouts disponibles y sus opciones ───────────────────────────────────────
 
 # Orden de ciclo de layouts
-LAYOUTS=(dwindle master monocle scrolling)
+LAYOUTS=(dwindle master scrolling) # Agregalo a la lista si lo necesitas: monocle
 
 # Valores válidos de orientación para el layout master
-MASTER_ORIENTATIONS=(left top right bottom center)
+MASTER_ORIENTATIONS=(left top right bottom) # Agregalo a lista si lo necesitas: center
 
 # Valores válidos de dirección para el layout scrolling
-SCROLLING_DIRECTIONS=(right down left up)
-
+SCROLLING_DIRECTIONS=(right down left up) # Agregalo a lista si lo necesitas:
 # Nombres para mostrar en notificaciones (layouts)
 declare -A DISPLAY_NAMES=(
     [dwindle]="Mosaico"
@@ -73,6 +73,7 @@ REVERSE=0          # 1 si se pasó -r (ciclo inverso)
 ORIENT_MODE=0      # 1 si se pasó -o (modo orientación/dirección)
 TARGET_ORIENT=""   # valor de orientación/dirección destino (si se pasó explícitamente)
 TARGET_LAYOUT=""   # layout destino (si se pasó explícitamente)
+NOTIFY=0          # 1 si se pasó --notify (notificaciones activadas)
 
 # ─── Funciones auxiliares ──────────────────────────────────────────────────────
 
@@ -189,6 +190,10 @@ while [[ $# -gt 0 ]]; do
                 shift
             fi
             ;;
+        --notify)
+        NOTIFY=1
+        shift
+        ;;
         *)
             # Intentar interpretar el token como un layout conocido
             MATCHED=0
@@ -248,7 +253,7 @@ if [[ $ORIENT_MODE -eq 1 ]]; then
     if [[ "$CURRENT_LAYOUT" != "$EFFECTIVE_LAYOUT" ]]; then
         hyprctl dispatch layoutmsg "setlayout $EFFECTIVE_LAYOUT"
         persist_layout "$WS" "$EFFECTIVE_LAYOUT"
-        notify-send "⬡ Cambiando de Layout" \
+        notify "⬡ Cambiando de Layout" \
             "${DISPLAY_NAMES[$CURRENT_LAYOUT]} → ${DISPLAY_NAMES[$EFFECTIVE_LAYOUT]}" \
             -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
     fi
@@ -281,7 +286,7 @@ if [[ $ORIENT_MODE -eq 1 ]]; then
 
     # Si ya estamos en el valor destino, notificar y salir sin hacer nada
     if [[ "$CURRENT_ORIENT" == "$NEW_ORIENT" ]]; then
-        notify-send "Layout ${DISPLAY_NAMES[$EFFECTIVE_LAYOUT]}" \
+        notify "Layout ${DISPLAY_NAMES[$EFFECTIVE_LAYOUT]}" \
             "Ya es ${ORIENT_NAMES[$NEW_ORIENT]}" \
             -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
         exit 0
@@ -291,10 +296,15 @@ if [[ $ORIENT_MODE -eq 1 ]]; then
     apply_orient "$EFFECTIVE_LAYOUT" "$NEW_ORIENT"
     persist_orient "$WS" "$EFFECTIVE_LAYOUT" "$NEW_ORIENT"
 
+    # Envía una notificación solo si se pasó --notify
+    notify() {
+        [[ $NOTIFY -eq 1 ]] && notify-send "$@"
+    }
+
     # Reordenar el archivo por número de workspace para mantenerlo legible
     sort -t '=' -k2 -n -o "$OUTPUT" "$OUTPUT"
 
-    notify-send "⬡ ${DISPLAY_NAMES[$EFFECTIVE_LAYOUT]}" \
+    notify "⬡ ${DISPLAY_NAMES[$EFFECTIVE_LAYOUT]}" \
         "${ORIENT_NAMES[$CURRENT_ORIENT]} → ${ORIENT_NAMES[$NEW_ORIENT]}" \
         -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
     exit 0
@@ -322,7 +332,7 @@ fi
 
 # Si ya estamos en el layout destino, notificar y salir sin hacer nada
 if [[ "$CURRENT_LAYOUT" == "$TARGET" ]]; then
-    notify-send "Layout" "Ya estás en ${DISPLAY_NAMES[$CURRENT_LAYOUT]}" \
+    notify "Layout" "Ya estás en ${DISPLAY_NAMES[$CURRENT_LAYOUT]}" \
         -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
     exit 0
 fi
@@ -345,6 +355,6 @@ fi
 # Reordenar el archivo por número de workspace para mantenerlo legible
 sort -t '=' -k2 -n -o "$OUTPUT" "$OUTPUT"
 
-notify-send "⬡ Cambiando de Layout" \
+notify "⬡ Cambiando de Layout" \
     "${DISPLAY_NAMES[$CURRENT_LAYOUT]} → ${DISPLAY_NAMES[$TARGET]}${ORIENT_SUFFIX}" \
     -i /usr/share/icons/Papirus/128x128/apps/pop-cosmic-workspaces.svg -u normal -t 1000
