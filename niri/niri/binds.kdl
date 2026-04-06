@@ -76,7 +76,7 @@ binds {
     Mod+Touchpadscrollup    hotkey-overlay-title="Redimensionar Ventana Disminuir Altura" { set-window-height "-1%"; }
 
     Mod+R       hotkey-overlay-title="Redimensionar Ancho Ventana"  { switch-preset-column-width; }
-    Mod+Shift+R hotkey-overlay-title="Redimensionar Altura Ventana" { switch-preset-window-height; }
+    Mod+T       hotkey-overlay-title="Redimensionar Altura Ventana" { switch-preset-window-height; }
     Mod+Ctrl+R  hotkey-overlay-title="Resetear Altura Ventana"      { reset-window-height; }
 
     Mod+M       hotkey-overlay-title="Maximizar Ventana"            { maximize-column; }
@@ -87,11 +87,11 @@ binds {
 // ==============
 // tabbed windows
 // ==============
-    Mod+P       hotkey-overlay-title="Alternar al modo Pestañas"               { toggle-column-tabbed-display; }
-    Mod+Shift+P hotkey-overlay-title="Añadir Ventana de la Derecha"            { consume-window-into-column; }
-    Mod+Ctrl+P  hotkey-overlay-title="Expulsar Ventana a la Derecha"           { expel-window-from-column; }
-    Mod+H       hotkey-overlay-title="Añadir/Expulsar Ventana de la Izquierda" { consume-or-expel-window-left; }
-    Mod+L       hotkey-overlay-title="Añadir/Expulsar Ventana de la Derecha"   { consume-or-expel-window-right; }
+    Mod+P hotkey-overlay-title="Alternar al modo Pestañas"               { toggle-column-tabbed-display; }
+    Mod+O hotkey-overlay-title="Añadir Ventana de la Derecha"            { consume-window-into-column; }
+    Mod+I hotkey-overlay-title="Expulsar Ventana a la Derecha"           { expel-window-from-column; }
+    Mod+H hotkey-overlay-title="Añadir/Expulsar Ventana de la Izquierda" { consume-or-expel-window-left; }
+    Mod+L hotkey-overlay-title="Añadir/Expulsar Ventana de la Derecha"   { consume-or-expel-window-right; }
 
 // ========
 // floating
@@ -110,9 +110,10 @@ binds {
 // ============
 // applications
 // ============
-    Mod+Return  hotkey-overlay-title="Terminal"      repeat=false { spawn-sh "kitty fish"; }
-    Mod+B       hotkey-overlay-title="Google Chrome" repeat=false { spawn "google-chrome-stable"; }
-    Mod+Shift+B hotkey-overlay-title="Firefox"       repeat=false { spawn "firefox"; }
+    Mod+Return  hotkey-overlay-title="Terminal"               repeat=false { spawn-sh "kitty fish"; }
+    Mod+B       hotkey-overlay-title="Google Chrome"          repeat=false { spawn "google-chrome-stable"; }
+    Mod+Shift+B hotkey-overlay-title="Firefox"                repeat=false { spawn "firefox"; }
+    Mod+E       hotkey-overlay-title="Explorador de Archivos" repeat=false { spawn "nautilus"; }
 
 // =============
 // noctalia
