@@ -1,5 +1,6 @@
-#!/usr/bin/env bash
-# pin-tiled.sh {toggle|goto <workspace>}
+#!/bin/bash
+
+# pin-tiled_hyprland.sh {toggle|goto <workspace>}
 
 case "$1" in
     toggle)
