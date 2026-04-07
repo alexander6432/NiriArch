@@ -51,10 +51,10 @@ binds {
     Mod+Shift+Down  hotkey-overlay-title="Mover Ventana hacia Abajo"    { move-window-down; }
     Mod+Shift+Up    hotkey-overlay-title="Mover Ventana hacia Arriba"   { move-window-up; }
 
-    Mod+Ctrl+Left  hotkey-overlay-title="Mover Ventana a la Izquierda de la Pantalla" { spawn-sh "~/.config/scripts/niri_move_float.sh left 10 0"; }
-    Mod+Ctrl+Right hotkey-overlay-title="Mover Ventana a la Derecha de la Pantalla"   { spawn-sh "~/.config/scripts/niri_move_float.sh right 10 0"; }
-    Mod+Ctrl+Down  hotkey-overlay-title="Mover Ventana hacia Abajo de la Pantalla"    { spawn-sh "~/.config/scripts/niri_move_float.sh down 10 30"; }
-    Mod+Ctrl+Up    hotkey-overlay-title="Mover Ventana hacia Arriba de la Pantalla"   { spawn-sh "~/.config/scripts/niri_move_float.sh up 10 1"; }
+    Mod+Ctrl+Left  hotkey-overlay-title="Mover Ventana a la Izquierda de la Pantalla" { spawn-sh "~/.config/scripts/move_float_niri.sh left 10 0"; }
+    Mod+Ctrl+Right hotkey-overlay-title="Mover Ventana a la Derecha de la Pantalla"   { spawn-sh "~/.config/scripts/move_float_niri.sh right 10 0"; }
+    Mod+Ctrl+Down  hotkey-overlay-title="Mover Ventana hacia Abajo de la Pantalla"    { spawn-sh "~/.config/scripts/move_float_niri.sh down 10 30"; }
+    Mod+Ctrl+Up    hotkey-overlay-title="Mover Ventana hacia Arriba de la Pantalla"   { spawn-sh "~/.config/scripts/move_float_niri.sh up 10 1"; }
 
     Mod+Shift+A hotkey-overlay-title="Mover Ventana al Principio" { move-column-to-first; }
     Mod+Shift+S hotkey-overlay-title="Mover Ventana al Final"     { move-column-to-last; }
@@ -105,7 +105,7 @@ binds {
     Mod+Q           hotkey-overlay-title="Cerrar Ventana" repeat=false { close-window; }
     Mod+Escape      hotkey-overlay-title="Vista General"  repeat=false { toggle-overview; }
     Mod+Ctrl+Escape hotkey-overlay-title="Salir Niri"     repeat=false { quit; }
-    Mod+F1          hotkey-overlay-title="Buscar atajos"  repeat=false { spawn-sh "kitty --class niri-keys-search ~/.config/scripts/atajos_niri.sh"; }
+    Mod+F1          hotkey-overlay-title="Buscar atajos"  repeat=false { spawn-sh "kitty --class niri-keys-search ~/.config/scripts/cheatsheet_niri.sh"; }
 
 // ============
 // applications
