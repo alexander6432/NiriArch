@@ -77,7 +77,7 @@ binds {
 
     Mod+R       hotkey-overlay-title="Redimensionar Ancho Ventana"  { switch-preset-column-width; }
     Mod+T       hotkey-overlay-title="Redimensionar Altura Ventana" { switch-preset-window-height; }
-    Mod+Ctrl+R  hotkey-overlay-title="Resetear Altura Ventana"      { reset-window-height; }
+    Mod+Shift+R  hotkey-overlay-title="Resetear Altura Ventana"      { reset-window-height; }
 
     Mod+M       hotkey-overlay-title="Maximizar Ventana"            { maximize-column; }
     Mod+Shift+M hotkey-overlay-title="Pantalla Completa"            { fullscreen-window; }
