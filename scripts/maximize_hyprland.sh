@@ -7,7 +7,7 @@ case "$layout" in
   hyprctl dispatch togglefloating
   ;;
 "scrolling")
-  hyprctl dispatch layoutmsg colresize 1.0
+  hyprctl dispatch layoutmsg fit active
   ;;
 *)
   hyprctl dispatch fullscreen 1
