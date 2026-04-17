@@ -3,8 +3,8 @@
 # Uso: ./atajos_hypr.sh [grupos|ventanas]
 modo="$1"
 
-if [[ $modo == "grupos" ]]; then
-  filtro="\[Modo Grupos\]"
+if [[ $modo == "submapa" ]]; then
+  filtro="\[Submapa\]"
 elif [[ $modo == "ventanas" ]]; then
   filtro="\[Modo Ventanas\]"
 else
@@ -14,14 +14,14 @@ fi
 hyprctl binds | awk '
   function modmask_to_icons(mask,    result) {
     result = ""
-    if (and(mask, 64))  result = result "󰖳 + "
-    if (and(mask, 8))   result = result "󰌎 + "
-    if (and(mask, 128)) result = result "ALTGR + "
+    if (and(mask, 1))   result = result "󰘶 + "
+    if (and(mask, 2))   result = result "󰘲 + "
     if (and(mask, 4))   result = result "󰘴 + "
-    if (and(mask, 1))   result = result "󰘲 + "
-    if (and(mask, 2))   result = result "CAPS + "
+    if (and(mask, 8))   result = result "󰌎 + "
     if (and(mask, 16))  result = result "NUM + "
     if (and(mask, 32))  result = result "SCROLL + "
+    if (and(mask, 64))  result = result "󰖳 + "
+    if (and(mask, 128)) result = result "ALTGR + "
     return result
   }
 
@@ -115,7 +115,7 @@ hyprctl binds | awk '
 grep -Pv "^(\x1b\[[0-9;]*m)*\s*(\x1b\[[0-9;]*m)*$" | \
 fzf \
   --ansi \
-  --header=" Atajos de Hyprland:  󰖳 = Super | 󰘲 = Shift | 󰘴 = Ctrl | 󰌎 = Alt" \
+  --header=" Atajos de Hyprland:  󰖳 = Super | 󰘶 = Shift | 󰘴 = Ctrl | 󰌎 = Alt" \
   --header-border=top \
   --footer="Atajo                    Descripción" \
   --prompt="󰍉 Buscar atajo: " \
