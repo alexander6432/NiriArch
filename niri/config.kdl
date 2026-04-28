@@ -130,4 +130,4 @@ include "./niri/binds.kdl"
  /// NOCTALIA ///
 ////////////////
 
-include "./noctalia.kdl"
+include optional=true "./noctalia.kdl"

@@ -68,3 +68,10 @@ hotkey-overlay {
     // hide-not-bound
     // disable-failed
 }
+
+blur {
+    passes 2
+    offset 2
+    noise 0.02
+    saturation 1.5
+}

@@ -14,6 +14,7 @@ input {
 
     touchpad {
         // off
+        natural-scroll
         accel-speed 0.0
         accel-profile "adaptive"
         tap
