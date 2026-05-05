@@ -71,7 +71,7 @@ hotkey-overlay {
 
 blur {
     passes 2
-    offset 2
+    offset 4
     noise 0.02
-    saturation 1.5
+    saturation 1.0
 }

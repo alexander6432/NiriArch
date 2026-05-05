@@ -51,7 +51,7 @@ input {
 
     // disable-power-key-handling
     warp-mouse-to-focus mode="center-xy"
-    // focus-follows-mouse
+    focus-follows-mouse max-scroll-amount="20%"
     workspace-auto-back-and-forth
     mod-key "Super"
     mod-key-nested "Alt"
