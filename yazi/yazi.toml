@@ -1,6 +1,7 @@
-# A TOML linter such as https://taplo.tamasfe.dev/ can use this schema to validate your config.
+# A TOML linter such as https://github.com/tombi-toml/tombi can use this schema to validate your config.
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+#:schema https://yazi-rs.github.io/schemas/yazi.json
 
 [mgr]
 ratio          = [ 1, 4, 3 ]
@@ -9,12 +10,12 @@ sort_sensitive = false
 sort_reverse   = false
 sort_dir_first = true
 sort_translit  = false
+# sort_fallback  = "alphabetical"
 linemode       = "size_and_mtime"
 show_hidden    = false
 show_symlink   = true
 scrolloff      = 5
-mouse_events   = [ "click", "scroll" ]
-title_format   = "Yazi: {cwd}"
+mouse_events   = [ "click", "scroll", "drag" ]
 
 [preview]
 wrap            = "no"
@@ -79,11 +80,11 @@ rules = [
 	# Media
 	{ mime = "{audio,video}/*", use = [ "Reproducir", "Explorador", "Revelar" ] },
 	# PDF
-	{ mime = "application/pdf", use = [ "PDF", "Explorador", "Revelar"  ] },
+	{ mime = "application/pdf", use = [ "PDF", "Explorador", "Revelar" ] },
 		# LibreOffice
-  { name = "*.{odt,ott,fodt,ods,ots,fods,odp,otp,fodp,odg,otg,fodg,odf,odb}", use = [ "LibreOffice", "Explorador" ] },
-  { name = "*.{doc,docx,dot,dotx,docm,dotm,rtf,xls,xlsx,xlw,xlt,xlsm,xltx,xltm,xlsb,ppt,pptx,pps,ppsx,pot,potx,pptm,potm}", use = [ "LibreOffice", "Abrir", "Explorador", "Revelar" ] },
-  { name = "*.{csv,txt,wk1,wks,123,dif,dbf,slk,wb2,numbers,htm,html,xml,sxw,sxc,sxi,sxd,sdc,vor,uos,uof}", use = [ "LibreOffice", "Explorador", "Revelar" ] },
+  { url = "*.{odt,ott,fodt,ods,ots,fods,odp,otp,fodp,odg,otg,fodg,odf,odb}", use = [ "LibreOffice", "Explorador" ] },
+  { url = "*.{doc,docx,dot,dotx,docm,dotm,rtf,xls,xlsx,xlw,xlt,xlsm,xltx,xltm,xlsb,ppt,pptx,pps,ppsx,pot,potx,pptm,potm}", use = [ "LibreOffice", "Abrir", "Explorador", "Revelar" ] },
+  { url = "*.{csv,txt,wk1,wks,123,dif,dbf,slk,wb2,numbers,htm,html,xml,sxw,sxc,sxi,sxd,sdc,vor,uos,uof}", use = [ "LibreOffice", "Explorador", "Revelar" ] },
 	# Archive
 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", use = [ "Extraer", "Explorador", "Revelar" ] },
 	# JSON
@@ -98,8 +99,12 @@ rules = [
 ]
 
 [tasks]
-micro_workers    = 8
-macro_workers    = 4
+file_workers     = 4
+plugin_workers   = 2
+fetch_workers    = 4
+preload_workers  = 4
+process_workers  = 2
+
 bizarre_retry    = 4
 image_alloc      = 67108864  # 64MB
 image_bound      = [ 8000, 8000 ]
@@ -108,12 +113,15 @@ suppress_preload = false
 [plugin]
 fetchers = [
 	# Mimetype
-	{ id = "mime", url = "*/",         run = "mime.dir", prio = "high" },
-	{ id = "mime", url = "local://*",  run = "mime.local", prio = "high" },
-	{ id = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
+	{  url = "*/",         run = "mime.dir", prio = "high", group = "mime" },
+	{  url = "local://*",  run = "mime.local", prio = "high", group = "mime" },
+	{  url = "remote://*", run = "mime.remote", prio = "high", group = "mime" },
 ]
 spotters = [
-	{ url = "*/", run = "folder" },
+	# Multi-file
+	{ mime = "multi/*", run = "multi" },
+  # Folder
+ 	{ url = "*/", run = "folder" },
 	# Code
 	{ mime = "text/*", run = "code" },
 	{ mime = "application/{mbox,javascript,wine-extension-ini}", run = "code" },
@@ -184,7 +192,7 @@ prepend_preloaders = [
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
-    { name = "*.docx", run = "office" },
+    { url = "*.docx", run = "office" },
 ]
 prepend_previewers = [
     # Office Documents
@@ -192,18 +200,18 @@ prepend_previewers = [
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
-    { name = "*.docx", run = "office" },
+    { url = "*.docx", run = "office" },
 ]
 
 [[plugin.prepend_fetchers]]
-id  = "git"
-url = "*"
-run = "git"
+url   = "*"
+run   = "git"
+group = "git"
 
 [[plugin.prepend_fetchers]]
-id  = "git"
-url = "*/"
-run = "git"
+url   = "*/"
+run   = "git"
+group = "git"
 
 [input]
 cursor_blink = false

@@ -25,5 +25,6 @@ th.git.untracked_sign = "?" -- Archivos sin seguimiento
 th.git.ignored_sign = "" -- Ignorados (.gitignore)
 th.git.updated_sign = "" -- Actualizados (renombrados, moved, etc.)
 require("git"):setup({
+	-- Order of status signs showing in the linemode
 	order = 500,
 })
