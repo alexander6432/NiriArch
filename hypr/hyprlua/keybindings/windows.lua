@@ -1,6 +1,6 @@
----------------------
----- KEYBINDINGS ----
----------------------
+-----------------
+---- WINDOWS ----
+-----------------
 
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 local shift   = "SHIFT + "

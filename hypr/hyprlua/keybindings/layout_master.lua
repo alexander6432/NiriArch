@@ -1,6 +1,7 @@
----------------------
----- KEYBINDINGS ----
----------------------
+-----------------------
+---- LAYOUT MASTER ----
+-----------------------
+
 local M = { binds = {} }
 
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
@@ -21,6 +22,9 @@ M.binds.focus_master  =  hl.bind(mainMod .. "O", hl.dsp.layout("focusmaster auto
 
 M.binds.plus          =  hl.bind(mainMod .. "plus", hl.dsp.layout("mfact +0.05"))
 M.binds.minus         =  hl.bind(mainMod .. "minus", hl.dsp.layout("mfact -0.05"))
+
+M.binds.orientation_n =  hl.bind(mainMod .. "Tab", hl.dsp.layout("orientationcycle left top right bottom"))
+M.binds.orientation_p =  hl.bind(mainMod .. shift .. "Tab", hl.dsp.layout("orientationcycle bottom right top left"))
 
 M.binds.remove_master =  hl.bind(mainMod .. "R", hl.dsp.layout("removemaster"))
 M.binds.add_master    =  hl.bind(mainMod .. shift .. "R", hl.dsp.layout("addmaster"))

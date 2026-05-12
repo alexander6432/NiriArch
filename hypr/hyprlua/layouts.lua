@@ -1,9 +1,13 @@
+-----------------
+---- LAYOUTS ----
+-----------------
+
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
     dwindle = {
+        force_split = 0,
         preserve_split = true, -- You probably want this
         smart_split = false,
-        force_split = 0,
         smart_resizing = true,
         special_scale_factor = 0.95,
         use_active_for_splits = true,
@@ -19,6 +23,7 @@ hl.config({
         allow_small_split = true,
         special_scale_factor = 0.95,
         mfact = 0.55,
+        new_status = "inherit",
         new_on_top = true,
         new_on_active = "before",
         orientation = "left",

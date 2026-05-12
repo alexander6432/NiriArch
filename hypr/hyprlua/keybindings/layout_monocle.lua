@@ -1,6 +1,7 @@
----------------------
----- KEYBINDINGS ----
----------------------
+------------------------
+---- LAYOUT MONOCLE ----
+------------------------
+
 local M = { binds = {} }
 
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier

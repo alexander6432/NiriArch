@@ -1,6 +1,6 @@
----------------------
----- KEYBINDINGS ----
----------------------
+-------------------
+---- FUNCTIONS ----
+-------------------
 
 local volumenIncrease    = "qs -c noctalia-shell ipc call volume increase"
 local volumeDecrease     = "qs -c noctalia-shell ipc call volume decrease"

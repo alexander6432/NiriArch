@@ -1,6 +1,7 @@
----------------------
----- KEYBINDINGS ----
----------------------
+------------------------
+---- LAYOUT DWINDLE ----
+------------------------
+
 local M = { binds = {} }
 
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier

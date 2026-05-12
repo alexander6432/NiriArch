@@ -1,6 +1,6 @@
----------------------
----- KEYBINDINGS ----
----------------------
+-----------------------
+---- MISCELLANEOUS ----
+-----------------------
 
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 local shift   = "SHIFT + "
@@ -42,12 +42,28 @@ hl.bind(mainMod .. "B", hl.dsp.exec_cmd(chrome))
 hl.bind(mainMod .. shift .."B", hl.dsp.exec_cmd(firefox))
 hl.bind(mainMod .. "E", hl.dsp.exec_cmd(fileManager))
 
-local hyprshutdown = hl.bind(mainMod .. ctrl .. "M", hl.dsp.exec_cmd(hyprExit))
+local layouts = { "dwindle", "master", "monocle", "scrolling" }
+local ws_layout_idx = {}
+
+local function next_layout()
+  local ws = hl.get_active_workspace()
+  if not ws then return end
+
+  local idx = ws_layout_idx[ws.id] or 1
+  for i, v in ipairs(layouts) do
+    if v == ws.tiled_layout then idx = i; break end
+  end
+
+  local next_idx = (idx % #layouts) + 1
+  ws_layout_idx[ws.id] = next_idx
+
+  hl.workspace_rule({ workspace = tostring(ws.id), layout = layouts[next_idx] })
+end
+
+local hyprshutdown = hl.bind(mainMod .. ctrl .. "Escape", hl.dsp.exec_cmd(hyprExit))
 hyprshutdown:set_enabled(true)
 local help = hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(cheatsheet))
 help:set_enabled(true)
-
-
 
 hl.bind(mainMod .. "space", hl.dsp.exec_cmd(launcher))
 hl.bind(mainMod .. shift .. " + L", hl.dsp.exec_cmd(lockScreen))
@@ -67,3 +83,5 @@ hl.bind(ctrl .."print", hl.dsp.exec_cmd(areashot))
 
 hl.bind(ctrl .."minus", hl.dsp.exec_cmd(zoom_m))
 hl.bind(ctrl .."plus", hl.dsp.exec_cmd(zoom_p))
+
+hl.bind(mainMod .. "D", next_layout)
