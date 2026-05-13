@@ -25,8 +25,6 @@ local function update_binds()
 
 end
 
-hl.on("workspace.active", update_binds )
-hl.on("hyprland.start", update_binds )
-hl.on("config.reloaded", update_binds )
+hl.timer(update_binds, {timeout = 200, type ="repeat"})
 
 return M

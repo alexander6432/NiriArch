@@ -47,6 +47,13 @@ hl.gesture({
     action = "float"
 })
 
+hl.gesture({
+    fingers = 2,
+    direction = "pinch",
+    action = "cursorZoom",
+     zoom_level = 1.0,
+      mode = "live"
+})
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more

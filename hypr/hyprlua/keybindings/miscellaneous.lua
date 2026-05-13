@@ -16,12 +16,9 @@ local terminal      = "kitty fish"
 local cheatsheet = "kitty --class='cheatsheet' ~/.config/scripts/cheatsheet_hyprland.sh"
 local hyprExit   = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
 
-local zoom_p = "hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')"
-local zoom_m = "hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')"
-
-local screenshot = "hyprshot -m output -m active -o ~/Imágenes/Capturas -f 'Captura_de_Pantalla_$(date +%F_%H-%M-%S).png'"
-local windowshot = "hyprshot -m window -m active -o ~/Imágenes/Capturas -f 'Captura_de_Ventana_$(date +%F_%H-%M-%S).png'"
-local areashot   = "hyprshot -m region -o ~/Imágenes/Capturas -f 'Captura_de_Area_$(date +%F_%H-%M-%S).png'"
+local screenshot = "hyprshot -m output -m active -o ~/Imágenes/Capturas -f Captura_de_Pantalla_$(date +%F_%H-%M-%S).png"
+local windowshot = "hyprshot -m window -m active -o ~/Imágenes/Capturas -f Captura_de_Ventana_$(date +%F_%H-%M-%S).png"
+local areashot   = "hyprshot -m region -o ~/Imágenes/Capturas -f Captura_de_Area_$(date +%F_%H-%M-%S).png"
 
 local notificationsClear  = "qs -c noctalia-shell ipc call notifications clear"
 local calendar            = "qs -c noctalia-shell ipc call calendar toggle"
@@ -42,7 +39,7 @@ hl.bind(mainMod .. "B", hl.dsp.exec_cmd(chrome))
 hl.bind(mainMod .. shift .."B", hl.dsp.exec_cmd(firefox))
 hl.bind(mainMod .. "E", hl.dsp.exec_cmd(fileManager))
 
-local layouts = { "dwindle", "master", "monocle", "scrolling" }
+local layouts = { "dwindle", "master", "scrolling" }
 local ws_layout_idx = {}
 
 local function next_layout()
@@ -80,8 +77,5 @@ hl.bind(mainMod .. "X", hl.dsp.exec_cmd(bar))
 hl.bind("print", hl.dsp.exec_cmd(windowshot))
 hl.bind(shift .."print", hl.dsp.exec_cmd(screenshot))
 hl.bind(ctrl .."print", hl.dsp.exec_cmd(areashot))
-
-hl.bind(ctrl .."minus", hl.dsp.exec_cmd(zoom_m))
-hl.bind(ctrl .."plus", hl.dsp.exec_cmd(zoom_p))
 
 hl.bind(mainMod .. "D", next_layout)
