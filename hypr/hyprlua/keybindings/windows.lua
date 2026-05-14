@@ -42,7 +42,15 @@ hl.bind(alt .. ctrl .. "Tab", hl.dsp.window.cycle_next({ floating = true}))
 hl.bind(mainMod .. "U",  hl.dsp.focus({ last = true }))
 hl.bind(mainMod .. shift .. "U",  hl.dsp.focus({ urgent_or_last = true }))
 
-hl.bind(mainMod .. "F", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. "F", function ()
+  hl.dispatch(hl.dsp.window.float({action = "toggle"}))
+  local monitor = hl.get_active_monitor()
+  if not monitor then return end
+  local height = monitor.height * 0.7
+  local width = monitor.width * 0.7
+  hl.dispatch(hl.dsp.window.resize({x = width, y = height}))
+end)
+
 hl.bind(mainMod .. shift .. "F", hl.dsp.window.pseudo({ action = "toggle" }))
 hl.bind(mainMod .. "P", hl.dsp.window.pin())
 
