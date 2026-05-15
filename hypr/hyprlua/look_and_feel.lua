@@ -91,5 +91,13 @@ hl.config({
             input_methods_ignorealpha = 0.25,
 
         },
+
+        glow = {
+            enabled = true,
+            range = 4,
+            render_power = 2,
+            color = "rgba(1a1a1aee)",
+            color_inactive = "rgba(1a1a1aee)",
+        }
     },
 })

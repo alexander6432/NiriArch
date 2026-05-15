@@ -22,6 +22,7 @@ require("hyprlua.window_and_workspace")
 
 require("hyprlua.keybindings.functions")
 require("hyprlua.keybindings.miscellaneous")
+require("hyprlua.keybindings.noctalia")
 require("hyprlua.keybindings.windows")
 require("hyprlua.keybindings.workspaces")
 
