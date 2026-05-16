@@ -23,7 +23,6 @@ hl.config({
             inactive_border = "rgba(595959aa)",
         },
 
-        -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border        = true,
         no_focus_fallback       = true,
         extend_border_grab_area = 8,
@@ -53,7 +52,6 @@ hl.config({
         rounding       = 8,
         rounding_power = 4.0,
 
-        -- Change transparency of focused and unfocused windows
         active_opacity     = 1.0,
         inactive_opacity   = 0.9,
         fullscreen_opacity = 1.0,

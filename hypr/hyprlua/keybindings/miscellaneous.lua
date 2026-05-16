@@ -6,7 +6,6 @@ local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 local shift   = "SHIFT + "
 local ctrl    = "CTRL + "
 
--- Set programs that you use
 local chrome        = "google-chrome-stable"
 local firefox       = "firefox"
 local fileManager   = "nautilus"
@@ -26,9 +25,9 @@ hl.bind(mainMod .. shift .."B",      hl.dsp.exec_cmd(firefox),     { desc = "Abr
 hl.bind(mainMod ..         "E",      hl.dsp.exec_cmd(fileManager), { desc = "Abrir explorador de archivos" })
 hl.bind(mainMod .. ctrl .. "Escape", hl.dsp.exec_cmd(hyprExit),    { desc = "Forzar salida de hyprland" })
 
-hl.bind(        "print", hl.dsp.exec_cmd(windowshot), { desc = "Captura de ventana" })
-hl.bind(shift .."print", hl.dsp.exec_cmd(screenshot), { desc = "Captura de pantalla" })
-hl.bind(ctrl .. "print", hl.dsp.exec_cmd(areashot),   { desc = "Captura de pantalla por area" })
+hl.bind(        "Print", hl.dsp.exec_cmd(windowshot), { desc = "Captura de ventana" })
+hl.bind(shift .."Print", hl.dsp.exec_cmd(screenshot), { desc = "Captura de pantalla" })
+hl.bind(ctrl .. "Print", hl.dsp.exec_cmd(areashot),   { desc = "Captura de pantalla por area" })
 
 hl.bind(mainMod .. shift .."Return", hl.dsp.exec_cmd(
   terminal,
@@ -40,7 +39,7 @@ hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(
   {float = true, size = {"(monitor_w * 0.6)", "(monitor_h * 0.4)"}}
 ), { desc = "Abrir buscador de atajos de teclado" })
 
-hl.bind(mainMod .. "D", function()
+hl.bind(mainMod .. "D", function ()
   local layouts = { "dwindle", "master", "scrolling" }
   local ws_layout_idx = {}
 

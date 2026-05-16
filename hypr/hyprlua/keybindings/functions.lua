@@ -22,7 +22,7 @@ hl.bind("XF86AudioMicMute",      hl.dsp.exec_cmd(muteInput),       { locked = tr
 hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(brightnessIncrease), { locked = true, repeating = true, desc = "Reducir el brillo" })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(brightnessDecrease), { locked = true, repeating = true, desc = "Aumentar el brillo" })
 
--- Requi res playerctl
+-- Requires playerctl
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd(playPause), { locked = true, desc = "Pausar o reproducir multimedia" })
 hl.bind("XF86AudioStop",  hl.dsp.exec_cmd(stop),      { locked = true, desc = "Detener multimedia" })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd(previous),  { locked = true, desc = "Anterior multimedia" })

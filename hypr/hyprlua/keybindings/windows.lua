@@ -7,28 +7,26 @@ local shift   = "SHIFT + "
 local ctrl    = "CTRL + "
 local alt    = "ALT + "
 
--- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. "left",  hl.dsp.focus({ direction = "left" }),  { desc = "Enfocar ventana de la izquierda" })
-hl.bind(mainMod .. "right", hl.dsp.focus({ direction = "right" }), { desc = "Enfocar ventana de la derecha" })
-hl.bind(mainMod .. "up",    hl.dsp.focus({ direction = "up" }),    { desc = "Enfocar ventana de arriba" })
-hl.bind(mainMod .. "down",  hl.dsp.focus({ direction = "down" }) , { desc = "Enfocar ventana de abajo" })
+hl.bind(mainMod .. "Left",  hl.dsp.focus({ direction = "left" }),  { desc = "Enfocar ventana de la izquierda" })
+hl.bind(mainMod .. "Right", hl.dsp.focus({ direction = "right" }), { desc = "Enfocar ventana de la derecha" })
+hl.bind(mainMod .. "Up",    hl.dsp.focus({ direction = "up" }),    { desc = "Enfocar ventana de arriba" })
+hl.bind(mainMod .. "Down",  hl.dsp.focus({ direction = "down" }) , { desc = "Enfocar ventana de abajo" })
 
-hl.bind(mainMod .. shift .. "left",  hl.dsp.window.move({ direction = "left" }), { desc = "Mover ventana a la izquierda"})
-hl.bind(mainMod .. shift .. "right", hl.dsp.window.move({ direction = "right" }),{ desc = "Mover ventana a la derecha"})
-hl.bind(mainMod .. shift .. "up",    hl.dsp.window.move({ direction = "up" }),   { desc = "Mover ventana a hacia arriba"})
-hl.bind(mainMod .. shift .. "down",  hl.dsp.window.move({ direction = "down" }), { desc = "Mover ventana a hacia abajo"})
+hl.bind(mainMod .. shift .. "Left",  hl.dsp.window.move({ direction = "left" }), { desc = "Mover ventana a la izquierda"})
+hl.bind(mainMod .. shift .. "Right", hl.dsp.window.move({ direction = "right" }),{ desc = "Mover ventana a la derecha"})
+hl.bind(mainMod .. shift .. "Up",    hl.dsp.window.move({ direction = "up" }),   { desc = "Mover ventana a hacia arriba"})
+hl.bind(mainMod .. shift .. "Down",  hl.dsp.window.move({ direction = "down" }), { desc = "Mover ventana a hacia abajo"})
 
-hl.bind(mainMod .. ctrl .. "left",  hl.dsp.window.move({ x = -20, y = 0,   relative = true }), { desc = "Mover ventana a la izquierda por pasos" })
-hl.bind(mainMod .. ctrl .. "right", hl.dsp.window.move({ x = 20,  y = 0,   relative = true }), { desc = "Mover ventana a la derecha por pasos" })
-hl.bind(mainMod .. ctrl .. "up",    hl.dsp.window.move({ x = 0,   y = -20, relative = true }), { desc = "Mover ventana a hacia arriba por pasos" })
-hl.bind(mainMod .. ctrl .. "down",  hl.dsp.window.move({ x = 0,   y = 20,  relative = true }), { desc = "Mover ventana a hacia abajo por pasos" })
+hl.bind(mainMod .. ctrl .. "Left",  hl.dsp.window.move({ x = -20, y = 0,   relative = true }), { desc = "Mover ventana a la izquierda por pasos" })
+hl.bind(mainMod .. ctrl .. "Right", hl.dsp.window.move({ x = 20,  y = 0,   relative = true }), { desc = "Mover ventana a la derecha por pasos" })
+hl.bind(mainMod .. ctrl .. "Up",    hl.dsp.window.move({ x = 0,   y = -20, relative = true }), { desc = "Mover ventana a hacia arriba por pasos" })
+hl.bind(mainMod .. ctrl .. "Down",  hl.dsp.window.move({ x = 0,   y = 20,  relative = true }), { desc = "Mover ventana a hacia abajo por pasos" })
 
-hl.bind(mainMod .. alt .. "left",  hl.dsp.window.resize({ x = -20, y = 0,   relative = true }), { repeating = true, desc = "Reducir el ancho de la ventana" })
-hl.bind(mainMod .. alt .. "right", hl.dsp.window.resize({ x = 20,  y = 0,   relative = true }), { repeating = true, desc = "Aumentar el ancho de la ventana" })
-hl.bind(mainMod .. alt .. "up",    hl.dsp.window.resize({ x = 0,   y = -20, relative = true }), { repeating = true, desc = "Aumentar el alto de la ventana" })
-hl.bind(mainMod .. alt .. "down",  hl.dsp.window.resize({ x = 0,   y = 20,  relative = true }), { repeating = true, desc = "Reducir el alto de la ventana" })
+hl.bind(mainMod .. alt .. "Left",  hl.dsp.window.resize({ x = -20, y = 0,   relative = true }), { repeating = true, desc = "Reducir el ancho de la ventana" })
+hl.bind(mainMod .. alt .. "Right", hl.dsp.window.resize({ x = 20,  y = 0,   relative = true }), { repeating = true, desc = "Aumentar el ancho de la ventana" })
+hl.bind(mainMod .. alt .. "Up",    hl.dsp.window.resize({ x = 0,   y = -20, relative = true }), { repeating = true, desc = "Aumentar el alto de la ventana" })
+hl.bind(mainMod .. alt .. "Down",  hl.dsp.window.resize({ x = 0,   y = 20,  relative = true }), { repeating = true, desc = "Reducir el alto de la ventana" })
 
--- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. "mouse:272", hl.dsp.window.drag(),   { mouse = true, desc = "Mover ventana[mouse]" })
 hl.bind(mainMod .. "ALT_L",     hl.dsp.window.resize(), { mouse = true, desc = "Redimensionar ventana[mouse]" })
 
