@@ -7,8 +7,8 @@ local M = { binds = {} }
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 local shift = "SHIFT + "
 
-M.binds.cycle_next = hl.bind(mainMod .. "Tab", hl.dsp.layout("cyclenext"))
-M.binds.cycle_prev = hl.bind(mainMod .. shift .. "Tab", hl.dsp.layout("cycleprev"))
+M.binds.cycle_next = hl.bind(mainMod ..          "Tab", hl.dsp.layout("cyclenext"), {desc = "Pasar a la siguiente ventana[monocle]" })
+M.binds.cycle_prev = hl.bind(mainMod .. shift .. "Tab", hl.dsp.layout("cycleprev"), {desc = "Pasar a la anterior ventana[monocle]" })
 
 local function update_binds()
   local ws = hl.get_active_workspace()

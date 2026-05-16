@@ -20,24 +20,25 @@ local windowshot = "hyprshot -m window -m active -o ~/Imágenes/Capturas -f Capt
 local areashot   = "hyprshot -m region -o ~/Imágenes/Capturas -f Captura_de_Area_$(date +%F_%H-%M-%S).png"
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. "Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod ..         "Return", hl.dsp.exec_cmd(terminal),    { desc = "Abrir la terminal" })
+hl.bind(mainMod ..         "B",      hl.dsp.exec_cmd(chrome),      { desc = "Abrir google chrome" })
+hl.bind(mainMod .. shift .."B",      hl.dsp.exec_cmd(firefox),     { desc = "Abrir firefox" })
+hl.bind(mainMod ..         "E",      hl.dsp.exec_cmd(fileManager), { desc = "Abrir explorador de archivos" })
+hl.bind(mainMod .. ctrl .. "Escape", hl.dsp.exec_cmd(hyprExit),    { desc = "Forzar salida de hyprland" })
+
+hl.bind(        "print", hl.dsp.exec_cmd(windowshot), { desc = "Captura de ventana" })
+hl.bind(shift .."print", hl.dsp.exec_cmd(screenshot), { desc = "Captura de pantalla" })
+hl.bind(ctrl .. "print", hl.dsp.exec_cmd(areashot),   { desc = "Captura de pantalla por area" })
+
 hl.bind(mainMod .. shift .."Return", hl.dsp.exec_cmd(
   terminal,
   {float = true, size = {"(monitor_w * 0.5)", "(monitor_h * 0.5)"}}
-))
+), { desc = "Abrir terminal flotante" })
+
 hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(
   cheatsheet,
-  {float = true, size = {"(monitor_w * 0.5)", "(monitor_h * 0.4)"}}
-))
-
-hl.bind(mainMod .. "B", hl.dsp.exec_cmd(chrome))
-hl.bind(mainMod .. shift .."B", hl.dsp.exec_cmd(firefox))
-hl.bind(mainMod .. "E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. ctrl .. "Escape", hl.dsp.exec_cmd(hyprExit))
-
-hl.bind("print", hl.dsp.exec_cmd(windowshot))
-hl.bind(shift .."print", hl.dsp.exec_cmd(screenshot))
-hl.bind(ctrl .."print", hl.dsp.exec_cmd(areashot))
+  {float = true, size = {"(monitor_w * 0.6)", "(monitor_h * 0.4)"}}
+), { desc = "Abrir buscador de atajos de teclado" })
 
 hl.bind(mainMod .. "D", function()
   local layouts = { "dwindle", "master", "scrolling" }
@@ -55,4 +56,5 @@ hl.bind(mainMod .. "D", function()
   ws_layout_idx[ws.id] = next_idx
 
   hl.workspace_rule({ workspace = tostring(ws.id), layout = layouts[next_idx] })
-end)
+end,
+{ desc = "Cambiar de layout" })
