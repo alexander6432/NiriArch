@@ -30,3 +30,6 @@ require("hyprlua.keybindings.layout_dwindle")
 require("hyprlua.keybindings.layout_master")
 require("hyprlua.keybindings.layout_monocle")
 require("hyprlua.keybindings.layout_scrolling")
+
+-- noctalia
+pcall(require, "noctalia_colors")

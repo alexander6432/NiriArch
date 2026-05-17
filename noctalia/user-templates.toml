@@ -1,0 +1,8 @@
+[config]
+
+[templates]
+
+[templates.hyprlua]
+input_path = "~/.config/noctalia/templates/hyprland.lua"
+output_path = "~/.config/hypr/noctalia_colors.lua"
+# post_hook = "myapp --reload-theme"

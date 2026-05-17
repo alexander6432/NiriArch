@@ -26,9 +26,9 @@ while true; do
       notify-send --app-name Alerta_Bateria -u normal "🔌 Cargador conectado" "Cargando: $bat%" -u normal
     elif [ "$status" = "Discharging" ] && [ "$previous_status" = "Charging" ]; then
       notify-send --app-name Alerta_Bateria -u normal "🔋 Cargador desconectado" "Batería: $bat%" -u normal
-    elif [ "$status" = "Full" ] && [ "$previous_status" = "Charging" ]; then
-      notify-send --app-name Alerta_Bateria -u low "🔋 Batería llena" "Puedes desconectar el cargador" -u normal
-      last_full_notify=$current_time
+    # elif [ "$status" = "Full" ] && [ "$previous_status" = "Charging" ]; then
+    #   notify-send --app-name Alerta_Bateria -u low "🔋 Batería llena" "Puedes desconectar el cargador" -u normal
+    #   last_full_notify=$current_time
     fi
   fi
 
@@ -44,16 +44,16 @@ while true; do
         last_low_battery_notify=$current_time
       fi
     elif [ "$bat" -le 25 ]; then
-      # Bajo: notifica cada 5 minutos
-      if [ $((current_time - last_low_battery_notify)) -ge 300 ]; then
+      # Bajo: notifica cada 3 minutos
+      if [ $((current_time - last_low_battery_notify)) -ge 90 ]; then
         notify-send --app-name Alerta_Bateria -u critical "🪫 Batería baja" "Nivel: $bat%" -u normal
         last_low_battery_notify=$current_time
       fi
     fi
   elif [ "$status" = "Charging" ]; then
     if [ "$bat" -ge 95 ]; then
-      # Casi llena: notifica cada 10 minutos
-      if [ $((current_time - last_charging_notify)) -ge 600 ]; then
+      # Casi llena: notifica cada 5 minutos
+      if [ $((current_time - last_charging_notify)) -ge 300 ]; then
         notify-send --app-name Alerta_Bateria -u low "⚡ Batería casi llena" "Nivel: $bat%" -u normal
         last_charging_notify=$current_time
       fi
@@ -64,15 +64,15 @@ while true; do
         last_charging_notify=$current_time
       fi
     fi
-  elif [ "$status" = "Full" ]; then
-    # Llena: notifica cada 10 minutos si no cambió de estado
-    if [ $((current_time - last_full_notify)) -ge 600 ]; then
-      notify-send --app-name Alerta_Bateria -u low "🔋 Batería llena" "Puedes desconectar el cargador" -u normal
-      last_full_notify=$current_time
-    fi
-  else
-    notify-send --app-name Alerta_Bateria -u critical "⚠️ Estado desconocido" "No se puede leer el estado de la batería" -u normal
-  fi
+  # elif [ "$status" = "Full" ]; then
+  #   # Llena: notifica cada 10 minutos si no cambió de estado
+  #   if [ $((current_time - last_full_notify)) -ge 1200 ]; then
+  #     notify-send --app-name Alerta_Bateria -u low "🔋 Batería llena" "Puedes desconectar el cargador" -u normal
+  #     last_full_notify=$current_time
+  #   fi
+  # else
+  #   notify-send --app-name Alerta_Bateria -u critical "⚠️ Estado desconocido" "No se puede leer el estado de la batería" -u normal
+  # fi
 
   # Verifica cada segundo para detectar cambios rápidamente
   sleep 1
