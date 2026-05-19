@@ -1,6 +1,0 @@
-[language-server.lua-language-server]
-command = "lua-language-server"
-
-[language-server.lua-language-server.config.Lua]
-workspace.library = ["/usr/share/hypr/stubs"]
-diagnostics.globals = ["hl"]

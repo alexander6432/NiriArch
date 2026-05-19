@@ -4,5 +4,5 @@
 
 [templates.hyprlua]
 input_path = "~/.config/noctalia/templates/hyprland.lua"
-output_path = "~/.config/hypr/noctalia_colors.lua"
-# post_hook = "myapp --reload-theme"
+output_path = "~/.config/hypr/noctalia.lua"
+post_hook = "hyprctl reload config-only"

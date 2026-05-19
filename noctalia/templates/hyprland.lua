@@ -1,9 +1,9 @@
-local primary = "rgb({{colors.primary.default.hex_stripped}})"
-local surface = "rgb({{colors.surface.default.hex_stripped}})"
-local secondary = "rgb({{colors.secondary.default.hex_stripped}})"
-local error = "rgb({{colors.error.default.hex_stripped}})"
-local tertiary = "rgb({{colors.tertiary.default.hex_stripped}})"
-local surface_lowest = "rgb({{colors.surface_container_lowest.default.hex_stripped}})"
+local primary = "rgba({{colors.primary.default.hex_stripped}}ee)"
+local surface = "rgba({{colors.surface.default.hex_stripped}}aa)"
+local secondary = "rgba({{colors.secondary.default.hex_stripped}}ee)"
+local error = "rgba({{colors.error.default.hex_stripped}}ee)"
+local tertiary = "rgba({{colors.tertiary.default.hex_stripped}}ee)"
+local surface_lowest = "rgba({{colors.surface_container_lowest.default.hex_stripped}}aa)"
 
 hl. config ({
     general = {
