@@ -7,13 +7,13 @@ window-rule {
     clip-to-geometry true
     draw-border-with-background false
     background-effect {
-        xray false
+        // xray false
         blur true
     }
     popups {
         geometry-corner-radius 4
         background-effect {
-            xray false
+            // xray false
             blur true
         }
     }
