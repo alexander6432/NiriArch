@@ -32,4 +32,9 @@ require("hyprlua.keybindings.layout_monocle")
 require("hyprlua.keybindings.layout_scrolling")
 
 -- noctalia
-require("noctalia")
+local home = os.getenv("HOME")
+local file_dir =  "/.config/hypr/noctalia.lua"
+
+if os.rename(home .. file_dir , home .. file_dir) ~= nil then
+  require("noctalia")
+end

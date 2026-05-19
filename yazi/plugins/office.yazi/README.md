@@ -46,7 +46,6 @@ prepend_preloaders = [
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
-    { name = "*.docx", run = "office" },
 ]
 
 prepend_previewers = [
@@ -55,7 +54,6 @@ prepend_previewers = [
     { mime = "application/oasis.opendocument.*", run = "office" },
     { mime = "application/ms-*", run = "office" },
     { mime = "application/msword", run = "office" },
-    { name = "*.docx", run = "office" },
 ]
 ```
 
