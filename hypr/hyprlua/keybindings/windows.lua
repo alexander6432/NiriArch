@@ -51,18 +51,21 @@ hl.bind(mainMod ..          "C", hl.dsp.window.center(),                      { 
 
 hl.bind(mainMod .. "F", function()
   local scale = 0.70
-  hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-
   local window = hl.get_active_window()
   if not window then return end
 
+  local monitor = hl.get_active_monitor()
+  if not monitor then return end
+
+  local x = math.min(monitor.width * scale, window.size.x)
+  local y = math.min(monitor.height * scale, window.size.y)
+
+  hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+
+  window = hl.get_active_window()
+  if not window then return end
+
   if window.floating then
-    local monitor = hl.get_active_monitor()
-    if not monitor then return end
-
-    local x = math.min(monitor.width * scale, window.size.x)
-    local y = math.min(monitor.height * scale, window.size.y)
-
     hl.dispatch(hl.dsp.window.pseudo({ action = "disable" }))
     hl.dispatch(hl.dsp.window.resize({ x = x, y = y }))
     hl.dispatch(hl.dsp.window.center())

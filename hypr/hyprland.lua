@@ -26,10 +26,10 @@ require("hyprlua.keybindings.noctalia_v4")
 require("hyprlua.keybindings.windows")
 require("hyprlua.keybindings.workspaces")
 
-require("hyprlua.keybindings.layout_dwindle")
-require("hyprlua.keybindings.layout_master")
-require("hyprlua.keybindings.layout_monocle")
-require("hyprlua.keybindings.layout_scrolling")
+require("hyprlua.keybindings.layout_dwindle").setup()
+require("hyprlua.keybindings.layout_master").setup()
+require("hyprlua.keybindings.layout_monocle").setup()
+require("hyprlua.keybindings.layout_scrolling").setup()
 
 -- noctalia
 local home = os.getenv("HOME")
