@@ -31,8 +31,8 @@ hl.bind(mainMod .. "mouse:272", hl.dsp.window.drag(),   { mouse = true, desc = "
 hl.bind(mainMod .. "ALT_L",     hl.dsp.window.resize(), { mouse = true, desc = "Redimensionar ventana[mouse]" })
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod ..          "Q", hl.dsp.window.close(),{ desc = "Cerrar ventana" })
-hl.bind(mainMod .. shift .. "Q", hl.dsp.window.kill(), { desc = "Matar ventana" })
+hl.bind(mainMod ..          "Q", hl.dsp.window.close(), { desc = "Cerrar ventana" })
+hl.bind(mainMod .. shift .. "Q", hl.dsp.window.kill(),  { desc = "Matar ventana" })
 
 hl.bind(mainMod ..          "M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),             { desc = "Maximizar ventana" })
 hl.bind(mainMod .. shift .. "M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),            { desc = "Pantalla completa" })
@@ -47,7 +47,7 @@ hl.bind(mainMod .. shift .. "U",  hl.dsp.focus({ last = true }),           { des
 
 hl.bind(mainMod .. shift .. "F", hl.dsp.window.pseudo({ action = "toggle" }), { desc = "Pseudo-flotante" })
 hl.bind(mainMod ..          "P", hl.dsp.window.pin(),                         { desc = "Fijar ventana flotante" })
-hl.bind(mainMod .. "C", hl.dsp.window.center(),                               { desc = "centrar ventana flotante" })
+hl.bind(mainMod ..          "C", hl.dsp.window.center(),                      { desc = "centrar ventana flotante" })
 
 hl.bind(mainMod .. "F", function ()
   local scale = 0.70

@@ -23,7 +23,7 @@ hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(brightness_increase), { locked 
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(brightness_decrease), { locked = true, repeating = true, desc = "Aumentar el brillo" })
 
 -- Requires playerctl
-hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd(play_pause), { locked = true, desc = "Pausar o reproducir multimedia" })
-hl.bind("XF86AudioStop",  hl.dsp.exec_cmd(stop),       { locked = true, desc = "Detener multimedia" })
-hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd(previous),   { locked = true, desc = "Anterior multimedia" })
-hl.bind("XF86AudioNext",  hl.dsp.exec_cmd(next),       { locked = true, desc = "Siguiente multimedia" })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(play_pause), { locked = true, desc = "Pausar o reproducir multimedia" })
+hl.bind("XF86AudioStop", hl.dsp.exec_cmd(stop),       { locked = true, desc = "Detener multimedia" })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(previous),   { locked = true, desc = "Anterior multimedia" })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(next),       { locked = true, desc = "Siguiente multimedia" })

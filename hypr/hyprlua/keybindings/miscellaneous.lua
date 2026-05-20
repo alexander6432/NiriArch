@@ -6,10 +6,10 @@ local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 local shift   = "SHIFT + "
 local ctrl    = "CTRL + "
 
-local chrome         = "google-chrome-stable"
-local firefox        = "firefox"
-local file_manager   = "nautilus"
-local terminal       = "kitty fish"
+local chrome       = "google-chrome-stable"
+local firefox      = "firefox"
+local file_manager = "nautilus"
+local terminal     = "kitty fish"
 
 local cheat_sheet = "kitty ~/.config/scripts/cheatsheet_hyprland.sh"
 local hypr_exit   = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
