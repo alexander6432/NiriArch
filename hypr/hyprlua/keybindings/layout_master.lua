@@ -43,7 +43,7 @@ local function update_binds()
 
   local active = ws.tiled_layout == "master"
 
-  for _, b in pairs (M.binds) do
+  for _, b in pairs(M.binds) do
     b:set_enabled(active)
   end
 

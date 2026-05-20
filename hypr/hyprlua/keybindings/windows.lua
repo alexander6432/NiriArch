@@ -49,7 +49,7 @@ hl.bind(mainMod .. shift .. "F", hl.dsp.window.pseudo({ action = "toggle" }), { 
 hl.bind(mainMod ..          "P", hl.dsp.window.pin(),                         { desc = "Fijar ventana flotante" })
 hl.bind(mainMod ..          "C", hl.dsp.window.center(),                      { desc = "centrar ventana flotante" })
 
-hl.bind(mainMod .. "F", function ()
+hl.bind(mainMod .. "F", function()
   local scale = 0.70
   hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
 

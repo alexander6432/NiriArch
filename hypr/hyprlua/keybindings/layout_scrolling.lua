@@ -9,7 +9,7 @@ local shift = "SHIFT + "
 local ctrl = "CTRL + "
 
 local function direction(dir)
-  return function ()
+  return function()
     local ws = hl.get_active_workspace()
     if not ws then return end
 
@@ -49,7 +49,7 @@ local function update_binds()
 
   local active = ws.tiled_layout == "scrolling"
 
-  for _, b in pairs (M.binds) do
+  for _, b in pairs(M.binds) do
     b:set_enabled(active)
   end
 

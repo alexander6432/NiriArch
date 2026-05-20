@@ -39,21 +39,17 @@ hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(
   {float = true, size = {"(monitor_w * 0.6)", "(monitor_h * 0.4)"}}
 ), { desc = "Abrir buscador de atajos de teclado" })
 
-hl.bind(mainMod .. "D", function ()
-  local layouts = { "dwindle", "master", "scrolling" }
-  local ws_layout_idx = {}
+local layouts = { "dwindle", "master", "scrolling" }
 
+hl.bind(mainMod .. "D", function()
   local ws = hl.get_active_workspace()
   if not ws then return end
 
-  local idx = ws_layout_idx[ws.id] or 1
+  local idx = 1
   for i, v in ipairs(layouts) do
     if v == ws.tiled_layout then idx = i; break end
   end
 
   local next_idx = (idx % #layouts) + 1
-  ws_layout_idx[ws.id] = next_idx
-
   hl.workspace_rule({ workspace = tostring(ws.id), layout = layouts[next_idx] })
-end,
-{ desc = "Cambiar de layout" })
+end, { desc = "Cambiar de layout" })
