@@ -45,11 +45,11 @@ hl.bind(mainMod .. special_key,          hl.dsp.workspace.toggle_special(special
 hl.bind(mainMod .. shift .. special_key, hl.dsp.window.move({ workspace = "special:" .. special }),                 { desc = "Mover ventana al workspace especial: " .. special })
 hl.bind(mainMod .. ctrl ..  special_key, hl.dsp.window.move({ workspace = "special:" .. special, follow = false }), { desc = "Mover ventana al workspace especial: " .. special .. " sin enfocarlo" })
 
-hl.bind(mainMod .. plus,  workspace_nav("next", "focus"),       { desc = "Ir al siguiente workspace" })
-hl.bind(mainMod .. minus, workspace_nav("prev", "focus"),       { desc = "Ir al anterior workspace" })
+hl.bind(mainMod .. plus,  workspace_nav("next", "focus"), { desc = "Ir al siguiente workspace" })
+hl.bind(mainMod .. minus, workspace_nav("prev", "focus"), { desc = "Ir al anterior workspace" })
 
-hl.bind(mainMod .. shift .. plus,  workspace_nav("next", "move", true),  { desc = "Mover ventana al siguiente workspace" })
-hl.bind(mainMod .. shift .. minus, workspace_nav("prev", "move", true),  { desc = "Mover ventana al anterior workspace" })
+hl.bind(mainMod .. shift .. plus,  workspace_nav("next", "move", true), { desc = "Mover ventana al siguiente workspace" })
+hl.bind(mainMod .. shift .. minus, workspace_nav("prev", "move", true), { desc = "Mover ventana al anterior workspace" })
 
 hl.bind(mainMod .. ctrl .. plus,  workspace_nav("next", "move", false), { desc = "Mover ventana al siguiente workspace sin enfocarlo" })
 hl.bind(mainMod .. ctrl .. minus, workspace_nav("prev", "move", false), { desc = "Mover ventana al anterior workspace sin enfocarlo" })
