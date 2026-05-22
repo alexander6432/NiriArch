@@ -42,12 +42,25 @@ hl.bind(alt ..          "Tab", hl.dsp.window.cycle_next(),                    { 
 hl.bind(alt .. shift .. "Tab", hl.dsp.window.cycle_next({ next = false }),    { desc = "Enfocar anterior ventana" })
 hl.bind(alt .. ctrl ..  "Tab", hl.dsp.window.cycle_next({ floating = true }), { desc = "Enfocar siguiente ventana flotante" })
 
-hl.bind(mainMod ..          "U",  hl.dsp.focus({ urgent_or_last = true }), { desc = "Enfocar última ventana o la que requiere atención" })
-hl.bind(mainMod .. shift .. "U",  hl.dsp.focus({ last = true }),           { desc = "Enfocar última ventana" })
+hl.bind(mainMod ..          "U",  hl.dsp.focus({ last = true }),           { desc = "Enfocar última ventana" })
+hl.bind(mainMod .. shift .. "U",  hl.dsp.focus({ urgent_or_last = true }), { desc = "Enfocar última ventana o la que requiere atención" })
+
 
 hl.bind(mainMod .. shift .. "F", hl.dsp.window.pseudo({ action = "toggle" }), { desc = "Pseudo-flotante" })
 hl.bind(mainMod ..          "P", hl.dsp.window.pin(),                         { desc = "Fijar ventana flotante" })
 hl.bind(mainMod ..          "C", hl.dsp.window.center(),                      { desc = "centrar ventana flotante" })
+
+hl.bind(mainMod .. ctrl ..  "Q", function()
+  local wa = hl.get_active_workspace()
+  if not wa then return end
+
+  local wo = hl.get_workspace_windows(wa)
+
+  for _, win in pairs(wo) do
+    hl.dispatch(hl.dsp.window.close({window = win}))
+  end
+
+end)
 
 hl.bind(mainMod .. "F", function()
   local scale = 0.70
