@@ -7,10 +7,6 @@ local shift   = "SHIFT + "
 local ctrl    = "CTRL + "
 local plus = "Period"
 local minus = "Comma"
-local min_key = "Apostrophe"
-local toggle = "Exclamdown"
-
-local special = "minimized"
 
 local workspace_nav = {
     after  = {
@@ -68,34 +64,3 @@ hl.bind(mainMod .. shift .. minus, relative_workspace("before", "move", true),  
 hl.bind(mainMod .. ctrl .. plus,   relative_workspace("after",  "move", false), { desc = "Mover ventana al siguiente workspace sin enfocarlo" })
 
 hl.bind(mainMod .. ctrl .. minus,  relative_workspace("before", "move", false), { desc = "Mover ventana al anterior workspace sin enfocarlo" })
-
-hl.bind(mainMod ..         min_key,  hl.dsp.window.move({ workspace = "special:" .. special, follow = false }), { desc = "Minimizar Ventanas" })
-hl.bind(mainMod .. shift .. min_key, hl.dsp.workspace.toggle_special(special),                                          { desc = "Ir al workspace de ventanas minimizadas" })
-
-hl.bind(mainMod .. toggle, function()
-  local wa = hl.get_active_workspace()
-  if not wa then return end
-
-  local windows = hl.get_windows()
-  local target = "special:" .. special
-  local minimized = {}
-
-  for _, w in ipairs(windows) do
-    if w.workspace.name == target then
-      table.insert(minimized, w)
-    end
-  end
-
-  if #minimized == 0 then
-    hl.dispatch(hl.dsp.window.move({ workspace = target, follow = false }))
-  else
-    table.sort(
-        minimized,
-        function(a, b)
-              return a.focus_history_id < b.focus_history_id
-        end
-    )
-    hl.dispatch(hl.dsp.window.move({ workspace = wa.id, window = minimized[1] }))
-  end
-end,
-{ desc = "Minimizar ventana o restaurar las ventanas minimizadas" })

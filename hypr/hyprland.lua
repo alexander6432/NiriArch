@@ -24,6 +24,7 @@ require("hyprlua.keybindings.functions")
 require("hyprlua.keybindings.miscellaneous")
 require("hyprlua.keybindings.noctalia_v4")
 require("hyprlua.keybindings.windows")
+require("hyprlua.keybindings.windows_state")
 require("hyprlua.keybindings.workspaces")
 
 require("hyprlua.keybindings.layout_dwindle").setup()
