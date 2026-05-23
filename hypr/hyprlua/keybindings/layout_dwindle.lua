@@ -8,8 +8,8 @@ local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 
 local function on_dwindle(dispatcher)
   return function()
-    local ws = hl.get_active_workspace()
-    if ws and ws.tiled_layout == "dwindle" then
+    local wa = hl.get_active_workspace()
+    if wa and wa.tiled_layout == "dwindle" then
       hl.dispatch(hl.dsp.layout(dispatcher))
     end
   end

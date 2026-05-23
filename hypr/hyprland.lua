@@ -38,26 +38,3 @@ local file_dir =  "/.config/hypr/noctalia.lua"
 if os.rename(home .. file_dir , home .. file_dir) ~= nil then
   require("noctalia")
 end
-
--- discover functions
-hl.bind("SUPER + F2", function()
-  local wa = hl.get_active_workspace()
-  if not wa then return end
-
-  local windows = hl.get_windows()
-  local target = "special:magic"
-  local minimized = {}
-
-  for _, win in ipairs(windows) do
-    if win.workspace.name == target then
-      table.insert(minimized, win)
-    end
-  end
-
-  if #minimized > 0 then
-    hl.dispatch(hl.dsp.window.move({ workspace = wa.id, window = minimized[1] }))
-  else
-    hl.dispatch(hl.dsp.window.move({ workspace = target, follow = false }))
-  end
-
-end)

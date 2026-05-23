@@ -10,10 +10,10 @@ local ctrl = "CTRL + "
 
 local function on_scrolling(action, is_direction)
   return function()
-    local ws = hl.get_active_workspace()
-    if not ws or ws.tiled_layout ~= "scrolling" then return end
+    local wa = hl.get_active_workspace()
+    if not wa or wa.tiled_layout ~= "scrolling" then return end
     if is_direction then
-      hl.workspace_rule({ workspace = tostring(ws.id), layout_opts = { direction = action } })
+      hl.workspace_rule({ workspace = tostring(wa.id), layout_opts = { direction = action } })
     else
       hl.dispatch(hl.dsp.layout(action))
     end

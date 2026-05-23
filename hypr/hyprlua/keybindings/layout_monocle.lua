@@ -6,8 +6,8 @@ local M = {}
 
 local function on_monocle(dispatcher)
   return function()
-    local ws = hl.get_active_workspace()
-    if ws and ws.tiled_layout == "monocle" then
+    local wa = hl.get_active_workspace()
+    if wa and wa.tiled_layout == "monocle" then
       hl.dispatch(hl.dsp.layout(dispatcher))
     end
   end

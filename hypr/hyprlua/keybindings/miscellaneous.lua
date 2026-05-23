@@ -42,14 +42,14 @@ hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(
 ), { desc = "Abrir buscador de atajos de teclado" })
 
 hl.bind(mainMod .. "D", function()
-  local ws = hl.get_active_workspace()
-  if not ws then return end
+  local wa = hl.get_active_workspace()
+  if not wa then return end
 
   local idx = 1
   for i, v in ipairs(layouts) do
-    if v == ws.tiled_layout then idx = i; break end
+    if v == wa.tiled_layout then idx = i; break end
   end
 
   local next_idx = (idx % #layouts) + 1
-  hl.workspace_rule({ workspace = tostring(ws.id), layout = layouts[next_idx] })
+  hl.workspace_rule({ workspace = tostring(wa.id), layout = layouts[next_idx] })
 end, { desc = "Cambiar de layout" })
