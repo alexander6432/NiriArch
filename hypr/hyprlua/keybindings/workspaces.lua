@@ -53,7 +53,7 @@ for i = 1, 10 do
     hl.bind(mainMod .. ctrl ..  key, hl.dsp.window.move({ workspace = i, follow = false }), { desc = "Mover ventana al workspace " .. key .. " sin enfocarlo" })
 end
 
-hl.bind(mainMod .. plus,  relative_workspace("after",  "focus"),  { desc = "Ir al siguiente workspace" })
+hl.bind(mainMod .. plus,  relative_workspace("after",  "focus"), { desc = "Ir al siguiente workspace" })
 
 hl.bind(mainMod .. minus, relative_workspace("before", "focus"), { desc = "Ir al anterior workspace" })
 
