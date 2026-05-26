@@ -21,7 +21,7 @@ hl.bind(mainMod ..          "C", hl.dsp.window.center(),                      { 
 hl.bind(mainMod ..         min_key,  hl.dsp.window.move({ workspace = "special:" .. special, follow = false }), { desc = "Minimizar Ventanas" })
 hl.bind(mainMod .. shift .. min_key, hl.dsp.workspace.toggle_special(special),                                          { desc = "Ir al workspace de ventanas minimizadas" })
 
-hl.bind(mainMod .. toggle, function()
+hl.bind(mainMod .. toggle, function ()
   local wa = hl.get_active_workspace()
   if not wa then return end
 
@@ -40,7 +40,7 @@ hl.bind(mainMod .. toggle, function()
   else
     table.sort(
         minimized,
-        function(a, b)
+        function (a, b)
               return a.focus_history_id < b.focus_history_id
         end
     )
@@ -49,7 +49,7 @@ hl.bind(mainMod .. toggle, function()
 end,
 { desc = "Restaurar las ventanas minimizadas o minimizar la primera ventana" })
 
-hl.bind(mainMod .. ctrl ..  "Q", function()
+hl.bind(mainMod .. ctrl ..  "Q", function ()
   local wa = hl.get_active_workspace()
   if not wa then return end
 
@@ -62,7 +62,7 @@ hl.bind(mainMod .. ctrl ..  "Q", function()
 end,
 { desc = "Cerrar todas las ventanas del workspace actual" })
 
-hl.bind(mainMod .. "F", function()
+hl.bind(mainMod .. "F", function ()
   local scale = 0.70
   local win = hl.get_active_window()
   if not win then return end

@@ -9,7 +9,7 @@ local shift = "SHIFT + "
 local ctrl = "CTRL + "
 
 local function on_scrolling(action, is_direction)
-  return function()
+  return function ()
     local wa = hl.get_active_workspace()
     if not wa or wa.tiled_layout ~= "scrolling" then return end
     if is_direction then

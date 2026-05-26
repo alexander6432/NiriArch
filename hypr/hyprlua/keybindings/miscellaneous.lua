@@ -41,7 +41,7 @@ hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(
   {float = true, size = {"(monitor_w * 0.6)", "(monitor_h * 0.4)"}}
 ), { desc = "Abrir buscador de atajos de teclado" })
 
-hl.bind(mainMod .. "D", function()
+hl.bind(mainMod .. "D", function ()
   local wa = hl.get_active_workspace()
   if not wa then return end
 

@@ -13,7 +13,7 @@ local workspace_nav = {
         empty = "e+1",
         step = "+1",
         wrap = 1,
-        limit = function(id)
+        limit = function (id)
             return id < 10
         end
     },
@@ -21,7 +21,7 @@ local workspace_nav = {
         empty = "e-1",
         step = "-1",
         wrap = 10,
-        limit = function(id)
+        limit = function (id)
             return id > 1
         end
     },
@@ -30,7 +30,7 @@ local workspace_nav = {
 local function relative_workspace(dir, action, follow)
     local nav = workspace_nav[dir]
 
-    return function()
+    return function ()
         local wa = hl.get_active_workspace()
         if not wa then return end
 

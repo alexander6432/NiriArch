@@ -9,7 +9,7 @@ local shift = "SHIFT + "
 local ctrl = "CTRL + "
 
 local function on_master(dispatcher)
-  return function()
+  return function ()
     local wa = hl.get_active_workspace()
     if wa and wa.tiled_layout == "master" then
       hl.dispatch(hl.dsp.layout(dispatcher))

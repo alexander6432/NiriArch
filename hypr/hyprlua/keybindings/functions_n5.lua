@@ -1,6 +1,6 @@
--------------------
----- FUNCTIONS ----
--------------------
+----------------------
+---- FUNCTIONS N5 ----
+----------------------
 
 local volumen_increase    = "noctalia msg volume-up 5"
 local volume_decrease     = "noctalia msg volume-down 5"

@@ -8,7 +8,7 @@ local ctrl    = "CTRL + "
 local alt    = "ALT + "
 
 local function cycle_next_float(next)
-  return function()
+  return function ()
     local wa = hl.get_active_workspace()
     if not wa then return end
 
