@@ -19,10 +19,9 @@ require("hyprlua.layouts")
 require("hyprlua.misc")
 require("hyprlua.input")
 require("hyprlua.window_and_workspace")
+require("hyprlua.layers_rules")
 
-require("hyprlua.keybindings.functions")
 require("hyprlua.keybindings.miscellaneous")
-require("hyprlua.keybindings.noctalia_v4")
 require("hyprlua.keybindings.windows")
 require("hyprlua.keybindings.windows_state")
 require("hyprlua.keybindings.workspaces")
@@ -33,6 +32,18 @@ require("hyprlua.keybindings.layout_monocle").setup()
 require("hyprlua.keybindings.layout_scrolling").setup()
 
 -- noctalia
+ local function noctalia_v5()
+  if os.getenv("USER") == "alex" then
+    require("hyprlua.keybindings.functions_n5")
+    require("hyprlua.keybindings.noctalia_v5")
+  else
+    require("hyprlua.keybindings.functions")
+    require("hyprlua.keybindings.noctalia_v4")
+  end
+end
+
+noctalia_v5()
+
 local home = os.getenv("HOME")
 local file_dir =  "/.config/hypr/noctalia.lua"
 
