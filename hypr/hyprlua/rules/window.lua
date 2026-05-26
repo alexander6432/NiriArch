@@ -1,9 +1,8 @@
---------------------------------
----- WINDOWS AND WORKSPACES ----
---------------------------------
+----------------------
+---- WINDOW RULES ----
+----------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
--- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
@@ -85,4 +84,12 @@ hl.window_rule ({
     opaque = true,
     size   = { 498, 378 },
     move   = { "(monitor_w-508)", 40 },
+})
+
+hl.window_rule ({
+    name   = "piner",
+    match  = {
+        pin = true,
+    },
+    border_size = 1,
 })

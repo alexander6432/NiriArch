@@ -33,13 +33,13 @@ hl.bind(ctrl .. "Print", hl.dsp.exec_cmd(areashot),   { desc = "Captura de panta
 
 hl.bind(mainMod .. shift .."Return", hl.dsp.exec_cmd(
   terminal,
-  {float = true, size = {"(monitor_w * 0.5)", "(monitor_h * 0.5)"}}
-), { desc = "Abrir terminal flotante" })
+  {float = true, size = {"(monitor_w * 0.5)", "(monitor_h * 0.5)"}}),
+{ desc = "Abrir terminal flotante" })
 
 hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(
   cheat_sheet,
-  {float = true, size = {"(monitor_w * 0.6)", "(monitor_h * 0.4)"}}
-), { desc = "Abrir buscador de atajos de teclado" })
+  {float = true, size = {"(monitor_w * 0.6)", "(monitor_h * 0.4)"}}),
+{ desc = "Abrir buscador de atajos de teclado" })
 
 hl.bind(mainMod .. "D", function ()
   local wa = hl.get_active_workspace()
@@ -51,5 +51,13 @@ hl.bind(mainMod .. "D", function ()
   end
 
   local next_idx = (idx % #layouts) + 1
-  hl.workspace_rule({ workspace = tostring(wa.id), layout = layouts[next_idx] })
-end, { desc = "Cambiar de layout" })
+  hl.workspace_rule({
+    workspace = tostring(wa.id),
+    layout = layouts[next_idx],
+  })
+  hl.dispatch(hl.dsp.workspace.rename({
+    workspace = wa.id,
+    name = layouts[next_idx]
+  }))
+end,
+{ desc = "Cambiar de layout" })

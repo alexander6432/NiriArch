@@ -15,6 +15,7 @@ local screen_lock          = "noctalia msg screen-lock"
 local notifications_center = "noctalia msg panel-toggle control-center notifications"
 local notifications_clear  = "noctalia msg notification-clear-history"
 local session_menu         = "noctalia msg panel-toggle session"
+local settings             = "noctalia msg settings-toggle"
 local wallpaper            = "noctalia msg panel-toggle wallpaper"
 local wallpaper_random     = "noctalia msg wallpaper-random"
 
@@ -29,3 +30,4 @@ hl.bind(mainMod ..          "W",      hl.dsp.exec_cmd(wallpaper),            { d
 hl.bind(mainMod .. shift .. "W",      hl.dsp.exec_cmd(wallpaper_random),     { desc = "Cabiar fonde de pantalla aleatoriamente" })
 hl.bind(mainMod ..          "Z",      hl.dsp.exec_cmd(idle_inhibitor),       { desc = "Activar inhibidor" })
 hl.bind(mainMod ..          "X",      hl.dsp.exec_cmd(bar),                  { desc = "Ocultar o mostrar barra de estado" })
+hl.bind(mainMod .. shift .. "X",      hl.dsp.exec_cmd(settings),             { desc = "Configurición de noctalia" })

@@ -1,6 +1,6 @@
-----------------------
----- LAYERS RULES ----
-----------------------
+---------------------
+---- LAYER RULES ----
+---------------------
 
  local function noctalia_v5()
     if os.getenv("USER") == "alex" then
