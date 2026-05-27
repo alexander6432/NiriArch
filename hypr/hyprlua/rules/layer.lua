@@ -2,6 +2,8 @@
 ---- LAYER RULES ----
 ---------------------
 
+-- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
+
  local function noctalia_v5()
     if os.getenv("USER") == "alex" then
 

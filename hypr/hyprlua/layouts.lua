@@ -3,6 +3,9 @@
 -----------------
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
+-- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
+-- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
+
 hl.config({
     dwindle = {
         force_split           = 0,
@@ -15,10 +18,7 @@ hl.config({
         split_bias            = 1,
         precise_mouse_move    = true,
     },
-})
 
--- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
-hl.config({
     master = {
         allow_small_split             = true,
         special_scale_factor          = 0.95,
@@ -33,10 +33,7 @@ hl.config({
         drop_at_cursor                = true,
         always_keep_position          = false,
     },
-})
 
--- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
-hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
         column_width             = 0.6,

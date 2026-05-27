@@ -1,8 +1,13 @@
+-----------------------
+---- WINDOWS STATE ----
+-----------------------
+
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 local shift   = "SHIFT + "
 local ctrl    = "CTRL + "
-local min_key = "Apostrophe"
-local toggle = "Exclamdown"
+
+local min_key    = "Apostrophe"
+local toggle_key = "Exclamdown"
 
 local special = "minimized"
 
@@ -21,7 +26,7 @@ hl.bind(mainMod ..          "C", hl.dsp.window.center(),                      { 
 hl.bind(mainMod ..         min_key,  hl.dsp.window.move({ workspace = "special:" .. special, follow = false }), { desc = "Minimizar Ventanas" })
 hl.bind(mainMod .. shift .. min_key, hl.dsp.workspace.toggle_special(special),                                          { desc = "Ir al workspace de ventanas minimizadas" })
 
-hl.bind(mainMod .. toggle, function ()
+hl.bind(mainMod .. toggle_key, function ()
   local wa = hl.get_active_workspace()
   if not wa then return end
 

@@ -1,6 +1,6 @@
------------------------
----- MISCELLANEOUS ----
------------------------
+---------------------
+---- NOCTALIA V4 ----
+---------------------
 
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 local shift   = "SHIFT + "

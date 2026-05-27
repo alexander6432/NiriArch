@@ -52,6 +52,7 @@ hyprctl binds | awk '
     if (k == "XF86MonBrightnessDown") return "󰃠"
     if (k == "XF86MonBrightnessUp")   return "󰃞"
     if (k == "Apostrophe")            return "\x27"
+    if (k == "Exclamdown")            return "¡"
     if (k == "ALT_L")                 return "󰌎"
     if (k == "Backspace")             return "󰌍"
     if (k == "Comma")                 return ","
@@ -70,6 +71,7 @@ hyprctl binds | awk '
     if (k == "Space")                 return "󱁐"
     if (k == "Up")                    return "󰚷"
     if (k == "Home")                  return ""
+    if (k == "switch:on:Lid")         return "Cerrar laptop"
     if (k ~ /^mouse:[0-9]+$/) {
       split(k, parts, ":")
       if (parts[2] == 272) return "󰍽 Izquierdo"

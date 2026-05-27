@@ -1,6 +1,6 @@
------------------------
----- MISCELLANEOUS ----
------------------------
+------------- -------
+---- NOCTALIA V5 ----
+---------------------
 
 local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
 local shift   = "SHIFT + "
@@ -8,6 +8,7 @@ local ctrl    = "CTRL + "
 
 local bar                  = "noctalia msg bar-toggle"
 local calendar             = "noctalia msg panel-toggle control-center calendar"
+local clipboard            = "noctalia msg panel-toggle clipboard"
 local control_center       = "noctalia msg panel-toggle control-center"
 local idle_inhibitor       = "noctalia msg caffeine-toggle"
 local launcher             = "noctalia msg panel-toggle launcher"
@@ -29,5 +30,11 @@ hl.bind(mainMod .. ctrl ..  "C",      hl.dsp.exec_cmd(calendar),             { d
 hl.bind(mainMod ..          "W",      hl.dsp.exec_cmd(wallpaper),            { desc = "Abrir selector de fondos de pantallas" })
 hl.bind(mainMod .. shift .. "W",      hl.dsp.exec_cmd(wallpaper_random),     { desc = "Cabiar fonde de pantalla aleatoriamente" })
 hl.bind(mainMod ..          "Z",      hl.dsp.exec_cmd(idle_inhibitor),       { desc = "Activar inhibidor" })
+hl.bind(mainMod .. shift .. "Z",      hl.dsp.exec_cmd(clipboard),            { desc = "Abrir clipboard" })
 hl.bind(mainMod ..          "X",      hl.dsp.exec_cmd(bar),                  { desc = "Ocultar o mostrar barra de estado" })
 hl.bind(mainMod .. shift .. "X",      hl.dsp.exec_cmd(settings),             { desc = "Configurición de noctalia" })
+
+hl.bind("switch:on:Lid Switch", function()
+    hl.dispatch(hl.dsp.exec_cmd(screen_lock))
+    hl.dispatch(hl.dsp.exec_cmd("systemctl suspend"))
+end, { locked = true, desc = "Bloquear y suspender" })
