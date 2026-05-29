@@ -9,7 +9,7 @@
 hl.config({
   dwindle = {
     force_split           = 0,
-    preserve_split        = true,     -- You probably want this
+    preserve_split        = true, -- You probably want this
     smart_split           = false,
     smart_resizing        = true,
     special_scale_factor  = 0.95,

@@ -57,12 +57,30 @@ hl.animation({ leaf = "borderangle", enabled = true, speed = 60, bezier = "easeI
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2.0, bezier = "easeInOutCirc", style = "slidefade 25%" })
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 2.0, bezier = "easeOutCirc", style = "slidefade 25%" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2.0, bezier = "easeInCirc", style = "slidefade 25%" })
-hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2.0, bezier = "easeInOutCirc", style =
-"slidefadevert 25%" })
-hl.animation({ leaf = "specialWorkspaceIn", enabled = true, speed = 2.0, bezier = "easeOutCirc", style =
-"slidefadevert 25%" })
-hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 2.0, bezier = "easeInCirc", style =
-"slidefadevert 25%" })
+hl.animation({
+  leaf = "specialWorkspace",
+  enabled = true,
+  speed = 2.0,
+  bezier = "easeInOutCirc",
+  style =
+  "slidefadevert 25%"
+})
+hl.animation({
+  leaf = "specialWorkspaceIn",
+  enabled = true,
+  speed = 2.0,
+  bezier = "easeOutCirc",
+  style =
+  "slidefadevert 25%"
+})
+hl.animation({
+  leaf = "specialWorkspaceOut",
+  enabled = true,
+  speed = 2.0,
+  bezier = "easeInCirc",
+  style =
+  "slidefadevert 25%"
+})
 
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 4.0, bezier = "easeOutCirc" })
 hl.animation({ leaf = "monitorAdded", enabled = true, speed = 10, bezier = "easeInOutCirc" })
