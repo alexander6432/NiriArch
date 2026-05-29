@@ -158,15 +158,3 @@ other-lines = "warning"
 prefix-len = 1
 max-wrap = 20
 max-diagnostics = 10
-
-[keys.normal]
-C-r = ":config-reload"
-
-[keys.normal.V]
-Q = ":buffer-close!"
-q = ":buffer-close"
-O = ":buffer-close-others!"
-o = ":buffer-close-others"
-n = ":buffer-next"
-p = ":buffer-previous"
-w = ":write-all"

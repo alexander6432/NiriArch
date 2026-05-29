@@ -4,8 +4,11 @@
 
 local M = {}
 
+local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
+local shift = "SHIFT + "
+
 local function on_monocle(dispatcher)
-  return function ()
+  return function()
     local wa = hl.get_active_workspace()
     if wa and wa.tiled_layout == "monocle" then
       hl.dispatch(hl.dsp.layout(dispatcher))
@@ -14,13 +17,8 @@ local function on_monocle(dispatcher)
 end
 
 function M.setup()
-
-local mainMod = "SUPER + " -- Sets "Windows" key as main modifier
-local shift = "SHIFT + "
-
-hl.bind(mainMod ..          "Tab", on_monocle("cyclenext"), {desc = "Pasar a la siguiente ventana[monocle]" })
-hl.bind(mainMod .. shift .. "Tab", on_monocle("cycleprev"), {desc = "Pasar a la anterior ventana[monocle]" })
-
+  hl.bind(mainMod .. "Tab", on_monocle("cyclenext"), { desc = "Pasar a la siguiente ventana[monocle]" })
+  hl.bind(mainMod .. shift .. "Tab", on_monocle("cycleprev"), { desc = "Pasar a la anterior ventana[monocle]" })
 end
 
 return M

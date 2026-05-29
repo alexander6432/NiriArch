@@ -1,13 +1,8 @@
--- This is an example Hyprland Lua config file.
--- Refer to the wiki for more information.
+------------------
+---- HYPRLAND ----
+------------------
+
 -- https://wiki.hypr.land/Configuring/Start/
-
--- Please note not all available settings / options are set here.
--- For a full list, see the wiki
-
--- You can (and should!!) split this configuration into multiple files
--- Create your files separately and then require them like this:
--- require("myColors")
 
 require("hyprlua.monitors")
 require("hyprlua.autostart")
@@ -33,7 +28,7 @@ require("hyprlua.keybindings.layouts.monocle").setup()
 require("hyprlua.keybindings.layouts.scrolling").setup()
 
 -- noctalia
- local function noctalia_v5()
+local function noctalia_v5()
   if os.getenv("USER") == "alex" then
     require("hyprlua.keybindings.functions_n5")
     require("hyprlua.keybindings.noctalia_v5")
@@ -46,8 +41,8 @@ end
 noctalia_v5()
 
 local home = os.getenv("HOME")
-local file_dir =  "/.config/hypr/noctalia.lua"
+local file_dir = "/.config/hypr/noctalia.lua"
 
-if os.rename(home .. file_dir , home .. file_dir) ~= nil then
+if os.rename(home .. file_dir, home .. file_dir) ~= nil then
   require("noctalia")
 end
