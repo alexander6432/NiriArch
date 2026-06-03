@@ -29,16 +29,14 @@ hl.config({
     hover_icon_on_border    = true,
     resize_corner           = 0,
 
-
     -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-    allow_tearing         = false,
-    modal_parent_blocking = true,
+    allow_tearing           = false,
+    modal_parent_blocking   = true,
 
+    layout                  = "dwindle",
+    locale                  = "es",
 
-    layout = "dwindle",
-    locale = "es",
-
-    snap = {
+    snap                    = {
       enabled        = true,
       window_gap     = 8,
       monitor_gap    = 8,

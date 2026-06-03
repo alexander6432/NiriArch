@@ -6,8 +6,6 @@ local mainMod      = "SUPER + " -- Sets "Windows" key as main modifier
 local shift        = "SHIFT + "
 local ctrl         = "CTRL + "
 
-local layouts      = { "dwindle", "master", "scrolling" }
-
 local chrome       = "google-chrome-stable"
 local firefox      = "firefox"
 local file_manager = "nautilus"
@@ -42,6 +40,7 @@ hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(
   { desc = "Abrir buscador de atajos de teclado" })
 
 hl.bind(mainMod .. "D", function()
+    local layouts = { "dwindle", "master", "scrolling" }
     local wa = hl.get_active_workspace()
     if not wa then return end
 

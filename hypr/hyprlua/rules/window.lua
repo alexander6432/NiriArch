@@ -28,36 +28,41 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name  = "move-hyprland-run",
-  match = { class = "hyprland-run" },
+  name   = "move-hyprland-run",
+  match  = { class = "hyprland-run" },
 
-  move  = "20 monitor_h-120",
-  float = true,
+  float  = true,
+  center = true,
+  move   = "20 monitor_h-120",
 })
 
 hl.window_rule({
-  name  = "hyprland-share-picker",
-  match = {
+  name   = "hyprland-share-picker",
+  match  = {
     class = "hyprland-share-picker",
     title = "Select what to share",
   },
-  float = true,
-  size  = { "(monitor_w/3)", "(monitor_h/2)" },
+  float  = true,
+  center = true,
+  size   = { "(monitor_w/3)", "(monitor_h/2)" },
 })
 
 hl.window_rule({
-  name  = "xdg-desktop-portal-gtk-float",
-  match = { class = "xdg-desktop-portal-gtk" },
-  float = true,
+  name   = "xdg-desktop-portal-gtk-float",
+  match  = { class = "xdg-desktop-portal-gtk" },
+  float  = true,
+  center = true,
+  size   = { "(monitor_w/2)", "(monitor_h/2)" },
 })
 
 hl.window_rule({
-  name  = "Inkscape-float",
-  match = {
+  name   = "Inkscape-float",
+  match  = {
     class = "org.inkscape.Inkscape",
     title = "jpeg importación de imagen de mapa de bits",
   },
-  float = true,
+  center = true,
+  float  = true,
 })
 
 hl.window_rule({
