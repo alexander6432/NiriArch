@@ -138,10 +138,13 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                      desc = "Ordenar Aleatoriamente" },
 
 	# Goto
-	{ on = [ "g", "h" ], run = "cd ~",             desc = "Ir al Directorio Principal" },
-	{ on = [ "g", "c" ], run = "cd ~/.config",     desc = "Ir a Configuraciones" },
-	{ on = [ "g", "d" ], run = "cd ~/Descargas",   desc = "Ir Descargas" },
-  { on = [ "g", "i" ], run = "cd --interactive", desc = "Saltar de Forma Interactiva" },
+	{ on = [ "g", "c" ], run = "cd ~/.config",        desc = "Ir a Configuraciones" },
+	{ on = [ "g", "d" ], run = "cd ~/Descargas",      desc = "Ir Descargas" },
+	{ on = [ "g", "D" ], run = "cd ~/Documentos",     desc = "Ir Documentos" },
+	{ on = [ "g", "h" ], run = "cd ~",                desc = "Ir al Directorio Principal" },
+	{ on = [ "g", "H" ], run = "cd ~/.config/hypr",   desc = "Ir a la Configuración de Hyprland" },
+  { on = [ "g", "i" ], run = "cd --interactive",    desc = "Saltar de Forma Interactiva" },
+	{ on = [ "g", "v" ], run = "cd ~/Documentos/Dev", desc = "Ir al Directorio Dev" },
 
   { on = "F", run = "follow",           desc = "Seguir el Enlace Simbólico Seleccionado" },
 
