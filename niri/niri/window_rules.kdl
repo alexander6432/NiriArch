@@ -46,8 +46,8 @@ window-rule {
 window-rule {
     match app-id=r#"^niri-keys-search$"#
     open-floating true
-    default-column-width { proportion 0.42; }
-    default-window-height { proportion 0.40; }
+    default-column-width { proportion 0.45; }
+    default-window-height { proportion 0.35; }
 }
 
 window-rule {

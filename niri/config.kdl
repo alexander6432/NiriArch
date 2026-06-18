@@ -111,6 +111,8 @@ include "./niri/input.kdl"
 
 include "./niri/outputs.kdl"
 
+include "./niri/switch-events.kdl"
+
 include "./niri/named_workspaces.kdl"
 
 include "./niri/miscellaneous.kdl"
