@@ -29,7 +29,7 @@ require("hyprlua.keybindings.layouts.scrolling").setup()
 
 -- noctalia
 local function noctalia_v5()
-  if os.getenv("USER") == "alex" then
+  if os.getenv("USER") == "alex" or  os.getenv("USER") == "maybeth" then
     require("hyprlua.keybindings.functions_n5")
     require("hyprlua.keybindings.noctalia_v5")
   else
