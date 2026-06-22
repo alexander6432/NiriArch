@@ -29,3 +29,6 @@ require("hyprlua.keybindings.layouts.scrolling").setup()
 
 require("hyprlua.keybindings.functions")
 require("hyprlua.keybindings.noctalia")
+
+-- For Noctalia Color templates
+require("noctalia")
