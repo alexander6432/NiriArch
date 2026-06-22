@@ -1,8 +1,0 @@
-[config]
-
-[templates]
-
-[templates.hyprlua]
-input_path = "~/.config/noctalia/templates/hyprland.lua"
-output_path = "~/.config/hypr/noctalia.lua"
-post_hook = "hyprctl reload config-only"

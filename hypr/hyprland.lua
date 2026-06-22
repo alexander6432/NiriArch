@@ -27,22 +27,5 @@ require("hyprlua.keybindings.layouts.master").setup()
 require("hyprlua.keybindings.layouts.monocle").setup()
 require("hyprlua.keybindings.layouts.scrolling").setup()
 
--- noctalia
-local function noctalia_v5()
-  if os.getenv("USER") == "alex" or  os.getenv("USER") == "maybeth" then
-    require("hyprlua.keybindings.functions_n5")
-    require("hyprlua.keybindings.noctalia_v5")
-  else
-    require("hyprlua.keybindings.functions")
-    require("hyprlua.keybindings.noctalia_v4")
-  end
-end
-
-noctalia_v5()
-
-local home = os.getenv("HOME")
-local file_dir = "/.config/hypr/noctalia.lua"
-
-if os.rename(home .. file_dir, home .. file_dir) ~= nil then
-  require("noctalia")
-end
+require("hyprlua.keybindings.functions")
+require("hyprlua.keybindings.noctalia")
