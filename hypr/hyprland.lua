@@ -28,7 +28,7 @@ require("hyprlua.keybindings.layouts.monocle").setup()
 require("hyprlua.keybindings.layouts.scrolling").setup()
 
 require("hyprlua.keybindings.functions")
-require("hyprlua.keybindings.noctalia")
+require("hyprlua.keybindings.noctalia_v5")
 
 -- For Noctalia Color templates
-require("noctalia")
+require("noctalia").apply_theme()
