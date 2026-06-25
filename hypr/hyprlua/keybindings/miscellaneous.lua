@@ -12,7 +12,6 @@ local file_manager = "nautilus"
 local terminal     = "kitty fish"
 
 local cheat_sheet  = "kitty ~/.config/scripts/cheatsheet_hyprland.sh"
-local wallpaper    = "~/.config/noctalia/wallpaper/wallpaper -directorio ~/Imágenes/wallpapers -tag 'tree red' -categories 110"
 local hypr_exit    = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
 
 local screenshot   = "hyprshot -m output -m active -o ~/Imágenes/Capturas -f Captura_de_Pantalla_$(date +%F_%H-%M-%S).png"
@@ -24,7 +23,6 @@ hl.bind(mainMod .. "Return", hl.dsp.exec_cmd(terminal), { desc = "Abrir la termi
 hl.bind(mainMod .. "B", hl.dsp.exec_cmd(chrome), { desc = "Abrir google chrome" })
 hl.bind(mainMod .. shift .. "B", hl.dsp.exec_cmd(firefox), { desc = "Abrir firefox" })
 hl.bind(mainMod .. "E", hl.dsp.exec_cmd(file_manager), { desc = "Abrir explorador de archivos" })
-hl.bind(mainMod .. ctrl .. "W", hl.dsp.exec_cmd(wallpaper), { desc = "Descargar fondo de pantalla aleatoriamente" })
 hl.bind(mainMod .. ctrl .. "Escape", hl.dsp.exec_cmd(hypr_exit), { desc = "Forzar salida de hyprland" })
 
 hl.bind("Print", hl.dsp.exec_cmd(windowshot), { desc = "Captura de ventana" })
