@@ -127,6 +127,7 @@ binds {
     Mod+Ctrl+C       hotkey-overlay-title="Abrir Calendario"                         repeat=false { spawn-sh "noctalia msg panel-toggle control-center calendar"; }
     Mod+W            hotkey-overlay-title="Abrir selector de fondo de pantalla"      repeat=false { spawn-sh "noctalia msg panel-toggle wallpaper"; }
     Mod+Shift+W      hotkey-overlay-title="Cambiar fondo de pantalla aleatoriamente" repeat=false { spawn-sh "noctalia msg wallpaper-random"; }
+    Mod+Ctrl+W       hotkey-overlay-title="Descargar fondo de pantalla de wallhaven" repeat=false { spawn-sh "noctalia msg panel-toggle noctalia/wallhaven:browser"; }
     Mod+Z            hotkey-overlay-title="Alternar caffeine"                        repeat=false { spawn-sh "noctalia msg caffeine-toggle"; }
     Mod+Shift+Z      hotkey-overlay-title="Abrir portapapeles"                       repeat=false { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+X            hotkey-overlay-title="Alternar barra de estado"                 repeat=false { spawn-sh "noctalia msg bar-toggle"; }
