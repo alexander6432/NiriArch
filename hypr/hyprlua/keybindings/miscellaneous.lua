@@ -10,6 +10,8 @@ local chrome       = "google-chrome-stable"
 local firefox      = "firefox"
 local file_manager = "nautilus"
 local terminal     = "kitty fish"
+local zellij       = "kitty zellij"
+local yazi         = "kitty fish -c yazi"
 
 local cheat_sheet  = "kitty ~/.config/scripts/cheatsheet_hyprland.sh"
 local hypr_exit    = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
@@ -20,9 +22,11 @@ local areashot     = "hyprshot -m region -o ~/Imágenes/Capturas -f Captura_de_A
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. "Return", hl.dsp.exec_cmd(terminal), { desc = "Abrir la terminal" })
+hl.bind(mainMod .. ctrl .. "Return", hl.dsp.exec_cmd(zellij), { desc = "Abrir la zellij" })
 hl.bind(mainMod .. "B", hl.dsp.exec_cmd(chrome), { desc = "Abrir google chrome" })
 hl.bind(mainMod .. shift .. "B", hl.dsp.exec_cmd(firefox), { desc = "Abrir firefox" })
 hl.bind(mainMod .. "E", hl.dsp.exec_cmd(file_manager), { desc = "Abrir explorador de archivos" })
+hl.bind(mainMod .. shift .. "E", hl.dsp.exec_cmd(yazi), { desc = "Abrir yazi" })
 hl.bind(mainMod .. ctrl .. "Escape", hl.dsp.exec_cmd(hypr_exit), { desc = "Forzar salida de hyprland" })
 
 hl.bind("Print", hl.dsp.exec_cmd(windowshot), { desc = "Captura de ventana" })
