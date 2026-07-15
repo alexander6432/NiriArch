@@ -7,29 +7,6 @@ local shift   = "SHIFT + "
 local ctrl    = "CTRL + "
 local alt     = "ALT + "
 
-local function cycle_next_float(next)
-  return function()
-    local wa = hl.get_active_workspace()
-    if not wa then return end
-
-    local win = hl.get_active_window()
-    if not win then return end
-
-    local windows = hl.get_workspace_windows(wa.id)
-
-    local float = {}
-    for _, w in pairs(windows) do
-      if w.floating then table.insert(float, w) end
-    end
-
-    if #float > 0 and not win.floating then
-      hl.dispatch(hl.dsp.window.cycle_next({ floating = true, next = next }))
-    else
-      hl.dispatch(hl.dsp.window.cycle_next({ next = next }))
-    end
-  end
-end
-
 hl.bind(mainMod .. "Left", hl.dsp.focus({ direction = "left" }), { desc = "Enfocar ventana de la izquierda" })
 hl.bind(mainMod .. "Right", hl.dsp.focus({ direction = "right" }), { desc = "Enfocar ventana de la derecha" })
 hl.bind(mainMod .. "Up", hl.dsp.focus({ direction = "up" }), { desc = "Enfocar ventana de arriba" })
@@ -64,6 +41,29 @@ hl.bind(mainMod .. alt .. "Down", hl.dsp.window.resize({ x = 0, y = 20, relative
 
 hl.bind(mainMod .. "mouse:272", hl.dsp.window.drag(), { mouse = true, desc = "Mover ventana[mouse]" })
 hl.bind(mainMod .. "ALT_L", hl.dsp.window.resize(), { mouse = true, desc = "Redimensionar ventana[mouse]" })
+
+local function cycle_next_float(next)
+  return function()
+    local wa = hl.get_active_workspace()
+    if not wa then return end
+
+    local win = hl.get_active_window()
+    if not win then return end
+
+    local windows = hl.get_workspace_windows(wa.id)
+
+    local float = {}
+    for _, w in pairs(windows) do
+      if w.floating then table.insert(float, w) end
+    end
+
+    if #float > 0 and not win.floating then
+      hl.dispatch(hl.dsp.window.cycle_next({ floating = true, next = next }))
+    else
+      hl.dispatch(hl.dsp.window.cycle_next({ next = next }))
+    end
+  end
+end
 
 hl.bind(alt .. "Tab", cycle_next_float(true), { desc = "Enfocar siguiente ventana" })
 hl.bind(alt .. shift .. "Tab", cycle_next_float(false), { desc = "Enfocar anterior ventana" })

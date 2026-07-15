@@ -123,8 +123,8 @@ keymap = [
 	{ on = "N", run = "find_arrow --previous",   desc = "Anterior Encontrado" },
 
 	# Sorting
-	{ on = [ ",", "m" ], run = [ "sort mtime --reverse=no", "linemode mtime" ], desc = "Ordenar por Fecha de Modificación" },
-	{ on = [ ",", "M" ], run = [ "sort mtime --reverse", "linemode mtime" ],    desc = "Ordenar por Fecha de Modificación (Invertido)" },
+	{ on = [ ",", "f" ], run = [ "sort mtime --reverse=no", "linemode mtime" ], desc = "Ordenar por Fecha de Modificación" },
+	{ on = [ ",", "F" ], run = [ "sort mtime --reverse", "linemode mtime" ],    desc = "Ordenar por Fecha de Modificación (Invertido)" },
 	{ on = [ ",", "c" ], run = [ "sort btime --reverse=no", "linemode btime" ], desc = "Ordenar por Fecha de Creación" },
 	{ on = [ ",", "C" ], run = [ "sort btime --reverse", "linemode btime" ],    desc = "Ordenar por Fecha de Creación (Invertido)" },
 	{ on = [ ",", "e" ], run = "sort extension --reverse=no",                   desc = "Ordenar por Extensión" },
@@ -144,7 +144,9 @@ keymap = [
 	{ on = [ "g", "h" ], run = "cd ~",                desc = "Ir al Directorio Principal" },
 	{ on = [ "g", "H" ], run = "cd ~/.config/hypr",   desc = "Ir a la Configuración de Hyprland" },
   { on = [ "g", "i" ], run = "cd --interactive",    desc = "Saltar de Forma Interactiva" },
+  { on = [ "g", "I" ], run = "cd ~/Imágenes",       desc = "Saltar de Forma Interactiva" },
 	{ on = [ "g", "v" ], run = "cd ~/Documentos/Dev", desc = "Ir al Directorio Dev" },
+	{ on = [ "g", "V" ], run = "cd ~/Vídeos",         desc = "Ir al Directorio Dev" },
 
   { on = "F", run = "follow",           desc = "Seguir el Enlace Simbólico Seleccionado" },
 

@@ -29,21 +29,24 @@ function M.setup()
   hl.bind(mainMod .. "Plus", on_scrolling("colresize +0.05"), { desc = "Aumentar relacion de ventana[scrolling]" })
   hl.bind(mainMod .. "Minus", on_scrolling("colresize -0.05"), { desc = "Aumentar relacion de ventana[scrolling]" })
 
-  hl.bind(mainMod .. "A", on_scrolling("swapcol l"), { desc = "Intercambiar ventana con la anterior[scrolling]" })
-  hl.bind(mainMod .. "S", on_scrolling("swapcol r"), { desc = "Intercambiar ventana con la siguiente[scrolling]" })
+  hl.bind(mainMod .. "A", on_scrolling("fit visible"), { desc = "Ajustar ventanas visibles a la pantalla[scrolling]" })
+  hl.bind(mainMod .. "S", on_scrolling("fit all"), { desc = "Ajustar  todas las ventanas a la pantalla[scrolling]" })
 
-  hl.bind(mainMod .. shift .. "A", on_scrolling("consume_or_expel prev"),
+  hl.bind(mainMod .. shift .. "A", on_scrolling("swapcol l"),
+    { desc = "Intercambiar ventana con la anterior[scrolling]" })
+  hl.bind(mainMod .. shift .. "S", on_scrolling("swapcol r"),
+    { desc = "Intercambiar ventana con la siguiente[scrolling]" })
+
+  hl.bind(mainMod .. "G", on_scrolling("fit_into_view"),
+    { desc = "Intercambiar ventana con la siguiente[scrolling]" })
+
+  hl.bind(mainMod .. "I", on_scrolling("consume_or_expel prev"),
     { desc = "Consumir o expulsar con la anterior ventana[scrolling]" })
-  hl.bind(mainMod .. shift .. "S", on_scrolling("consume_or_expel next"),
+  hl.bind(mainMod .. "O", on_scrolling("consume_or_expel next"),
     { desc = "Consumir o expulsar con la siguiente ventana[scrolling]" })
 
-  hl.bind(mainMod .. ctrl .. "A", on_scrolling("fit visible"),
-    { desc = "Ajustar ventanas visibles a la pantalla[scrolling]" })
-  hl.bind(mainMod .. ctrl .. "S", on_scrolling("fit all"),
-    { desc = "Ajustar  todas las ventanas a la pantalla[scrolling]" })
-
-  hl.bind(mainMod .. "I", on_scrolling("expel"), { desc = "Expulsar ventana[scrolling]" })
-  hl.bind(mainMod .. "O", on_scrolling("consume"), { desc = "Consumir ventana[scrolling]" })
+  hl.bind(mainMod .. shift .. "I", on_scrolling("expel"), { desc = "Expulsar ventana[scrolling]" })
+  hl.bind(mainMod .. shift .. "O", on_scrolling("consume"), { desc = "Consumir ventana[scrolling]" })
 
   hl.bind(mainMod .. "H", on_scrolling("left", true), { desc = "Cambiar orientación del scrolling[scrolling]" })
   hl.bind(mainMod .. "L", on_scrolling("right", true), { desc = "Cambiar orientación del scrolling[scrolling]" })

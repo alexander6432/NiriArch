@@ -16,7 +16,6 @@ end
 
 require("recycle-bin"):setup()
 require("starship"):setup()
-require("full-border"):setup({ type = ui.Border.ROUNDED })
 th.git = th.git or {}
 th.git.modified_sign = "" -- Archivos modificados
 th.git.deleted_sign = "" -- Archivos eliminados
