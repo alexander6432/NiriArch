@@ -43,26 +43,46 @@ hl.bind(mainMod .. "F1", hl.dsp.exec_cmd(
     { float = true, size = { "(monitor_w * 0.6)", "(monitor_h * 0.4)" } }),
   { desc = "Abrir buscador de atajos de teclado" })
 
-hl.bind(mainMod .. "D", function()
-    local layouts = { "dwindle", "master", "scrolling" }
-    local wa = hl.get_active_workspace()
+local function get_active_workspace_any()
+  return hl.get_active_special_workspace() or hl.get_active_workspace()
+end
+
+local function apply_layout(wa, layout)
+  if wa.special then
+    hl.workspace_rule({ workspace = tostring(wa.name), layout = layout })
+  else
+    hl.workspace_rule({ workspace = tostring(wa.id), layout = layout })
+    hl.dispatch(hl.dsp.workspace.rename({ workspace = wa.id, name = layout }))
+  end
+end
+
+local function set_layout(layout)
+  return function()
+    local wa = get_active_workspace_any()
+    if not wa then return end
+    apply_layout(wa, layout)
+  end
+end
+
+local function change_layouts()
+  local layouts = { "scrolling", "dwindle", "master", "monocle" }
+  return function()
+    local wa = get_active_workspace_any()
     if not wa then return end
 
-    local idx = 1
+    local next_layout = "dwindle"
     for i, v in ipairs(layouts) do
       if v == wa.tiled_layout then
-        idx = i; break
+        next_layout = layouts[(i % #layouts) + 1]
+        break
       end
     end
+    apply_layout(wa, next_layout)
+  end
+end
 
-    local next_idx = (idx % #layouts) + 1
-    hl.workspace_rule({
-      workspace = tostring(wa.id),
-      layout = layouts[next_idx],
-    })
-    hl.dispatch(hl.dsp.workspace.rename({
-      workspace = wa.id,
-      name = layouts[next_idx]
-    }))
-  end,
-  { desc = "Cambiar de layout" })
+hl.bind(mainMod .. "F8", set_layout("dwindle"), { desc = "Layout dwindle" })
+hl.bind(mainMod .. "F9", set_layout("master"), { desc = "Layout master" })
+hl.bind(mainMod .. "F10", set_layout("monocle"), { desc = "Layout monocle" })
+hl.bind(mainMod .. "F11", set_layout("scrolling"), { desc = "Layout scrolling" })
+hl.bind(mainMod .. "F12", change_layouts(), { desc = "Cambiar de layouts" })

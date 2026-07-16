@@ -2,12 +2,12 @@
 ---- WORKSPACES ----
 --------------------
 
-local mainMod       = "SUPER + " -- Sets "Windows" key as main modifier
-local shift         = "SHIFT + "
-local ctrl          = "CTRL + "
-local plus          = "Period"
-local minus         = "Comma"
-local total_ws      = 9
+local mainMod  = "SUPER + "      -- Sets "Windows" key as main modifier
+local shift    = "SHIFT + "
+local ctrl     = "CTRL + "
+local plus     = "Period"
+local minus    = "Comma"
+local total_ws = 9
 
 for i = 1, total_ws do
   local key = i % 10 -- si total_ws=10, el workspace 10 se pide con la tecla 0
@@ -24,8 +24,8 @@ local function make_nav(sign, wrap)
     step  = step,
     wrap  = wrap,
     limit = sign > 0
-      and function(id) return id < total_ws end
-      or  function(id) return id > 1 end,
+        and function(id) return id < total_ws end
+        or function(id) return id > 1 end,
   }
 end
 
