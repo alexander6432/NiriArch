@@ -2,6 +2,8 @@
 ---- WINDOW RULES ----
 ----------------------
 
+local colors = require("noctalia").colors
+
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 
 local suppressMaximizeRule = hl.window_rule({
@@ -97,4 +99,13 @@ hl.window_rule({
     pin = true,
   },
   border_size = 1,
+  no_shadow = true
 })
+
+  hl.window_rule({
+    name   = "maximize",
+    match  = {
+      fullscreen = true
+    },
+    border_color = colors.error
+  })
