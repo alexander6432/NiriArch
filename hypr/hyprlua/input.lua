@@ -38,21 +38,30 @@ hl.config({
 hl.gesture({
   fingers   = 3,
   direction = "horizontal",
-  action    = "workspace"
+  action    = "workspace",
 })
 
 hl.gesture({
+  fingers        = 3,
+  direction      = "vertical",
+  action         = "special",
+  workspace_name = "minimized",
+})
+
+hl.gesture({
+  mods      = "SHIFT",
   fingers   = 3,
-  direction = "vertical",
-  action    = "float"
+  direction = "swipe",
+  action    = "resize",
 })
 
 hl.gesture({
+  mods       = "SHIFT",
   fingers    = 2,
   direction  = "pinch",
   action     = "cursorZoom",
   zoom_level = 1.0,
-  mode       = "live"
+  mode       = "live",
 })
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more

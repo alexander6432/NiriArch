@@ -18,8 +18,8 @@ require("hyprlua.rules.layer")
 require("hyprlua.rules.workspace")
 
 require("hyprlua.keybindings.miscellaneous")
+require("hyprlua.keybindings.general")
 require("hyprlua.keybindings.windows")
-require("hyprlua.keybindings.windows_state")
 require("hyprlua.keybindings.workspaces")
 
 require("hyprlua.keybindings.layouts.dwindle").setup()
