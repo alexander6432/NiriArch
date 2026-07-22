@@ -45,10 +45,12 @@ function M.setup()
   hl.bind(mainMod .. shift .. "I", on_scrolling("expel"), { desc = "Expulsar ventana[scrolling]" })
   hl.bind(mainMod .. shift .. "O", on_scrolling("consume"), { desc = "Consumir ventana[scrolling]" })
 
-  hl.bind(mainMod .. "H", on_scrolling("left", true), { desc = "Cambiar orientación del scrolling[scrolling]" })
-  hl.bind(mainMod .. "L", on_scrolling("right", true), { desc = "Cambiar orientación del scrolling[scrolling]" })
-  hl.bind(mainMod .. "K", on_scrolling("up", true), { desc = "Cambiar orientación del scrolling[scrolling]" })
-  hl.bind(mainMod .. "J", on_scrolling("down", true), { desc = "Cambiar orientación del scrolling[scrolling]" })
+  hl.bind(mainMod .. "D", on_scrolling("inhibit_scroll"), { desc = "Congela el desplazamiento[scrolling]" })
+
+  hl.bind(mainMod .. "H", on_scrolling("left", true), { desc = "Cambiar orientación del desplazamiento[scrolling]" })
+  hl.bind(mainMod .. "L", on_scrolling("right", true), { desc = "Cambiar orientación del desplazamiento[scrolling]" })
+  hl.bind(mainMod .. "K", on_scrolling("up", true), { desc = "Cambiar orientación del desplazamiento[scrolling]" })
+  hl.bind(mainMod .. "J", on_scrolling("down", true), { desc = "Cambiar orientación del desplazamiento[scrolling]" })
 end
 
 return M

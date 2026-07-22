@@ -39,7 +39,7 @@ hl.config({
     column_width             = 0.8,
     focus_fit_method         = 1,
     follow_focus             = true,
-    follow_min_visible       = 0.6,
+    follow_min_visible       = 0.4,
     explicit_column_widths   = "0.2, 0.4, 0.6, 0.8",
     direction                = "right",
   },

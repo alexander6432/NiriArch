@@ -22,20 +22,21 @@ hl.curve("easeOutBack", { type = "bezier", points = { { 0.34, 1.56 }, { 0.64, 1 
 hl.curve("easeInOutBack", { type = "bezier", points = { { 0.68, -0.6 }, { 0.32, 1.6 } } })
 
 -- Default springs
-hl.curve("personal", { type = "spring", mass = 1, stiffness = 50, dampening = 10 })
+hl.curve("personal", { type = "spring", mass = 1, stiffness = 200, dampening = 20 })
 
+-- GLOBAL
 hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "linear" })
 
 -- styles: slide(top, bottom, left, right), popin(0-100%), gnomed
-hl.animation({ leaf = "windows", enabled = true, speed = 4.0, bezier = "easeInOutCirc", style = "popin 75%" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.0, spring = "personal", style = "popin 75%" })
+hl.animation({ leaf = "windows", enabled = true, speed = 0.5, bezier = "easeInOutCirc", style = "popin 75%" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 0.5, spring = "personal", style = "popin 75%" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.0, bezier = "easeInCirc", style = "popin 75%" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 4.0, spring = "personal" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 0.5, spring = "personal" })
 
 -- styles: slide(top, bottom, left, right), popin(0-100%), fade
 hl.animation({ leaf = "layers", enabled = true, speed = 2.0, bezier = "easeInOutCirc", style = "popin 75%" })
 hl.animation({ leaf = "layersIn", enabled = true, speed = 2.0, bezier = "easeOutCirc", style = "popin 75%" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 2.0, bezier = "easeInCirc", style = "poppin 75%" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 2.0, bezier = "easeInCirc", style = "popin 75%" })
 
 hl.animation({ leaf = "fade", enabled = true, speed = 2.0, bezier = "easeInOutCirc" })
 hl.animation({ leaf = "fadeIn", enabled = true, speed = 2.0, bezier = "easeOutCirc" })

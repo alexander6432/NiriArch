@@ -7,15 +7,7 @@ local shift   = "SHIFT + "
 local ctrl    = "CTRL + "
 local alt     = "ALT + "
 
-hl.bind(mainMod .. "Left", hl.dsp.focus({ direction = "left" }), { desc = "Enfocar ventana de la izquierda" })
-hl.bind(mainMod .. "Right", hl.dsp.focus({ direction = "right" }), { desc = "Enfocar ventana de la derecha" })
-hl.bind(mainMod .. "Up", hl.dsp.focus({ direction = "up" }), { desc = "Enfocar ventana de arriba" })
-hl.bind(mainMod .. "Down", hl.dsp.focus({ direction = "down" }), { desc = "Enfocar ventana de abajo" })
-
-hl.bind(mainMod .. "U", hl.dsp.focus({ last = true }), { desc = "Enfocar última ventana" })
-hl.bind(mainMod .. shift .. "U", hl.dsp.focus({ urgent_or_last = true }),
-  { desc = "Enfocar última ventana o la que requiere atención" })
-
+-- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. shift .. "Left", hl.dsp.window.move({ direction = "left" }), { desc = "Mover ventana a la izquierda" })
 hl.bind(mainMod .. shift .. "Right", hl.dsp.window.move({ direction = "right" }), { desc = "Mover ventana a la derecha" })
 hl.bind(mainMod .. shift .. "Up", hl.dsp.window.move({ direction = "up" }), { desc = "Mover ventana a hacia arriba" })
@@ -39,31 +31,57 @@ hl.bind(mainMod .. alt .. "Up", hl.dsp.window.resize({ x = 0, y = -20, relative 
 hl.bind(mainMod .. alt .. "Down", hl.dsp.window.resize({ x = 0, y = 20, relative = true }),
   { repeating = true, desc = "Reducir el alto de la ventana" })
 
+hl.bind(alt .. "Tab", hl.dsp.window.cycle_next({ next = true }), { desc = "Enfocar siguiente ventana" })
+hl.bind(alt .. shift .. "Tab", hl.dsp.window.cycle_next({ next = false }), { desc = "Enfocar anterior ventana" })
+
 hl.bind(mainMod .. "mouse:272", hl.dsp.window.drag(), { mouse = true, desc = "Mover ventana[mouse]" })
 hl.bind(mainMod .. "ALT_L", hl.dsp.window.resize(), { mouse = true, desc = "Redimensionar ventana[mouse]" })
 
-local function cycle_next_float(next)
-  return function()
-    local wa = hl.get_active_workspace()
-    if not wa then return end
-
-    local win = hl.get_active_window()
-    if not win then return end
-
-    local windows = hl.get_workspace_windows(wa.id)
-
-    local float = {}
-    for _, w in pairs(windows) do
-      if w.floating then table.insert(float, w) end
-    end
-
-    if #float > 0 and not win.floating then
-      hl.dispatch(hl.dsp.window.cycle_next({ floating = true, next = next }))
-    else
-      hl.dispatch(hl.dsp.window.cycle_next({ next = next }))
-    end
+hl.bind(mainMod .. "Q", hl.dsp.window.close(), { desc = "Cerrar ventana" })
+hl.bind(mainMod .. shift .. "Q", hl.dsp.window.kill(), { desc = "Matar ventana" })
+hl.bind(mainMod .. ctrl .. "Q", function()
+  local wa = hl.get_active_workspace()
+  if not wa then return end
+  for _, win in ipairs(hl.get_workspace_windows(wa)) do
+    hl.dispatch(hl.dsp.window.close({ window = win }))
   end
-end
+end, { desc = "Cerrar todas las ventanas del workspace actual" })
 
-hl.bind(alt .. "Tab", cycle_next_float(true), { desc = "Enfocar siguiente ventana" })
-hl.bind(alt .. shift .. "Tab", cycle_next_float(false), { desc = "Enfocar anterior ventana" })
+
+hl.bind(mainMod .. shift .. "M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
+  { desc = "Pantalla completa" })
+hl.bind(mainMod .. ctrl .. "M", hl.dsp.window.fullscreen_state({ internal = 0, client = 3, action = "toggle" }),
+  { desc = "Falsa pantalla completa" })
+hl.bind(mainMod .. "M", function()
+  if hl.get_active_workspace().tiled_layout == "scrolling" then
+    hl.dispatch(hl.dsp.layout("fit active"))
+  else
+    hl.dispatch(hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
+  end
+end, { desc = "Maximizar ventana" })
+
+
+hl.bind(mainMod .. shift .. "F", hl.dsp.window.pseudo({ action = "toggle" }), { desc = "Pseudo-flotante" })
+hl.bind(mainMod .. "F", function()
+  local win = hl.get_active_window()
+  local monitor = hl.get_active_monitor()
+  if not win or not monitor then return end
+
+  local scale = 0.75
+  local x = math.min(monitor.width * scale, win.size.x)
+  local y = math.min(monitor.height * scale, win.size.y)
+
+  hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+
+  if hl.get_active_window().floating then
+    hl.dispatch(hl.dsp.window.resize({ x = x, y = y }))
+    hl.dispatch(hl.dsp.window.center())
+  end
+end, { desc = "Alternar a ventana flotante" })
+
+hl.bind(mainMod .. "P", hl.dsp.window.pin(), { desc = "Fijar ventana flotante" })
+hl.bind(mainMod .. "C", hl.dsp.window.center(), { desc = "centrar ventana flotante" })
+
+hl.bind(mainMod .. "V", hl.dsp.window.alter_zorder({ mode = "top" }), { desc = "Traer ventana flotante al frente" })
+hl.bind(mainMod .. shift .. "V", hl.dsp.window.alter_zorder({ mode = "bottom" }),
+  { desc = "Llevar ventana flotante al fondo" })

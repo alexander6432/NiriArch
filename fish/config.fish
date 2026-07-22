@@ -11,6 +11,8 @@ starship init fish | source
 #Iniciar Zoxide
 zoxide init fish | source
 
+set -gx PATH $PATH (go env GOPATH)/bin
+
 # =========================
 # ALIASES
 # =========================
