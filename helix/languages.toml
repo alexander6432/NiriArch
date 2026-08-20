@@ -1,4 +1,0 @@
-[[language]]
-name = "python"
-language-servers = ["pyright", "ruff"]
-auto-format = true
