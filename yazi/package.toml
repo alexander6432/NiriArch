@@ -1,22 +1,22 @@
 [[plugin.deps]]
 use = "uhs-robert/recycle-bin"
-rev = "82da16a"
-hash = "7383d80862d3cdcc85f8658dac7b90c2"
+rev = "fe48a02"
+hash = "edd449b02a169bd8fee052be96a31823"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "b9598e6"
+rev = "044c3cc"
 hash = "46cbdc05596a3ecd730b288e28c7079d"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "b9598e6"
-hash = "ce259b12c503a33a18a861052fa582b7"
+rev = "044c3cc"
+hash = "5bb0bfab901d3601c370eafdd66edd31"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
-rev = "159eaba"
-hash = "7de446280b1ba8c49ffd86dbc24bbbe6"
+rev = "ea92cf4"
+hash = "9776f378459072b6c2875eae5addc49d"
 
 [[plugin.deps]]
 use = "UnleashedFurai/office"
