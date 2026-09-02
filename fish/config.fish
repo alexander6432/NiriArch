@@ -34,27 +34,6 @@ function hx --description 'Abre Helix'
     helix $argv
 end
 
-# ZELLIJ
-function zz --description 'Inicia Zellij'
-    zellij $argv
-end
-
-function za --description 'Adjunta a una sesión de Zellij'
-    zellij attach $argv
-end
-
-function zs --description 'Crea una nueva sesión de Zellij'
-    zellij -s $argv
-end
-
-function zls --description 'Lista sesiones activas de Zellij'
-    zellij list-sessions
-end
-
-function zrm --description 'Elimina todas las sesiones de Zellij'
-    zellij delete-all-sessions
-end
-
 # VENTOY
 function ventoywayland --description 'Ejecuta Ventoy GUI bajo Wayland con permisos root'
     sudo env WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/run/user/1000 ventoygui

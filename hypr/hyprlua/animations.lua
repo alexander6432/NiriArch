@@ -4,9 +4,9 @@
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-  animations = {
-    enabled = true,
-  },
+	animations = {
+		enabled = true,
+	},
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -29,7 +29,7 @@ hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "linear" })
 
 -- styles: slide(top, bottom, left, right), popin(0-100%), gnomed
 hl.animation({ leaf = "windows", enabled = true, speed = 0.5, bezier = "easeInOutCirc", style = "popin 75%" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 0.5, spring = "personal", style = "popin 75%" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 0.8, spring = "personal", style = "popin 75%" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.0, bezier = "easeInCirc", style = "popin 75%" })
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 0.5, spring = "personal" })
 
@@ -59,28 +59,25 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 2.0, bezier = "easeI
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 2.0, bezier = "easeOutCirc", style = "slidefade 25%" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2.0, bezier = "easeInCirc", style = "slidefade 25%" })
 hl.animation({
-  leaf = "specialWorkspace",
-  enabled = true,
-  speed = 2.0,
-  bezier = "easeInOutCirc",
-  style =
-  "slidefadevert 25%"
+	leaf = "specialWorkspace",
+	enabled = true,
+	speed = 2.0,
+	bezier = "easeInOutCirc",
+	style = "slidefadevert 25%",
 })
 hl.animation({
-  leaf = "specialWorkspaceIn",
-  enabled = true,
-  speed = 2.0,
-  bezier = "easeOutCirc",
-  style =
-  "slidefadevert 25%"
+	leaf = "specialWorkspaceIn",
+	enabled = true,
+	speed = 2.0,
+	bezier = "easeOutCirc",
+	style = "slidefadevert 25%",
 })
 hl.animation({
-  leaf = "specialWorkspaceOut",
-  enabled = true,
-  speed = 2.0,
-  bezier = "easeInCirc",
-  style =
-  "slidefadevert 25%"
+	leaf = "specialWorkspaceOut",
+	enabled = true,
+	speed = 2.0,
+	bezier = "easeInCirc",
+	style = "slidefadevert 25%",
 })
 
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = 4.0, bezier = "easeOutCirc" })
