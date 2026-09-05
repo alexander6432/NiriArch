@@ -6,6 +6,10 @@ config.default_prog = { "fish" }
 config.quick_select_alphabet = "1234567890asdfghjklqwertyuiopzxcvbnm"
 
 config.window_background_opacity = 0.75
+config.default_cursor_style = "BlinkingBar"
+config.animation_fps = 8
+config.cursor_blink_ease_in = "EaseIn"
+config.cursor_blink_ease_out = "EaseOut"
 
 config.font_size = 10
 config.font = wezterm.font({
@@ -19,6 +23,12 @@ config.disable_default_key_bindings = true
 
 wezterm.on("update-right-status", function(window, pane)
 	local name = window:active_key_table()
+	if name == "search_mode" then
+		name = "Busqueda"
+	end
+	if name == "copy_mode" then
+		name = "Copia"
+	end
 	if name then
 		name = "Modo: " .. name .. "  "
 	end
@@ -32,7 +42,7 @@ config.keys = {
 		key = "s",
 		mods = "CTRL|SHIFT",
 		action = act.ActivateKeyTable({
-			name = "splits",
+			name = "Splits",
 			one_shot = false,
 			timeout_milliseconds = 10000,
 		}),
@@ -42,11 +52,25 @@ config.keys = {
 		key = "t",
 		mods = "CTRL|SHIFT",
 		action = act.ActivateKeyTable({
-			name = "tabs",
+			name = "Tabs",
 			one_shot = true,
 			timeout_milliseconds = 10000,
 		}),
 	},
+
+	{
+		key = "f",
+		mods = "SHIFT|CTRL",
+		action = act.Search({ Regex = "" }),
+	},
+
+	{
+		key = "x",
+		mods = "SHIFT|CTRL",
+		action = act.ActivateCopyMode,
+	},
+
+	{ key = " ", mods = "SHIFT|CTRL", action = act.QuickSelect },
 
 	{
 		key = "F1",
@@ -57,7 +81,7 @@ config.keys = {
 	{
 		key = "c",
 		mods = "CTRL|SHIFT",
-		action = act.CopyTo("Clipboard"),
+		action = act.CopyTo("ClipboardAndPrimarySelection"),
 	},
 
 	{
@@ -74,7 +98,7 @@ config.keys = {
 }
 
 config.key_tables = {
-	splits = {
+	Splits = {
 		{ key = "h", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 		{ key = "v", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 		{ key = "H", action = act.SplitPane({ direction = "Left" }) },
@@ -97,11 +121,11 @@ config.key_tables = {
 		{ key = "RightArrow", action = act.ActivatePaneDirection("Right") },
 		{ key = "UpArrow", action = act.ActivatePaneDirection("Up") },
 		{ key = "DownArrow", action = act.ActivatePaneDirection("Down") },
-		-- Cancel the mode by pressing escape
 		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "q", action = "PopKeyTable" },
 	},
 
-	tabs = {
+	Tabs = {
 		{ key = "t", action = act.SpawnTab("CurrentPaneDomain") },
 		{ key = "T", action = act.SpawnTab("DefaultDomain") },
 		{ key = "c", action = act.CloseCurrentTab({ confirm = true }) },
@@ -110,13 +134,87 @@ config.key_tables = {
 		{ key = "N", action = act.MoveTabRelative(1) },
 		{ key = "P", action = act.MoveTabRelative(-1) },
 		{ key = "l", action = act.ShowTabNavigator },
-		-- Cancel the mode by pressing escape
 		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "q", action = "PopKeyTable" },
+	},
+
+	search_mode = {
+		{ key = "Enter", action = act.CopyMode("PriorMatch") },
+		{ key = "UpArrow", action = act.CopyMode("PriorMatch") },
+		{ key = "DownArrow", action = act.CopyMode("NextMatch") },
+		{ key = "s", mods = "CTRL", action = act.CopyMode("CycleMatchType") },
+		{ key = "c", mods = "CTRL", action = act.CopyMode("ClearPattern") },
+		{ key = "Escape", action = act.CopyMode("Close") },
+		{ key = "q", action = act.CopyMode("Close") },
+	},
+
+	copy_mode = {
+		{ key = "c", action = act.CopyMode("ClearSelectionMode") },
+		{ key = "Enter", action = act.CopyMode("MoveToStartOfNextLine") },
+		{ key = "l", action = act.CopyMode("MoveToEndOfLineContent") },
+		{ key = "h", action = act.CopyMode("MoveToStartOfLine") },
+		{ key = "s", action = act.CopyMode("MoveToStartOfLineContent") },
+		{ key = "w", action = act.CopyMode("MoveForwardWord") },
+		{ key = "e", action = act.CopyMode("MoveForwardWordEnd") },
+		{ key = "b", action = act.CopyMode("MoveBackwardWord") },
+		{ key = "u", action = act.CopyMode("MoveToViewportTop") },
+		{ key = "d", action = act.CopyMode("MoveToViewportBottom") },
+		{ key = "m", action = act.CopyMode("MoveToViewportMiddle") },
+		{ key = "g", action = act.CopyMode("MoveToScrollbackTop") },
+		{ key = "G", action = act.CopyMode("MoveToScrollbackBottom") },
+		{ key = "k", action = act.CopyMode("PageUp") },
+		{ key = "j", action = act.CopyMode("PageDown") },
+		{ key = "d", mods = "CTRL", action = act.CopyMode({ MoveByPage = 0.5 }) },
+		{ key = "u", mods = "CTRL", action = act.CopyMode({ MoveByPage = -0.5 }) },
+		{ key = "o", action = act.CopyMode("MoveToSelectionOtherEnd") },
+		{ key = "O", action = act.CopyMode("MoveToSelectionOtherEndHoriz") },
+		{ key = "V", action = act.CopyMode({ SetSelectionMode = "Line" }) },
+		{ key = "v", action = act.CopyMode({ SetSelectionMode = "Cell" }) },
+		{ key = "v", mods = "CTRL", action = act.CopyMode({ SetSelectionMode = "Block" }) },
+		{ key = "LeftArrow", action = act.CopyMode("MoveLeft") },
+		{ key = "RightArrow", action = act.CopyMode("MoveRight") },
+		{ key = "UpArrow", action = act.CopyMode("MoveUp") },
+		{ key = "DownArrow", action = act.CopyMode("MoveDown") },
+		{ key = ",", action = act.CopyMode("JumpReverse") },
+		{ key = ".", action = act.CopyMode("JumpAgain") },
+		{ key = "f", action = act.CopyMode({ JumpForward = { prev_char = false } }) },
+		{ key = "F", action = act.CopyMode({ JumpBackward = { prev_char = false } }) },
+		{ key = "t", action = act.CopyMode({ JumpForward = { prev_char = true } }) },
+		{ key = "T", action = act.CopyMode({ JumpBackward = { prev_char = true } }) },
+		{
+			key = "Escape",
+			action = act.Multiple({
+				{ CopyMode = "MoveToScrollbackBottom" },
+				{ CopyMode = "Close" },
+			}),
+		},
+		{
+			key = "q",
+			action = act.Multiple({
+				{ CopyMode = "MoveToScrollbackBottom" },
+				{ CopyMode = "Close" },
+			}),
+		},
+		{
+			key = "y",
+			action = act.Multiple({
+				{ CopyTo = "ClipboardAndPrimarySelection" },
+				{ CopyMode = "MoveToScrollbackBottom" },
+				{ CopyMode = "Close" },
+			}),
+		},
+		{
+			key = "Y",
+			action = act.Multiple({
+				{ CopyTo = "ClipboardAndPrimarySelection" },
+				{ CopyMode = "ClearSelectionMode" },
+			}),
+		},
 	},
 }
 
 for i = 1, 9 do
-	table.insert(config.key_tables.tabs, {
+	table.insert(config.key_tables.Tabs, {
 		key = tostring(i),
 		action = act.ActivateTab(i - 1),
 	})
