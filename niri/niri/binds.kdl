@@ -67,8 +67,8 @@ binds {
 // =============
     Mod+Minus       hotkey-overlay-title="Redimensionar ventana disminuir ancho"  { set-column-width "-10%"; }
     Mod+Plus        hotkey-overlay-title="Redimensionar ventana aumentar ancho"   { set-column-width "+10%"; }
-    Mod+Shift+Minus hotkey-overlay-title="Redimensionar ventana disminuir altura" { set-window-height "-10%"; }
-    Mod+Shift+Plus  hotkey-overlay-title="Redimensionar ventana aumentar altura"  { set-window-height "+10%"; }
+    Mod+Apostrophe  hotkey-overlay-title="Redimensionar ventana disminuir altura" { set-window-height "-10%"; }
+    Mod+Exclamdown  hotkey-overlay-title="Redimensionar ventana aumentar altura"  { set-window-height "+10%"; }
 
     Mod+Touchpadscrollleft  hotkey-overlay-title="Redimensionar ventana disminuir ancho"  { set-column-width "+1%"; }
     Mod+Touchpadscrollright hotkey-overlay-title="Redimensionar ventana aumentar ancho"   { set-column-width "-1%"; }
@@ -88,10 +88,10 @@ binds {
 // tabbed windows
 // ==============
     Mod+P hotkey-overlay-title="Alternar al modo pestañas"               { toggle-column-tabbed-display; }
-    Mod+O hotkey-overlay-title="Añadir ventana de la derecha"            { consume-window-into-column; }
+    Mod+U hotkey-overlay-title="Añadir ventana de la derecha"            { consume-window-into-column; }
     Mod+I hotkey-overlay-title="Expulsar ventana a la derecha"           { expel-window-from-column; }
-    Mod+H hotkey-overlay-title="Añadir/Expulsar ventana de la izquierda" { consume-or-expel-window-left; }
-    Mod+L hotkey-overlay-title="Añadir/Expulsar ventana de la derecha"   { consume-or-expel-window-right; }
+    Mod+Y hotkey-overlay-title="Añadir/Expulsar ventana de la izquierda" { consume-or-expel-window-left; }
+    Mod+O hotkey-overlay-title="Añadir/Expulsar ventana de la derecha"   { consume-or-expel-window-right; }
 
 // ========
 // floating
@@ -121,7 +121,7 @@ binds {
     Mod+Space        hotkey-overlay-title="Abrir lanzador de aplicaciones"           repeat=false { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+Shift+Escape hotkey-overlay-title="Abrir menú de sesión"                     repeat=false { spawn-sh "noctalia msg panel-toggle session"; }
     Mod+Shift+L      hotkey-overlay-title="Bloquear pantalla"                        repeat=false { spawn-sh "noctalia msg session lock"; }
-    Mod+N            hotkey-overlay-title=" Abrir centro de notificaciones"          repeat=false { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
+    Mod+N            hotkey-overlay-title="Abrir centro de notificaciones"           repeat=false { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
     Mod+Shift+N      hotkey-overlay-title="Borrar todas las notificaciones"          repeat=false { spawn-sh "noctalia msg notification-clear-history"; }
     Mod+Shift+C      hotkey-overlay-title="Abrir centro de control"                  repeat=false { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Ctrl+C       hotkey-overlay-title="Abrir Calendario"                         repeat=false { spawn-sh "noctalia msg panel-toggle control-center calendar"; }
