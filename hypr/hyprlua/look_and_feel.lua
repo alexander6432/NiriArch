@@ -33,7 +33,7 @@ hl.config({
 		allow_tearing = false,
 		modal_parent_blocking = true,
 
-		layout = "dwindle",
+		layout = "scrolling",
 		locale = "es",
 
 		snap = {

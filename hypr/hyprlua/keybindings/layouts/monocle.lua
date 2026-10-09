@@ -17,8 +17,8 @@ local function on_monocle(dispatcher)
 end
 
 function M.setup()
-	hl.bind(mainMod .. "Tab", on_monocle("cyclenext"), { desc = "Pasar a la siguiente ventana[monocle]" })
-	hl.bind(mainMod .. shift .. "Tab", on_monocle("cycleprev"), { desc = "Pasar a la anterior ventana[monocle]" })
+	hl.bind(mainMod .. "S", on_monocle("cyclenext"), { desc = "Pasar a la siguiente ventana[monocle]" })
+	hl.bind(mainMod .. "A", on_monocle("cycleprev"), { desc = "Pasar a la anterior ventana[monocle]" })
 end
 
 return M

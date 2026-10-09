@@ -42,12 +42,12 @@ function M.setup()
 	hl.bind(mainMod .. "Minus", on_master("mfact -0.05"), { desc = "Reducir relación de la ventana maestra[master]" })
 
 	hl.bind(
-		mainMod .. "Tab",
+		mainMod .. "Y",
 		on_master("orientationcycle left top right bottom"),
 		{ desc = "Rotar orientación en sentido horario para la ventana maestra[master]" }
 	)
 	hl.bind(
-		mainMod .. shift .. "Tab",
+		mainMod .. shift .. "Y",
 		on_master("orientationcycle bottom right top left"),
 		{ desc = "Rotar orientación en sentido antihorario para la ventana maestra[master]" }
 	)

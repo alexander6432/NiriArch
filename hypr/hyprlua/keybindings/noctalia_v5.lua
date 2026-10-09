@@ -18,7 +18,7 @@ local notifications_clear = "noctalia msg notification-clear-history"
 local session_menu = "noctalia msg panel-toggle session"
 local settings = "noctalia msg settings-toggle"
 local wallpaper = "noctalia msg panel-toggle wallpaper"
-local wallpaper_random = "noctalia msg wallpaper-random"
+local wall_random = "noctalia msg wallpaper-random"
 local wallhaven = "noctalia msg panel-toggle noctalia/wallhaven:browser"
 
 hl.bind(mainMod .. "Space", hl.dsp.exec_cmd(launcher), { desc = "Abrir launcher" })
@@ -29,11 +29,7 @@ hl.bind(mainMod .. shift .. "N", hl.dsp.exec_cmd(notifications_clear), { desc = 
 hl.bind(mainMod .. shift .. "C", hl.dsp.exec_cmd(control_center), { desc = "Abrir centro de control" })
 hl.bind(mainMod .. ctrl .. "C", hl.dsp.exec_cmd(calendar), { desc = "Abrir calendario" })
 hl.bind(mainMod .. "W", hl.dsp.exec_cmd(wallpaper), { desc = "Abrir selector de fondos de pantallas" })
-hl.bind(
-	mainMod .. shift .. "W",
-	hl.dsp.exec_cmd(wallpaper_random),
-	{ desc = "Cambiar fondo de de pantalla aleatoriamente" }
-)
+hl.bind(mainMod .. shift .. "W", hl.dsp.exec_cmd(wall_random), { desc = "Cambiar fondo de de pantalla aleatoriamente" })
 hl.bind(mainMod .. ctrl .. "W", hl.dsp.exec_cmd(wallhaven), { desc = "Abrir selector de fondos de pantallas" })
 hl.bind(mainMod .. "Z", hl.dsp.exec_cmd(idle_inhibitor), { desc = "Activar inhibidor" })
 hl.bind(mainMod .. shift .. "Z", hl.dsp.exec_cmd(clipboard), { desc = "Abrir clipboard" })

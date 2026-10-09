@@ -17,20 +17,20 @@ local function on_dwindle(dispatcher)
 end
 
 function M.setup()
-	hl.bind(mainMod .. "Tab", on_dwindle("rotatesplit 90"), { desc = "Rotar la división en sentido horario[dwindle]" })
+	hl.bind(mainMod .. "S", on_dwindle("rotatesplit 90"), { desc = "Rotar la división en sentido horario[dwindle]" })
 	hl.bind(
-		mainMod .. shift .. "Tab",
+		mainMod .. "A",
 		on_dwindle("rotatesplit -90"),
 		{ desc = "Rotar la división en sentido antihorario[dwindle]" }
 	)
 
-	hl.bind(mainMod .. "A", on_dwindle("swapsplit"), { desc = "Intercambiar división[dwindle]" })
+	hl.bind(mainMod .. "I", on_dwindle("swapsplit"), { desc = "Intercambiar división[dwindle]" })
 
-	hl.bind(mainMod .. "S", on_dwindle("movetoroot unstable"), { desc = "Intercambiar división[dwindle]" })
+	hl.bind(mainMod .. "O", on_dwindle("movetoroot unstable"), { desc = "Hacerlo a división raíz[dwindle]" })
 	hl.bind(
-		mainMod .. shift .. "S",
+		mainMod .. "Y",
 		on_dwindle("movetoroot active unstable"),
-		{ desc = "Intercambiar división[dwindle]" }
+		{ desc = "Moverlo a una división a una raíz[dwindle]" }
 	)
 
 	hl.bind(mainMod .. "Plus", on_dwindle("splitratio +0.05"), { desc = "Aumentar relación de la división[dwindle]" })
