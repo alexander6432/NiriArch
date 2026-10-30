@@ -33,7 +33,7 @@ hl.config({
 		allow_tearing = false,
 		modal_parent_blocking = true,
 
-		layout = "scrolling",
+		layout = "master",
 		locale = "es",
 
 		snap = {
@@ -74,8 +74,8 @@ hl.config({
 
 		blur = {
 			enabled = true,
-			size = 8,
-			passes = 2,
+			size = 4,
+			passes = 1,
 			ignore_opacity = true,
 			xray = false,
 
@@ -86,10 +86,13 @@ hl.config({
 			vibrancy_darkness = 0.4,
 
 			special = false,
+			variant = "kawase",
 			popups = true,
 			popups_ignorealpha = 0.25,
 			input_methods = true,
 			input_methods_ignorealpha = 0.25,
+			new_optimizations = true,
+			proportional = false,
 		},
 
 		glow = {

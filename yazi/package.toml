@@ -5,13 +5,13 @@ hash = "edd449b02a169bd8fee052be96a31823"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "4dc7f1b"
-hash = "b95f898e6dc60b52edbc415952e14395"
+rev = "896fa5a"
+hash = "ba1a606728adb75b091b6eaf3fd60372"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "4dc7f1b"
-hash = "5bb0bfab901d3601c370eafdd66edd31"
+rev = "896fa5a"
+hash = "347cc6b190eb0c2fd60513cc7ae37412"
 
 [[plugin.deps]]
 use = "Rolv-Apneseth/starship"
