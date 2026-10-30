@@ -72,6 +72,14 @@ hl.config({
 			scale = 1.0,
 		},
 
+		glow = {
+			enabled = true,
+			range = 4,
+			render_power = 2,
+			color = "rgba(1a1a1aee)",
+			color_inactive = "rgba(1a1a1aee)",
+		},
+
 		blur = {
 			enabled = true,
 			size = 4,
@@ -86,7 +94,7 @@ hl.config({
 			vibrancy_darkness = 0.4,
 
 			special = false,
-			variant = "kawase",
+			-- variant = "kawase",
 			popups = true,
 			popups_ignorealpha = 0.25,
 			input_methods = true,
@@ -95,12 +103,20 @@ hl.config({
 			proportional = false,
 		},
 
-		glow = {
+		motion_blur = {
+			enabled = false,
+			samples = 8,
+		},
+
+		wobble = {
 			enabled = true,
-			range = 4,
-			render_power = 2,
-			color = "rgba(1a1a1aee)",
-			color_inactive = "rgba(1a1a1aee)",
+			mesh = 12,
+			stiffness = 200.0,
+			damping = 12.0,
+			mass = 1.0,
+			intensity = 0.2,
+			value_epsilon = 0.2,
+			velocity_epsilon = 1.0,
 		},
 	},
 })
