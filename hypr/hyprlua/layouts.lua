@@ -12,7 +12,6 @@ hl.config({
 		preserve_split = true, -- You probably want this
 		smart_split = false,
 		smart_resizing = true,
-		special_scale_factor = 0.95,
 		use_active_for_splits = true,
 		default_split_ratio = 1.0,
 		split_bias = 1,
@@ -21,7 +20,6 @@ hl.config({
 
 	master = {
 		allow_small_split = true,
-		special_scale_factor = 0.95,
 		mfact = 0.55,
 		new_status = "inherit",
 		new_on_top = true,
